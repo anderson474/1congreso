@@ -1,5 +1,5 @@
 "use client";
-
+// pagina de particulas
 import { useCallback } from "react";
 import Particles, { ParticlesProps } from "react-tsparticles";
 import { loadFull } from "tsparticles";
