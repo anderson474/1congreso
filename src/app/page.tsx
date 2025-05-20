@@ -1,6 +1,6 @@
 // pages/index.js
 import Image from "next/image";
-import Particle from "@/components/particle";
+import Particle from "@/components/Particle";
 import Navbar from "@/components/navBar";
 import Fundamento from "@/components/Fundamento";
 import Objetivos from "@/components/Objetivos";
