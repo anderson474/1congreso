@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
-import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar";
-
+// app/layout.tsx
 import "./globals.css";
+import type { Metadata } from "next";
+import { Nunito } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+});
 
 export const metadata: Metadata = {
-  title: "Particle Website",
-  description: "Study portfolio",
+  title: "Congreso Internacional",
+  description: "El congreso",
+  icons: {
+    icon: "/RevistaCientifica.png", // Asegúrate de tener este ícono en /public
+  },
 };
 
 export default function RootLayout({
@@ -19,12 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        <Sidebar />
+    <html lang="es">
+      <body className={nunito.className}>
         {children}
       </body>
     </html>
   );
 }
+

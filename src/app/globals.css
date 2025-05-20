@@ -18,3 +18,8 @@
 .swiper-pagination-bullet {
   background: #fff !important;
 }
+
+header {
+  border: none !important;
+  border-bottom: 0 !important;
+}

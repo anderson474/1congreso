@@ -1,47 +1,37 @@
+// pages/index.js
 import Image from "next/image";
-
-import Particle from "@/components/Particle";
+import Particle from "@/components/particle";
+import Navbar from "@/components/navBar";
+import Fundamento from "@/components/Fundamento";
+import Objetivos from "@/components/Objetivos";
+import Justificacion from "@/components/Justificacion";
+import EjesTematicos from "@/components/EjesTematicos";
+import Programa from "@/components/Programa";
+import Participacion from "@/components/Participacion";
+import Fechas from "@/components/Fechas";
+import Inscripcion from "@/components/Inscripcion";
+import Footer from "@/components/Footer";
+//import Banner from "@/components/banner";
 
 export default function Home() {
   return (
-    <main className="flex items-center h-screen relative bg-cover bg-[url('/assets/bg-explosion.png')]">
-      <div className="absolute right-0 top-0 h-full w-[80%] z-[2]">
+    <main className="relative bg-white text-black overflow-hidden">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <Particle />
       </div>
-      <div className="absolute right-10 md:right-40 bottom-0 z-[10]">
-        <Image
-          src="/assets/MoustacheMan.png"
-          alt="MoustacheMan"
-          width={560}
-          height={560}
-          className="w-[300px] h-[300px] z-[1] md:h-[560px] md:w-[560px]"
-        />
-      </div>
-      <Image
-        src="/assets/top-left-img.png"
-        alt="paint"
-        width={230}
-        height={230}
-        className="absolute left-0 top-0"
-      />
-
-      <div className="flex flex-col gap-3 z-[10] pl-40 pt-20">
-        <h1 className="text-[50px] text-white max-w-[500px]">
-          Transforming ideas into{" "}
-          <span className="text-red-500">Digital Reality</span>
-        </h1>
-        <p className="text-[16px] text-gray-200 md:text-gray-400 mb-10 md:pb-2 max-w-[400px]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </p>
-        <div className="relative w-[100px] h-[100px] md:w-[160px] md:h-[160px] mt-5">
-          <Image
-            src="/assets/rounded-text.png"
-            alt="projects"
-            width={160}
-            height={160}
-            className="slow-spin"
-          />
+      <Navbar />
+      <div className="relative z-10 min-h-screen flex justify-center">
+        <div className="w-full max-w-6xl bg-white bg-opacity-90 rounded-5xl shadow-lg">
+          <Image src="/banner_congreso.png" alt="Orientación hacia el congreso" width={1600} height={499} quality={100} />
+          <Objetivos />
+          <Fundamento />
+          <Justificacion />
+          <EjesTematicos />
+          <Programa />
+          <Participacion />
+          <Fechas />
+          <Inscripcion />
+          <Footer />
         </div>
       </div>
     </main>
