@@ -9,15 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.13.5",
     "@xyflow/react": "^12.6.4",
     "dagre": "^0.8.5",
     "framer-motion": "^10.16.4",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.511.0",
     "next": "^14.2.28",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^4.11.0",
+    "react-icons": "^4.12.0",
     "react-tsparticles": "^2.12.2",
+    "react-type-animation": "^3.2.0",
     "swiper": "^11.0.3",
     "tsparticles": "^2.12.0"
   },

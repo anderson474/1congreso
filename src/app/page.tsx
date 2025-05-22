@@ -1,5 +1,5 @@
 // pages/index.js
-import Image from "next/image";
+
 import Particle from "@/components/Particle";
 import Navbar from "@/components/navBar";
 import Fundamento from "@/components/Fundamento";
@@ -16,18 +16,29 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="relative bg-white text-black overflow-hidden">
+      {/* Partículas de fondo */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Particle />
       </div>
+
       <Navbar />
+
+      {/* Contenido principal (con ancho restringido) */}
       <div className="relative z-10 min-h-screen flex justify-center">
         <div className="w-full max-w-6xl bg-white bg-opacity-90 rounded-5xl shadow-lg">
-          <Image src="/banner_congreso.png" alt="Orientación hacia el congreso" width={1600} height={499} quality={100} />
           <Objetivos />
           <Fundamento />
           <Justificacion />
           <EjesTematicos />
-          <Programa />
+        </div>
+      </div>
+
+      {/* Sección de Programa a pantalla completa */}
+      <Programa />
+
+      {/* Secciones finales (también dentro del contenedor si quieres) */}
+      <div className="relative z-10 min-h-screen flex justify-center">
+        <div className="w-full max-w-6xl bg-white bg-opacity-90 rounded-5xl shadow-lg">
           <Participacion />
           <Fechas />
           <Inscripcion />
