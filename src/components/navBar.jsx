@@ -26,7 +26,7 @@ export default function HeaderHero() {
         Un encuentro académico para transformar la educación desde la inclusión, la innovación y las prácticas reales.
       </p>
       <a
-        href="#registro"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeEbmui_baI09u-fj7UKbBWtkwVnnY1zgfaRzuy-1mh8gfGiQ/viewform?usp=sharing&ouid=105548732848736159106"
         className="bg-[#96b422] text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:bg-[#7d9e1c] transition"
       >
         Inscribirse
