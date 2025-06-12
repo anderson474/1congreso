@@ -2,6 +2,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+import Script from "next/script";
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: "Congreso Internacional",
   description: "El congreso",
   icons: {
-    icon: "/RevistaCientifica.png", // Asegúrate de tener este ícono en /public
+    icon: "/RevistaCientifica.png", // Asegúrate de tenerlo en /public
   },
 };
 
@@ -29,4 +30,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 

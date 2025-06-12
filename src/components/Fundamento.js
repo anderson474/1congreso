@@ -25,32 +25,17 @@ export default function Fundamento() {
             <div className="flex flex-col md:flex-row gap-8 justify-center items-center mb-8">
               <div className="flex items-center gap-3 text-[#96b422] text-sm">
                 <FaChalkboardTeacher />
-                <TypeAnimation
-                  sequence={["Innovación", 5000, "Inclusión", 5000, "Equidad", 5000]}
-                  speed={50}
-                  style={{ fontSize: "1.5rem", fontWeight: "600" }}
-                  repeat={Infinity}
-                />
+                <p className="font-medium text-2xl">Innovación</p>
               </div>
 
               <div className="flex items-center gap-3 text-[#305398] text-sm">
                 <FaUsers />
-                <TypeAnimation
-                  sequence={["Diversidad", 5000, "Colaboración", 5000, "Accesibilidad", 5000]}
-                  speed={50}
-                  style={{ fontSize: "1.5rem", fontWeight: "600" }}
-                  repeat={Infinity}
-                />
+                <p  className="font-medium text-2xl">Diversidad</p>
               </div>
 
               <div className="flex items-center gap-3 text-[#f7a600] text-sm">
                 <FaLightbulb />
-                <TypeAnimation
-                  sequence={["Creatividad", 5000, "Tecnología", 5000, "Aprendizaje", 5000]}
-                  speed={50}
-                  style={{ fontSize: "1.5rem", fontWeight: "600" }}
-                  repeat={Infinity}
-                />
+                <p className="font-medium text-2xl">Creatividad</p>
               </div>
             </div>
 

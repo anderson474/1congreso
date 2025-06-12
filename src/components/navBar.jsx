@@ -6,8 +6,8 @@ export default function HeaderHero() {
     <section className="relative z-20 flex flex-col items-center justify-center text-center min-h-screen px-6 pt-20">
       <div className="flex items-center justify-between w-full max-w-7xl mb-8">
         {/* Logo izquierdo */}
-        <div className="flex-shrink-0 hidden md:block">
-          <Image src="/logo.png" alt="Logo Izquierdo" width={300} height={300} />
+        <div className="flex-shrink-0 hidden sm:block">
+          <Image src="/logoEditorial.png" alt="Logo Izquierdo" width={300} height={300} />
         </div>
 
         {/* Título principal */}
@@ -16,7 +16,7 @@ export default function HeaderHero() {
         </h1>
 
         {/* Logo derecho */}
-        <div className="flex-shrink-0 hidden md:block">
+        <div className="flex-shrink-0 hidden sm:block">
           <Image src="/RevistaCientifica.png" alt="Logo Derecho" width={300} height={300} />
         </div>
       </div>

@@ -11,22 +11,23 @@ import Participacion from "@/components/Participacion";
 import Fechas from "@/components/Fechas";
 import Inscripcion from "@/components/Inscripcion";
 import Footer from "@/components/Footer";
+
 //import Banner from "@/components/banner";
 
 export default function Home() {
   return (
-    <main className="relative bg-white text-black overflow-hidden">
+    <main className="relative bg-[#f0f4ff] text-black overflow-hidden">
       {/* Partículas de fondo */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Particle />
       </div>
 
       <Navbar />
-
+      <Objetivos />
       {/* Contenido principal (con ancho restringido) */}
       <div className="relative z-10 min-h-screen flex justify-center">
         <div className="w-full max-w-6xl bg-white bg-opacity-90 rounded-5xl shadow-lg">
-          <Objetivos />
+          
           <Fundamento />
           <Justificacion />
           <EjesTematicos />
