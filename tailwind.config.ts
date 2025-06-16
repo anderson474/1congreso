@@ -13,6 +13,14 @@
           'gradient-conic':
             'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         },
+        colors: {
+        'verde': '#96b422',
+        'azul': '#305398',
+        'morado': '#af4291',
+        'amarillo': '#fbba25',
+        'naranja': '#f39327',
+        'violeta': '#7f5da4',
+      },
       },
     },
     plugins: [],

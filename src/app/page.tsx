@@ -23,6 +23,7 @@ export default function Home() {
       </div>
 
       <Navbar />
+      
       <Objetivos />
       {/* Contenido principal (con ancho restringido) */}
       <div className="relative z-10 min-h-screen flex justify-center">
