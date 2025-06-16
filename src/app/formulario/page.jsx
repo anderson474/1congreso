@@ -146,10 +146,13 @@ const Formulario = () => {
   );
 
   return (
-    <div className="fixed inset-0 z-0">
-      <Particle />
-      <div className='absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl px-4'>
-        <div className="bg-transparent bg-opacity-30 backdrop-blur-md p-8 rounded-lg shadow-lg my-5 relative">
+    <div>
+
+      <div className="fixed inset-0 -z-10">
+        <Particle />
+      </div>
+      <main className='min-h-screen w-full flex items-center justify-center p-4'>
+        <div className="bg-transparent bg-opacity-30 backdrop-blur-md p-6 sm:p-8 rounded-lg shadow-lg my-5 w-full max-w-2xl relative">
           <div className='flex flex-row justify-center gap-4 sm:gap-8 md:gap-56'>
             <div className="relative w-36 h-36 sm:w-40 sm:h-40">
               <Image
@@ -226,7 +229,7 @@ const Formulario = () => {
           {error && <p className="text-red-500 text-center mt-4">{error}</p>}
           {success && <p className="text-green-400 text-center mt-4">{success}</p>}
         </div>
-      </div>
+      </main>
     </div>
   );
 };

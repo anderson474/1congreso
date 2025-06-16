@@ -59,18 +59,57 @@ export async function POST(req) {
 
       userConfirmationSubject = 'Hemos recibido tu interés para ser patrocinador';
       userConfirmationHtml = `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-          <h2>Hola, ${nombreORazonSocial},</h2>
-          <p>Hemos recibido correctamente tu solicitud de interés para ser patrocinador del <strong>I Congreso Internacional de Innovación Educativa</strong>.</p>
-          <p>Agradecemos enormemente tu disposición a apoyar este importante evento. Nuestro equipo de organización se pondrá en contacto contigo a la brevedad para discutir los detalles y las oportunidades de colaboración.</p>
-          <p>¡Gracias por querer ser parte de esta iniciativa!</p>
-          <br>
-          <p>Cordialmente,</p>
-          <p><strong>El Equipo Organizador</strong></p>
-        </div>
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+          
+          <!-- Encabezado con color de marca (se mantiene el mismo) -->
+          <div style="background-color: #2da836; color: white; padding: 20px; text-align: center;">
+              <h1 style="margin: 0; font-size: 24px;">Gracias por tu Interés en Colaborar</h1>
+          </div>
+          
+          <!-- Contenido del correo adaptado para patrocinadores -->
+          <div style="padding: 25px;">
+              <h2 style="font-size: 20px; color: #333;">¡Hola, ${nombreORazonSocial}! 👋</h2>
+              
+              <p>Hemos recibido con gran interés tu solicitud para ser patrocinador de nuestro <strong>I Congreso Internacional de Innovación Educativa y Prácticas Pedagógicas Inclusivas</strong>. ¡Gracias por considerar unirte a nuestra misión!</p>
+              
+              <p>El apoyo de organizaciones y líderes como tú es fundamental para crear un evento de alto impacto, capaz de generar un cambio real en la educación. Valoramos enormemente tu disposición a ser parte de esta iniciativa. 🤝</p>
+              
+              <p><strong>Nuestro equipo de alianzas estratégicas revisará tu solicitud y se pondrá en contacto contigo a la brevedad</strong> para explorar las oportunidades de colaboración y presentarte nuestro portafolio de patrocinios. 📈</p>
+              
+              <p>Si tienes alguna pregunta inmediata, no dudes en responder a este correo o escribirnos a <strong>investigacion@avancemos.edu.co</strong>.</p>
+          </div>
+          
+          <!-- Footer (se mantiene el mismo para consistencia de marca) -->
+          <div style="background-color: #f7f7f7; padding: 20px; text-align: center;">
+              <p style="margin: 0 0 10px 0;">Cordialmente,</p>
+              <p style="margin: 0; font-weight: bold;">El Equipo Organizador</p>
+              <p style="margin: 0; font-style: italic; color: #555;">Grupo Educativo Avancemos</p>
+              
+              <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+              
+              <!-- Redes Sociales (se mantienen las mismas) -->
+              <p style="margin: 0 0 15px 0; font-weight: bold;">Síguenos para no perderte ninguna novedad:</p>
+              <div>
+                  <a href="https://www.instagram.com/grupoeducativoavancemos/?hl=es-la" style="margin: 0 10px; text-decoration: none;">
+                      <img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" alt="Instagram" width="32" />
+                  </a>
+                  <a href="https://www.facebook.com/GrupoEducativoAvancemos/?locale=es_LA" style="margin: 0 10px; text-decoration: none;">
+                      <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" width="32" />
+                  </a>
+                  <a href="https://www.linkedin.com/company/grupo-educativo-avancemos" style="margin: 0 10px; text-decoration: none;">
+                      <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn" width="32" />
+                  </a>
+              </div>
+              
+              <p style="margin-top: 20px; font-size: 12px; color: #777;">
+                  <a href="mailto:congreso@avancemos.edu.co" style="color: #96b422;">congreso@avancemos.edu.co</a> | 
+                  <a href="tel:+573054240301" style="color: #96b422;">305 424 0301</a>
+              </p>
+          </div>
+      </div>
       `;
-      
-      successMessage = '¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.';
+
+      successMessage = '¡Gracias por tu interés! Hemos recibido tu solicitud y pronto nos pondremos en contacto contigo.';
 
     } else {
       // --- LÓGICA PARA PARTICIPANTES (tu código original) ---
@@ -131,19 +170,19 @@ export async function POST(req) {
             <!-- Redes Sociales -->
             <p style="margin: 0 0 15px 0; font-weight: bold;">Síguenos para no perderte ninguna novedad:</p>
             <div>
-              <a href="https://www.instagram.com/tu-usuario" style="margin: 0 10px; text-decoration: none;">
+              <a href="https://www.instagram.com/grupoeducativoavancemos/?hl=es-la" style="margin: 0 10px; text-decoration: none;">
                 <img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" alt="Instagram" width="32" />
               </a>
-              <a href="https://www.facebook.com/tu-pagina" style="margin: 0 10px; text-decoration: none;">
+              <a href="https://www.facebook.com/GrupoEducativoAvancemos/?locale=es_LA" style="margin: 0 10px; text-decoration: none;">
                 <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" width="32" />
               </a>
-              <a href="https://www.linkedin.com/company/tu-empresa" style="margin: 0 10px; text-decoration: none;">
+              <a href="https://www.linkedin.com/company/grupo-educativo-avancemos" style="margin: 0 10px; text-decoration: none;">
                 <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn" width="32" />
               </a>
             </div>
             
             <p style="margin-top: 20px; font-size: 12px; color: #777;">
-              <a href="mailto:congreso@avancemos.edu.co" style="color: #96b422;">congreso@avancemos.edu.co</a> | 
+              <a href="mailto:investigacion@avancemos.edu.co" style="color: #96b422;">investigacion@avancemos.edu.co</a> | 
               <a href="tel:+573054240301" style="color: #96b422;">305 424 0301</a>
             </p>
           </div>
