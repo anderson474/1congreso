@@ -8,7 +8,7 @@ export default function HeaderHero() {
       <div className="flex items-center justify-between w-full max-w-7xl mb-8">
         {/* Logo izquierdo */}
         <div className="flex-shrink-0 hidden sm:block">
-          <Image src="/logoEditorial.png" alt="Logo Izquierdo" width={300} height={300} />
+          <Image className="object-fill" src="/logoEditorial.png" alt="Logo Izquierdo" width={300} height={300} />
         </div>
 
         {/* Título principal */}
@@ -18,7 +18,7 @@ export default function HeaderHero() {
 
         {/* Logo derecho */}
         <div className="flex-shrink-0 hidden sm:block">
-          <Image src="/RevistaCientifica.png" alt="Logo Derecho" width={300} height={300} />
+          <Image className="object-fill" src="/RevistaCientifica.png" alt="Logo Derecho" width={300} height={300} />
         </div>
       </div>
 

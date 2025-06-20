@@ -102,7 +102,7 @@ export async function POST(req) {
               </div>
               
               <p style="margin-top: 20px; font-size: 12px; color: #777;">
-                  <a href="mailto:congreso@avancemos.edu.co" style="color: #96b422;">congreso@avancemos.edu.co</a> | 
+                  <a href="mailto:investigacion@avancemos.edu.co " style="color: #96b422;">investigacion@avancemos.edu.co </a> | 
                   <a href="tel:+573054240301" style="color: #96b422;">305 424 0301</a>
               </p>
           </div>
@@ -113,7 +113,7 @@ export async function POST(req) {
 
     } else {
       // --- LÓGICA PARA PARTICIPANTES (tu código original) ---
-      const { nombre, apellido, correo, celular, tDocument, NdeIdentidad, medio } = body;
+      const { nombre, apellido, correo, celular, tDocument, NdeIdentidad, medio, tipoAsistente = 'Público General' } = body;
 
       // Datos para Google Sheets
       rowData = {
@@ -126,6 +126,7 @@ export async function POST(req) {
         'ComoNosEncontro': medio, 
         'Es Patrocinador': 'No', // Marcamos como no patrocinador
         'FechaInscripcion': fecha,
+        'Tipo Asistente': tipoAsistente === 'aliado' ? 'Aliado' : 'Público General',
       };
 
       // Contenido de los correos para participantes
@@ -156,7 +157,7 @@ export async function POST(req) {
             
             <p>Muy pronto recibirás más información sobre la agenda, ponencias y recursos exclusivos del evento. ¡Mantente atento(a) a tu correo! 🗓️</p>
             
-            <p>Si tienes alguna pregunta o necesitas asistencia, no dudes en escribirnos al correo <strong>congreso@avancemos.edu.co</strong> . ¡Nos alegra que hagas parte de esta gran experiencia!</p>
+            <p>Si tienes alguna pregunta o necesitas asistencia, no dudes en escribirnos al correo <strong>investigacion@avancemos.edu.co </strong> . ¡Nos alegra que hagas parte de esta gran experiencia!</p>
           </div>
           
           <!-- Footer -->

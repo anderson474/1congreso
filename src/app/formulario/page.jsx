@@ -22,6 +22,8 @@ const initialSponsorData = {
   correo: ''
 };
 
+const CORRECT_ALLY_PASSWORD = 'AliadoAvanc3mos';
+
 const Formulario = () => {
   // 2. Estado para saber si el usuario quiere ser patrocinador.
   const [isSponsor, setIsSponsor] = useState(false);
@@ -35,6 +37,11 @@ const Formulario = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+    // --- NUEVOS ESTADOS ---
+  // 1. Estado para el tipo de asistente ('publico' o 'aliado')
+  const [userType, setUserType] = useState('publico');
+  // 2. Estado para la contraseña del aliado
+  const [allyPassword, setAllyPassword] = useState('');
 
   // Función para cambiar entre formularios
   const handleFormTypeChange = (isSponsorForm) => {
@@ -45,6 +52,8 @@ const Formulario = () => {
     setError('');
     setSuccess('');
     setAcceptedTerms(false);
+    setUserType('publico');
+    setAllyPassword('');
   };
 
   const handleChange = (e) => {
@@ -62,6 +71,10 @@ const Formulario = () => {
       setError('Debes aceptar los términos y condiciones para continuar.');
       return;
     }
+    if (userType === 'aliado' && allyPassword !== CORRECT_ALLY_PASSWORD) {
+        setError('La contraseña de aliado es incorrecta.');
+        return;
+    }
 
     setLoading(true);
     setError('');
@@ -72,7 +85,8 @@ const Formulario = () => {
       // Tu API recibirá este valor y sabrá cómo procesar los datos.
       const body = JSON.stringify({
         ...formData,
-        esPatrocinador: isSponsor 
+        esPatrocinador: isSponsor,
+        tipoAsistente: isSponsor ? null : userType 
       });
 
       const response = await fetch('/api/subscribe', {
@@ -90,6 +104,11 @@ const Formulario = () => {
         // Reseteamos el formulario al estado inicial correcto y los términos
         setFormData(isSponsor ? initialSponsorData : initialParticipantData);
         setAcceptedTerms(false);
+        setUserType('publico'); // Reseteamos también aquí
+        setAllyPassword('');   // tras un envío exitoso.
+
+
+        window.location.href = 'https://portalpagos.davivienda.com/#/comercio/11272/FUNDACIONES%20AVANCEMOS%20SERVICIOS%20INTEGRALES';
       } else {
         throw new Error(data.message || 'Hubo un error en el servidor.');
       }
@@ -102,35 +121,79 @@ const Formulario = () => {
 
   // 6. Creamos funciones separadas para renderizar cada formulario.
   // Esto hace que el return principal sea mucho más legible.
-  const renderParticipantForm = () => (
-    <>
-      <label htmlFor="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required placeholder='Escribe tu nombre aquí' className='border border-gray-300 rounded-xl px-4' />
-      
-      <label htmlFor="apellido">Apellido:</label>
-      <input type="text" id="apellido" name="apellido" value={formData.apellido} onChange={handleChange} required placeholder='Escribe tu apellido aquí' className='border border-gray-300 rounded-xl px-4' />
-      
-      <label htmlFor="correo">Correo:</label>
-      <input type="email" id="correo" name="correo" value={formData.correo} onChange={handleChange} required placeholder='Escribe tu correo aquí' className='border border-gray-300 rounded-xl px-4' />
-      
-      <label htmlFor="celular">Celular:</label>
-      <input type="tel" id="celular" name="celular" value={formData.celular} onChange={handleChange} required placeholder='Escribe tu celular aquí' className='border border-gray-300 rounded-xl px-4' />
+  // 4. Modificamos el formulario de inscripción para añadir la nueva lógica
+  const renderParticipantForm = () => {
+    // Variable para saber si debemos mostrar el error de la contraseña
+    const showPasswordError = userType === 'aliado' && allyPassword && allyPassword !== CORRECT_ALLY_PASSWORD;
 
-      <label htmlFor="tDocument">Tipo de documento:</label>
-      <select id="tDocument" name="tDocument" className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" value={formData.tDocument} onChange={handleChange} required>
-        <option value="">Elige tu tipo de documento...</option>
-        <option value="Cedula de Ciudadania">Cedula de Ciudadania</option>
-        <option value="Pasaporte">Pasaporte</option>
-        <option value="Cedula de extranjería">Cedula de extranjería</option>
-      </select>
-      
-      <label htmlFor="NdeIdentidad">Número de identificación:</label>
-      <input type="number" id="NdeIdentidad" name="NdeIdentidad" value={formData.NdeIdentidad} onChange={handleChange} required placeholder='Tu número de identificación' className='border border-gray-300 rounded-xl px-4' />
-      
-      <label htmlFor="medio">¿Cómo nos encontraste?</label>
-      <input type="text" id="medio" name="medio" value={formData.medio} onChange={handleChange} required placeholder='Escribe aquí' className='border border-gray-300 rounded-xl px-4' />
-    </>
-  );
+    return (
+      <>
+        {/* --- SECCIÓN NUEVA: TIPO DE ASISTENTE --- */}
+        <label htmlFor="userType">Tipo de asistente:</label>
+        <select 
+          id="userType" 
+          name="userType" 
+          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" 
+          value={userType} 
+          onChange={(e) => setUserType(e.target.value)}
+        >
+          <option value="publico">Público General</option>
+          <option value="aliado">Aliado</option>
+        </select>
+  
+        {/* --- CAMPO CONDICIONAL PARA LA CONTRASEÑA --- */}
+        {userType === 'aliado' && (
+          <>
+            <label htmlFor="allyPassword">Contraseña de Aliado:</label>
+            <div className='flex flex-col'>
+              <input 
+                type="password" 
+                id="allyPassword" 
+                name="allyPassword" 
+                value={allyPassword} 
+                onChange={(e) => setAllyPassword(e.target.value)} 
+                required 
+                placeholder='Ingresa la contraseña' 
+                className='border border-gray-300 rounded-xl px-4'
+              />
+              {/* Mensaje de error si la contraseña es incorrecta */}
+              {showPasswordError && (
+                <p className="text-red-500 text-xs mt-1">Contraseña incorrecta.</p>
+              )}
+            </div>
+          </>
+        )}
+  
+        {/* --- RESTO DEL FORMULARIO DE INSCRIPCIÓN (sin cambios) --- */}
+        <label htmlFor="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required placeholder='Escribe tu nombre aquí' className='border border-gray-300 rounded-xl px-4' />
+        
+        {/* ...otros campos... */}
+        <label htmlFor="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" value={formData.apellido} onChange={handleChange} required placeholder='Escribe tu apellido aquí' className='border border-gray-300 rounded-xl px-4' />
+        
+        <label htmlFor="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" value={formData.correo} onChange={handleChange} required placeholder='Escribe tu correo aquí' className='border border-gray-300 rounded-xl px-4' />
+        
+        <label htmlFor="celular">Celular:</label>
+        <input type="tel" id="celular" name="celular" value={formData.celular} onChange={handleChange} required placeholder='Escribe tu celular aquí' className='border border-gray-300 rounded-xl px-4' />
+  
+        <label htmlFor="tDocument">Tipo de documento:</label>
+        <select id="tDocument" name="tDocument" className="w-full p-2 border border-gray-300 rounded-lg" value={formData.tDocument} onChange={handleChange} required>
+          <option value="">Elige tu tipo de documento...</option>
+          <option value="Cedula de Ciudadania">Cedula de Ciudadania</option>
+          <option value="Pasaporte">Pasaporte</option>
+          <option value="Cedula de extranjería">Cedula de extranjería</option>
+        </select>
+        
+        <label htmlFor="NdeIdentidad">Número de identificación:</label>
+        <input type="number" id="NdeIdentidad" name="NdeIdentidad" value={formData.NdeIdentidad} onChange={handleChange} required placeholder='Tu número de identificación' className='border border-gray-300 rounded-xl px-4' />
+        
+        <label htmlFor="medio">¿Cómo nos encontraste?</label>
+        <input type="text" id="medio" name="medio" value={formData.medio} onChange={handleChange} required placeholder='Escribe aquí' className='border border-gray-300 rounded-xl px-4' />
+      </>
+    );
+  }
 
   const renderSponsorForm = () => (
     <>
@@ -144,6 +207,10 @@ const Formulario = () => {
       <input type="email" id="correo" name="correo" value={formData.correo} onChange={handleChange} required placeholder='Escribe el correo aquí' className='border border-gray-300 rounded-xl px-4' />
     </>
   );
+  const isButtonDisabled = 
+    loading || 
+    !acceptedTerms || 
+    (!isSponsor && userType === 'aliado' && allyPassword !== CORRECT_ALLY_PASSWORD);
 
   return (
     <div>
@@ -152,7 +219,7 @@ const Formulario = () => {
         <Particle />
       </div>
       <main className='min-h-screen w-full flex items-center justify-center p-4'>
-        <div className="bg-transparent bg-opacity-30 backdrop-blur-md p-6 sm:p-8 rounded-lg shadow-lg my-5 w-full max-w-2xl relative">
+        <div className="bg-blue-100 bg-opacity-30 backdrop-blur-md p-6 sm:p-8 rounded-lg shadow-lg my-5 w-full max-w-2xl relative">
           <div className='flex flex-row justify-center gap-4 sm:gap-8 md:gap-56'>
             <div className="relative w-36 h-36 sm:w-40 sm:h-40">
               <Image

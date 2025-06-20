@@ -5,11 +5,11 @@ import Link from 'next/link';
 // 1. Creamos un array con los datos de los aliados.
 // Esto hace que el código sea más limpio y fácil de actualizar en el futuro.
 const allies = [
-  { name: 'Universidad de Antioquia', logoSrc: '/aliados/udea.png' }, // Reemplaza con el nombre real de tu archivo
-  { name: 'Adecopria', logoSrc: '/aliados/adecopria.png' },             // Reemplaza con el nombre real de tu archivo
-  { name: 'Adida', logoSrc: '/aliados/adida.jpeg' },                   // Reemplaza con el nombre real de tu archivo
-  { name: 'Conaceb', logoSrc: '/aliados/conaced.png' },                 // Reemplaza con el nombre real de tu archivo
-  { name: 'Universidad de Medellín', logoSrc: '/aliados/udem.png' }, // Reemplaza con el nombre real de tu archivo
+  { name: 'Universidad de Antioquia', logoSrc: '/aliados/udea-02.png' }, // Reemplaza con el nombre real de tu archivo
+  { name: 'Adecopria', logoSrc: '/aliados/adecopria-02.png' },             // Reemplaza con el nombre real de tu archivo
+  { name: 'Adida', logoSrc: '/aliados/adida-02.png' },                   // Reemplaza con el nombre real de tu archivo
+  { name: 'Conaceb', logoSrc: '/aliados/conaceb-02.png' },                 // Reemplaza con el nombre real de tu archivo
+  { name: 'Universidad de Medellín', logoSrc: '/aliados/udem-02.png' }, // Reemplaza con el nombre real de tu archivo
 ];
 
 export default function Footer() {
@@ -30,10 +30,10 @@ export default function Footer() {
                 <Image
                   src={ally.logoSrc}
                   alt={`Logo de ${ally.name}`}
-                  width={300} // Ancho base
-                  height={300}  // Altura base
+                  width={150} // Ancho base
+                  height={150}  // Altura base
                   // 4. Clases para unificar el estilo y añadir interactividad
-                  className="h-24 md:h-28 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  className="h-15 w-15 md:h-22 md:w-22 object-contain"
                 />
               </div>
             ))}

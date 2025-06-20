@@ -32,31 +32,31 @@ const speakersData = [
   {
   nombre: "Dr. Francisco Conejo Carrasco",
   tema: "El papel de la autorregulación del aprendizaje en la innovación educativa",
-  imagen:'/conferencistas/francisco.jpg',
+  imagen:'/conferencistas/francisco-02.png',
   bandera:'/conferencistas/bandera_españa.png'
   },
   {
   nombre: "Dr. Engels Owen Pozo Gutierrez",
   tema: "Transformando la enseñanza con IA: Experiencias didácticas en gamificación y metodologías activas",
-  imagen:'/conferencistas/engels.jpg',
+  imagen:'/conferencistas/engels-02.png',
   bandera:'/conferencistas/bandera_engels.png'
   },
   {
   nombre: "Mg Mónica Maritza Orozco Holguin",
   tema: "Neuroeducación en el aula: Una estrategia de integración",
-  imagen:'/conferencistas/monica.jpg',
+  imagen:'/conferencistas/monica-02.png',
   bandera:'/conferencistas/bandera_colombia.png'
   },
   {
   nombre: "Mg. Juan Guillermo Serna González",
   tema: "Robótica Educativa: Iniciación a la Programación con Arduino en el Aula",
-  imagen:'/conferencistas/juan.png',
+  imagen:'/conferencistas/juan-02.png',
   bandera:'/conferencistas/bandera_colombia.png'
   },
   {
   nombre: "Dr. Jaime Alfredo Mariano Torres",
   tema: "Desarrollo de competencias en estudiantes neurodivergentes: La ruta hacia la inclusión.",
-  imagen:'/conferencistas/jaime.png',
+  imagen:'/conferencistas/jaime-02.png',
   bandera:'/conferencistas/bandera_mexico.png'
   },
 ];
