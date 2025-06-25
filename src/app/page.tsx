@@ -9,7 +9,6 @@ import EjesTematicos from "@/components/EjesTematicos";
 import Programa from "@/components/Programa";
 import Participacion from "@/components/Participacion";
 import Fechas from "@/components/Fechas";
-import Inscripcion from "@/components/Inscripcion";
 import Footer from "@/components/Footer";
 
 //import Banner from "@/components/banner";
@@ -43,7 +42,6 @@ export default function Home() {
         <div className="w-full max-w-6xl bg-white bg-opacity-90 rounded-5xl shadow-lg">
           <Participacion />
           <Fechas />
-          <Inscripcion />
           <Footer />
         </div>
       </div>
