@@ -139,6 +139,7 @@ const Formulario = () => {
         >
           <option value="publico">Público General</option>
           <option value="aliado">Aliado</option>
+          <option value="Virtual">Virtual</option>
         </select>
   
         {/* --- CAMPO CONDICIONAL PARA LA CONTRASEÑA --- */}

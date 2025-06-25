@@ -27,6 +27,11 @@ const pricingTiers = [
     currency: "COP",
   },
   {
+    type: "Virtual",
+    price: "60.000",
+    currency: "COP",
+  },
+  {
     type: "Ponentes / Talleristas",
     price: "Exentos",
     currency: "",
