@@ -126,7 +126,7 @@ export async function POST(req) {
         'ComoNosEncontro': medio, 
         'Es Patrocinador': 'No', // Marcamos como no patrocinador
         'FechaInscripcion': fecha,
-        'Tipo Asistente': tipoAsistente === 'aliado' ? 'Aliado' : 'Público General',
+        'Tipo Asistente': tipoAsistente,
       };
 
       // Contenido de los correos para participantes
