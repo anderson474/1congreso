@@ -34,24 +34,24 @@ export default function HeaderHero() {
             alt="Editorial Avancemos" 
             width={537} // Proporción cuadrada
             height={536} 
-            className="h-12 w-12 md:h-36 md:w-36 object-cover" 
+            className="h-12 w-12 sm:h-36 sm:w-36 object-cover" 
           />
           <Image 
             src="/RevistaCientifica.png" 
             alt="Revista Científica Avancemos" 
             width={537} // Proporción rectangular 3:1
             height={536}
-            className="h-12 w-12 md:h-36 md:w-36 object-contain" 
+            className="h-12 w-12 sm:h-36 sm:w-36 object-contain" 
           />
           <Image 
             src="/aliados/udem-02.png" 
             alt="Universidad de Medellín" 
             width={537} // Proporción rectangular
             height={535}
-            className="h-12 w-12 md:h-36 md:w-36 object-contain" // Este logo es más ancho, lo hacemos un poco menos alto para equilibrar
+            className="h-12 w-12 sm:h-36 sm:w-36 object-contain" // Este logo es más ancho, lo hacemos un poco menos alto para equilibrar
           />
         </div>
-      <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl mx-auto px-6 lg:px-8 py-5 sm:py-28 sm:mt-24">
         {/* Contenido principal del Hero */}
         <div className="max-w-4xl text-left">
           <div className="flex items-start gap-2 sm:gap-4">

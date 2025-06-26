@@ -26,7 +26,7 @@ export default function Fundamento() {
     {
       icon: <IconInclusion />,
       title: "Inclusión y Competencia Digital",
-      text: "La competencia digital docente es vital para atender la diversidad del alumnado. Es una herramienta fundamental para promover la equidad real en el aula (Kerexeta-Brazal et al., 2022)."
+      text: "La competencia digital docente, es vital para atender la diversidad del alumnado. Es una herramienta fundamental para promover la equidad real en el aula (Kerexeta-Brazal et al., 2022)."
     }
   ];
 
@@ -50,7 +50,7 @@ export default function Fundamento() {
             Fundamentación y Principios
           </h2>
           <p className="text-gray-600 mb-10 text-lg">
-            Este congreso se basa en tres pilares interconectados que responden a los desafíos actuales de la educación:
+            Este congreso se basa en tres pilares interconectados, que responden a los desafíos actuales de la educación:
           </p>
 
           <ul className="space-y-8">

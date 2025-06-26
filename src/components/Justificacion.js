@@ -9,10 +9,9 @@ export default function Justificacion() {
   // Primero, instala lucide-react: npm install lucide-react
 
   const justificationPoints = [
-    { text: <>Surge como un <strong>espacio de encuentro, reflexión y creación colectiva</strong> entre actores del ámbito educativo.</> },
-    { text: <>Busca <strong>repensar las prácticas docentes</strong> desde una perspectiva innovadora, crítica y humanista.</> },
-    { text: <>Reafirma el <strong>compromiso institucional</strong> con una educación equitativa, inclusiva y sostenible.</> },
-    { text: <>Promueve la generación y divulgación de <strong>conocimiento riguroso</strong> y la consolidación de <strong>redes de cooperación</strong>.</> },
+    { text: <>Buscar <strong>repensar las prácticas docentes</strong> desde una perspectiva innovadora, crítica y humanista.</> },
+    { text: <>Reafirmar el <strong>compromiso institucional</strong> con una educación equitativa, inclusiva y sostenible.</> },
+    { text: <>Promover la generación y divulgación de <strong>conocimiento riguroso</strong> y la consolidación de <strong>redes de cooperación</strong>.</> },
   ];
 
   return (
@@ -41,17 +40,17 @@ export default function Justificacion() {
           transition={{ duration: 0.7, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-4 text-[#305398]">
+          <h2 className="text-3xl font-bold mb-4 text-azul">
             ¿Por qué este Congreso?
           </h2>
           <p className="text-gray-600 mb-8 text-lg">
-            En un contexto global de transformación, este congreso es nuestra respuesta para impulsar una educación que mire al futuro. Nuestros objetivos son:
+            En un contexto global de transformación, este congreso es nuestra respuesta para impulsar una educación que mire al futuro. Surge como un <strong>espacio de encuentro, reflexión y creación colectiva</strong> entre actores del ámbito educativo. Nuestros objetivos son:
           </p>
 
           <ul className="space-y-4">
             {justificationPoints.map((point, index) => (
               <li key={index} className="flex items-start gap-3">
-                <CheckCircle2 className="flex-shrink-0 h-6 w-6 text-[#96b422] mt-1" />
+                <CheckCircle2 className="flex-shrink-0 h-6 w-6 text-verde mt-1" />
                 <span className="text-gray-700 text-lg leading-relaxed">{point.text}</span>
               </li>
             ))}

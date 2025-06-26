@@ -12,10 +12,10 @@ const leadersData = [
     bio: 'Liderando la visión estratégica y la innovación educativa para transformar el futuro del aprendizaje.',
   },
   {
-    name: 'Dr. Andres Felipe Gallego Hurtado',
+    name: 'Dr. Andrés Felipe Gallego Hurtado',
     role: 'Líder de Investigación',
     imageSrc: '/lideres/andres.png', // IMPORTANTE: Cambia a la ruta real de la imagen
-    bio: 'Impulsando la investigación y el desarrollo de prácticas pedagógicas inclusivas que marcan la diferencia.',
+    bio: 'Impulsando la investigación y el desarrollo de prácticas pedagógicas inclusivas, que marcan la diferencia.',
   },
 ];
 
@@ -24,32 +24,32 @@ const leadersData = [
 const speakersData = [
   {
   nombre: "Dra. Conie Sauma Brito",
-  tema: "El poder de la diversidad en el aula, desde las habilidades blandas como ventaja competitiva del docente frente a las inteligencias artificiales",
+  tema: "El poder de la diversidad en el aula, desde las habilidades blandas como ventaja competitiva del docente frente a las inteligencias artificiales.",
   taller: "Neurodiversidad para potenciar la inclusión en el aula.",
   imagen:'/conferencistas/conie.png',
   bandera:'/conferencistas/bandera_bolivia.png'
   },
   {
   nombre: "Dr. Francisco Conejo Carrasco",
-  tema: "El papel de la autorregulación del aprendizaje en la innovación educativa",
+  tema: "El papel de la autorregulación del aprendizaje en la innovación educativa.",
   imagen:'/conferencistas/francisco-02.png',
   bandera:'/conferencistas/bandera_españa.png'
   },
   {
   nombre: "Dr. Engels Owen Pozo Gutierrez",
-  tema: "Transformando la enseñanza con IA: Experiencias didácticas en gamificación y metodologías activas",
+  tema: "Transformando la enseñanza con IA: Experiencias didácticas en gamificación y metodologías activas.",
   imagen:'/conferencistas/engels-02.png',
   bandera:'/conferencistas/bandera_engels.png'
   },
   {
-  nombre: "Mg Mónica Maritza Orozco Holguin",
-  tema: "Neuroeducación en el aula: Una estrategia de integración",
+  nombre: "Mg. Mónica Maritza Orozco Holguin",
+  tema: "Neuroeducación en el aula: Una estrategia de integración.",
   imagen:'/conferencistas/monica-02.png',
   bandera:'/conferencistas/bandera_colombia.png'
   },
   {
   nombre: "Mg. Juan Guillermo Serna González",
-  tema: "Robótica Educativa: Iniciación a la Programación con Arduino en el Aula",
+  tema: "Robótica Educativa: Iniciación a la Programación con Arduino en el Aula.",
   imagen:'/conferencistas/juan-02.png',
   bandera:'/conferencistas/bandera_colombia.png'
   },
