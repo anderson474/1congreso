@@ -42,6 +42,27 @@ const speakersData = [
   bandera:'/conferencistas/bandera_engels.png'
   },
   {
+  nombre: "Dr. Jaime Alfredo Mariano Torres",
+  tema: "Desarrollo de competencias en estudiantes neurodivergentes: La ruta hacia la inclusión.",
+  imagen:'/conferencistas/jaime-02.png',
+  bandera:'/conferencistas/bandera_mexico.png'
+  },
+  {
+  nombre: "Dra. Melissa Gonzalez Rubio Villa",
+  tema: "Tensiones y desafíos para la implementación de la Educación inclusiva e intercultural para las niñeces indígenas en escuelas urbanas de la ciudad de Medellín.",
+  imagen:'/conferencistas/melisa-02.png',
+  bandera:'/conferencistas/bandera_colombia.png'
+  },
+  {
+  nombre: "Dr. José Alberto Rúa Vásquez",
+  tema: "Retos en la educación superior: inclusión, diversidad, calidad y flexibilidad.",
+  imagen:'/conferencistas/joseAlberto.jpg',
+  bandera:'/conferencistas/bandera_colombia.png'
+  },
+];
+
+const Talleristas =[
+  {
   nombre: "Mg. Mónica Maritza Orozco Holguin",
   tema: "Neuroeducación en el aula: Una estrategia de integración.",
   imagen:'/conferencistas/monica-02.png',
@@ -54,10 +75,10 @@ const speakersData = [
   bandera:'/conferencistas/bandera_colombia.png'
   },
   {
-  nombre: "Dr. Jaime Alfredo Mariano Torres",
-  tema: "Desarrollo de competencias en estudiantes neurodivergentes: La ruta hacia la inclusión.",
-  imagen:'/conferencistas/jaime-02.png',
-  bandera:'/conferencistas/bandera_mexico.png'
+  nombre: "Dra.(c) Maria Eugenia Patiño Atehortúa",
+  tema: "Evaluación Formativa, auténtica e inclusiva.",
+  imagen:'/conferencistas/mariaEugenia.jpg',
+  bandera:'/conferencistas/bandera_colombia.png'
   },
 ];
 
@@ -66,13 +87,13 @@ export default function ConferencistasSection() {
     <section id="conferencistas" className="py-20 px-4">
       <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-3xl md:text-5xl font-bold text-black mb-16">
-          Conferencistas y Líderes del Evento
+          Conferencistas y líderes del evento
         </h1>
 
         {/* --- SECCIÓN DE LÍDERES --- */}
         <div className="mb-24">
           <h2 className="text-3xl font-semibold text-[#305398] mb-12">
-            Liderazgo del Congreso
+            Liderazgo del congreso
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {leadersData.map((leader, index) => (
@@ -103,7 +124,7 @@ export default function ConferencistasSection() {
         {/* --- SECCIÓN DE CONFERENCISTAS (tu diseño original) --- */}
         <div>
            <h2 className="text-3xl font-semibold text-[#305398] mb-40">
-            Nuestros Conferencistas
+            Conferencistas
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-40">
             {speakersData.map((conf, index) => (
@@ -149,6 +170,51 @@ export default function ConferencistasSection() {
               </motion.div>
             ))}
           </div>  
+        </div>
+        <div>
+          <h2 className="text-3xl font-semibold text-[#305398] mb-40 mt-20">
+            Talleristas
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-40">
+              {Talleristas.map((conf, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative bg-white rounded-tl-3xl rounded-br-3xl shadow-md border-s-4 border-[#96b422] p-6 text-left hover:shadow-xl transition duration-300"
+                >
+                  <Image
+                  src={conf.imagen}
+                  alt={`Fotografía de ${conf.nombre}`}
+                  width={100}
+                  height={100}
+                  quality={100}
+                  className="absolute right-1 top-0 transform -translate-y-1/2 
+                        w-40 h-40 object-cover rounded-full"
+                />
+                <div className="flex items-center gap-3 mb-3 mt-20">
+                  <Image
+                    src={conf.bandera}
+                    alt={`Bandera del país de ${conf.nombre}`}
+                    width={50}
+                    height={100}
+                    quality={100}
+                    className="rounded-e-full"
+                  />
+                  <h3 className="text-lg font-semibold text-[#305398]">{conf.nombre}</h3>
+                </div>
+                
+                {conf.tema && (
+                  <p className="text-gray-700 text-sm mb-2 mt-8">
+                    <strong>Taller:</strong> {conf.tema}
+                  </p>
+                )}
+                
+              </motion.div>
+            ))}
+          </div> 
         </div>
       </div>
     </section>

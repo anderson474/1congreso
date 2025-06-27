@@ -2,7 +2,7 @@ export default function Participacion() {
   return (
     <section className="p-8 max-w-5xl mx-auto text-gray-700 bg-gray-50 rounded-lg shadow-lg">
       <h2 className="text-4xl font-extrabold mb-10 text-center bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-        Criterios de Postulación y Participación
+        Criterios de postulación y participación
       </h2>
 
       {/* Modalidades */}
@@ -69,6 +69,19 @@ export default function Participacion() {
           <li>Contribución al enfoque inclusivo e intercultural.</li>
         </ul>
       </div>
+      <div className="p-6 bg-white rounded-xl shadow-md border border-gray-200 mt-10">
+        <h3 className="flex items-center text-2xl font-semibold text-blue-700 mb-4">
+            <span className="mr-3 text-3xl">📋</span> 5. Contacto
+        </h3>
+        <>
+        <p>Para mayor información sobre el congreso, ponencias o talleres, por favor comunicarse al correo:</p>
+        <a href="mailto:investigacion@avancemos.edu.co" className="text-blue-400 underline">📧 investigacion@avancemos.edu.co</a>
+        <p>Contacto: Andrés Felipe Gallego </p>
+        <strong>Líder de Investigación – Grupo Educativo Avancemos</strong>
+        </>
+      </div>
+        
+        
     </section>
   );
 }

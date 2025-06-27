@@ -7,9 +7,9 @@ import { CalendarDays, Ticket, Star } from "lucide-react";
 
 // Datos para las fechas y precios para mantener el JSX limpio
 const keyDates = [
-  { label: "Lanzamiento de convocatoria", date: "30 mayo 2025" },
+  { label: "Lanzamiento de convocatoria", date: "01 julio 2025" },
   { label: "Recepción de propuestas", date: "hasta 15 agosto 2025" },
-  { label: "Evaluación", date: "16 al 31 agosto 2025" },
+  { label: "Fecha límite de inscripción como asistentes", date: "01 octubre 2025" },
   { label: "Congreso", date: "24 octubre 2025" },
   { label: "Publicación de memorias", date: "noviembre 2025" },
 ];
@@ -25,11 +25,13 @@ const pricingTiers = [
     type: "Aliados",
     price: "$84.000",
     currency: "COP",
+    text:'Clientes y docentes del Grupo Educativo Avancemos'
   },
   {
     type: "Virtual",
     price: "60.000",
     currency: "COP",
+    text:'Los participantes virtuales tendrán acceso a una plataforma, con conexión individual y acceso exclusivo. Recibirán certificación y las memorias.'
   },
   {
     type: "Ponentes / Talleristas",
@@ -65,6 +67,9 @@ export default function FechasInscripcion() {
           <h2 className="flex items-center text-3xl font-bold mb-6">
             <CalendarDays className="mr-3 h-8 w-8 text-cyan-300" />
             Fechas Clave
+          </h2>
+          <h2 className="flex items-center text-3xl font-bold mb-6">
+            ¡Cupos Limitados!
           </h2>
           <ul className="relative border-l-2 border-cyan-400/50 pl-8 space-y-6">
             {keyDates.map((item, index) => (
@@ -104,6 +109,9 @@ export default function FechasInscripcion() {
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="text-xl font-semibold">{tier.type}</h3>
+                    {tier.text &&
+                    <p>{tier.text}</p>
+                    }
                     {tier.highlighted && <p className="text-sm text-cyan-600 font-medium flex items-center gap-1"><Star className="h-4 w-4" /> Opción popular</p>}
                   </div>
                   <div className="text-right">

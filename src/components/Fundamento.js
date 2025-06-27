@@ -15,17 +15,17 @@ export default function Fundamento() {
   const keyPoints = [
     {
       icon: <IconInnovacion />,
-      title: "Innovación como Eje Central",
+      title: "Innovación como eje central",
       text: "La transformación educativa requiere respuestas ágiles. La innovación es clave para las reformas curriculares, la integración tecnológica y el compromiso con la equidad."
     },
     {
       icon: <IconTecnologia />,
-      title: "Tecnología con Propósito Pedagógico",
+      title: "Tecnología con propósito pedagógico",
       text: "Las tecnologías avanzadas deben integrarse con una planificación sólida, evitando enfoques tecnocentristas que dejen de lado la pedagogía (Espinosa y Cartagena, 2021)."
     },
     {
       icon: <IconInclusion />,
-      title: "Inclusión y Competencia Digital",
+      title: "Inclusión y competencia digital",
       text: "La competencia digital docente, es vital para atender la diversidad del alumnado. Es una herramienta fundamental para promover la equidad real en el aula (Kerexeta-Brazal et al., 2022)."
     }
   ];

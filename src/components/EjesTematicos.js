@@ -50,7 +50,7 @@ export default function EjesTematicos() {
   return (
     <section className="py-16 px-6 bg-gray-100">
       <h2 className="text-3xl font-bold text-center text-azul mb-12">
-        Ejes Temáticos
+        Ejes temáticos
       </h2>
 
       <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto">

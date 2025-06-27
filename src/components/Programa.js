@@ -5,13 +5,20 @@ import { motion } from 'framer-motion';
 import { Users, Mic, ClipboardList, Hammer, PanelBottom, DoorClosed } from 'lucide-react';
 
 const scheduleItems = [
-  { time: '08:00', text: 'Registro y entrega de materiales', icon: <ClipboardList size={24} /> },
-  { time: '08:30', text: 'Ceremonia de apertura', icon: <DoorClosed size={24} /> },
-  { time: '09:00', text: 'Conferencia magistral', icon: <Mic size={24} /> },
-  { time: '10:00', text: 'Mesas de ponencias', icon: <Users size={24} /> },
-  { time: '14:00', text: 'Talleres prácticos', icon: <Hammer size={24} /> },
-  { time: '15:45', text: 'Panel de cierre', icon: <PanelBottom size={24} /> },
-  { time: '16:45', text: 'Clausura oficial', icon: <DoorClosed size={24} /> },
+  { time: '7:30 a.m. – 8:00 a.m.', text: 'Registro de participantes y entrega de materiales', icon: <ClipboardList size={24} /> },
+  { time: '8:00 a.m. – 8:30 a.m.', text: 'Acto de apertura institucional', icon: <DoorClosed size={24} textInside='Palabras de bienvenida – Grupo Educativo Avancemos y Universidad de Medellín.
+ Presentación artística.' /> },
+  { time: '8:30 a.m. – 9:15 a.m.', text: 'Conferencia de apertura Dr. Francisco Conejo Carrasco – España', icon: <Mic size={24} /> },
+  { time: '9:15 a.m. – 10:00 a.m.', text: 'Conferencia Dr. Jaime Alfredo Mariano Torres – México', icon: <Users size={24} /> },
+  { time: '10:00 a.m. – 10:30 a.m.', text: 'Refrigerio – Pausa activa', icon: <Hammer size={24} /> },
+  { time: '10:30 a.m. – 11:15 a.m.', text: 'Conferencia Dra. Melissa González Rubio Villa – Colombia', icon: <PanelBottom size={24} /> },
+  { time: '11:15 a.m. – 12:00 p.m.', text: 'Conferencia Dr. Engels Owen Pozo Gutiérrez – Perú', icon: <DoorClosed size={24} /> },
+  { time: '12:00 p.m. – 12:45 p.m.', text: 'Conferencia Dr. José Alberto Rúa Vásquez – Colombia', icon: <DoorClosed size={24} /> },
+  { time: '12:45 p.m. – 2:00 p.m.', text: 'Receso – Almuerzo libre', icon: <DoorClosed size={24} /> },
+  { time: '2:30 p.m. – 3:30 p.m.', text: 'Talleres simultáneos', icon: <DoorClosed size={24} /> },
+  { time: '3:30 p.m. – 3:45 p.m.', text: 'Coffee break – Receso corto', icon: <DoorClosed size={24} /> },
+  { time: '3:45 p.m. – 4:30 p.m.', text: 'Conferencia de cierre Dra. Conie Sauma Brito – Bolivia', icon: <DoorClosed size={24} /> },
+  { time: '4:30 p.m. – 5:00 p.m.', text: 'Clausura oficial y entrega de certificados', icon: <DoorClosed size={24} /> },
 ];
 
 export default function Programa() {
@@ -46,7 +53,7 @@ export default function Programa() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-12 text-center text-white drop-shadow-lg"
           >
-            Cronograma
+            Agenda
           </motion.h2>
 
           {/* Contenedor de la línea de tiempo */}

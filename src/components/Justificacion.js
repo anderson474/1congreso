@@ -41,7 +41,7 @@ export default function Justificacion() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-4 text-azul">
-            ¿Por qué este Congreso?
+            ¿Por qué este congreso?
           </h2>
           <p className="text-gray-600 mb-8 text-lg">
             En un contexto global de transformación, este congreso es nuestra respuesta para impulsar una educación que mire al futuro. Surge como un <strong>espacio de encuentro, reflexión y creación colectiva</strong> entre actores del ámbito educativo. Nuestros objetivos son:
