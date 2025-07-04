@@ -102,7 +102,7 @@ const Formulario = () => {
         
 
 
-        window.location.href = 'https://portalpagos.davivienda.com/#/comercio/11272/FUNDACIONES%20AVANCEMOS%20SERVICIOS%20INTEGRALES';
+        //window.location.href = 'https://portalpagos.davivienda.com/#/comercio/11272/FUNDACIONES%20AVANCEMOS%20SERVICIOS%20INTEGRALES';
       } else {
         throw new Error(data.message || 'Hubo un error en el servidor.');
       }
