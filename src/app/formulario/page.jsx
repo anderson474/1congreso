@@ -22,7 +22,6 @@ const initialSponsorData = {
   correo: ''
 };
 
-const CORRECT_ALLY_PASSWORD = 'AliadoAvanc3mos';
 
 const Formulario = () => {
   // 2. Estado para saber si el usuario quiere ser patrocinador.
@@ -40,8 +39,7 @@ const Formulario = () => {
     // --- NUEVOS ESTADOS ---
   // 1. Estado para el tipo de asistente ('publico' o 'aliado')
   const [userType, setUserType] = useState('publico');
-  // 2. Estado para la contraseña del aliado
-  const [allyPassword, setAllyPassword] = useState('');
+
 
   // Función para cambiar entre formularios
   const handleFormTypeChange = (isSponsorForm) => {
@@ -53,7 +51,6 @@ const Formulario = () => {
     setSuccess('');
     setAcceptedTerms(false);
     setUserType('publico');
-    setAllyPassword('');
   };
 
   const handleChange = (e) => {
@@ -71,10 +68,7 @@ const Formulario = () => {
       setError('Debes aceptar los términos y condiciones para continuar.');
       return;
     }
-    if (userType === 'aliado' && allyPassword !== CORRECT_ALLY_PASSWORD) {
-        setError('La contraseña de aliado es incorrecta.');
-        return;
-    }
+    
 
     setLoading(true);
     setError('');
@@ -105,7 +99,7 @@ const Formulario = () => {
         setFormData(isSponsor ? initialSponsorData : initialParticipantData);
         setAcceptedTerms(false);
         setUserType('publico'); // Reseteamos también aquí
-        setAllyPassword('');   // tras un envío exitoso.
+        
 
 
         window.location.href = 'https://portalpagos.davivienda.com/#/comercio/11272/FUNDACIONES%20AVANCEMOS%20SERVICIOS%20INTEGRALES';
@@ -123,8 +117,6 @@ const Formulario = () => {
   // Esto hace que el return principal sea mucho más legible.
   // 4. Modificamos el formulario de inscripción para añadir la nueva lógica
   const renderParticipantForm = () => {
-    // Variable para saber si debemos mostrar el error de la contraseña
-    const showPasswordError = userType === 'aliado' && allyPassword && allyPassword !== CORRECT_ALLY_PASSWORD;
 
     return (
       <>
@@ -142,28 +134,6 @@ const Formulario = () => {
           <option value="Virtual">Virtual</option>
         </select>
   
-        {/* --- CAMPO CONDICIONAL PARA LA CONTRASEÑA --- */}
-        {userType === 'aliado' && (
-          <>
-            <label htmlFor="allyPassword">Contraseña de Aliado:</label>
-            <div className='flex flex-col'>
-              <input 
-                type="password" 
-                id="allyPassword" 
-                name="allyPassword" 
-                value={allyPassword} 
-                onChange={(e) => setAllyPassword(e.target.value)} 
-                required 
-                placeholder='Ingresa la contraseña' 
-                className='border border-gray-300 rounded-xl px-4'
-              />
-              {/* Mensaje de error si la contraseña es incorrecta */}
-              {showPasswordError && (
-                <p className="text-red-500 text-xs mt-1">Contraseña incorrecta.</p>
-              )}
-            </div>
-          </>
-        )}
   
         {/* --- RESTO DEL FORMULARIO DE INSCRIPCIÓN (sin cambios) --- */}
         <label htmlFor="nombre">Nombre:</label>
@@ -210,8 +180,7 @@ const Formulario = () => {
   );
   const isButtonDisabled = 
     loading || 
-    !acceptedTerms || 
-    (!isSponsor && userType === 'aliado' && allyPassword !== CORRECT_ALLY_PASSWORD);
+    !acceptedTerms;
 
   return (
     <div>
