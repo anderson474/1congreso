@@ -20,12 +20,14 @@ const pricingTiers = [
     price: "$120.000",
     currency: "COP",
     highlighted: true, // Para destacar esta tarjeta
+    modalidad: "Modalidad: Presencial"
   },
   {
     type: "Aliados",
     price: "$84.000",
     currency: "COP",
-    text:'Clientes y docentes del Grupo Educativo Avancemos'
+    text:'Clientes y docentes del Grupo Educativo Avancemos',
+    modalidad: "Modalidad: Presencial"
   },
   {
     type: "Virtual",
@@ -50,6 +52,7 @@ export default function FechasInscripcion() {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
       }}
+      id="precios"
     >
       {/* Capa oscura para mejorar contraste del texto */}
       <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
@@ -111,6 +114,9 @@ export default function FechasInscripcion() {
                     <h3 className="text-xl font-semibold">{tier.type}</h3>
                     {tier.text &&
                     <p>{tier.text}</p>
+                    }
+                    {tier.modalidad &&
+                      <p className="text-lg text-cyan-600 ">{tier.modalidad}</p>
                     }
                     {tier.highlighted && <p className="text-sm text-cyan-600 font-medium flex items-center gap-1"><Star className="h-4 w-4" /> Opción popular</p>}
                   </div>

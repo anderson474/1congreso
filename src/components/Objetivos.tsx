@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from 'next/link';
 
 // --- DATOS DE LOS LÍDERES ---
 const leadersData = [
@@ -26,7 +27,7 @@ const speakersData = [
   nombre: "Dra. Conie Sauma Brito",
   tema: "El poder de la diversidad en el aula, desde las habilidades blandas como ventaja competitiva del docente frente a las inteligencias artificiales.",
   taller: "Neurodiversidad para potenciar la inclusión en el aula.",
-  HV: "",
+  HV: "Experiencia en docencia de pregrado y postgrado nacional e internacional. Escritora de libros de psicología aplicada a diversas ramas del conocimiento.",
   imagen:'/conferencistas/conie.png',
   bandera:'/conferencistas/bandera_bolivia.png'
   },
@@ -129,13 +130,16 @@ export default function ConferencistasSection() {
               </motion.div>
             ))}
           </div>
+          <a href="#precios" className="mt-20 inline-block bg-verde text-white font-bold text-3xl py-5 px-4 rounded hover:bg-verde/80 mb-5">
+            Ver planes y precios
+          </a>
         </div>
 
         {/* --- SECCIÓN DE CONFERENCISTAS (tu diseño original) --- */}
         <div>
            <h2 className="text-3xl font-semibold text-[#305398] mb-40">
-            Conferencistas
-          </h2>
+              Conferencistas
+            </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-40">
             {speakersData.map((conf, index) => (
                 <motion.div
@@ -229,7 +233,11 @@ export default function ConferencistasSection() {
                 
               </motion.div>
             ))}
+            
           </div> 
+          <a href="#precios" className="mt-20 inline-block bg-verde text-white font-bold text-3xl py-5 px-7 rounded hover:bg-verde/80 mb-5">
+            ¡Separa tu cupo!
+          </a>
         </div>
       </div>
     </section>

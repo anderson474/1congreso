@@ -102,8 +102,10 @@ export default function Fundamento() {
             />
           </motion.div>
         </div>
-
       </div>
+      <a href="#precios" className="mt-20 inline-block bg-verde text-white font-bold text-3xl py-5 px-7 rounded hover:bg-verde/80 mb-5">
+          ¡Separa tu cupo!
+      </a>
     </section>
   );
 }

@@ -24,3 +24,7 @@ header {
   border-bottom: 0 !important;
 }
 
+/* styles/globals.css */
+html {
+  scroll-behavior: smooth;
+}

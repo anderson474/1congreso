@@ -57,6 +57,12 @@ export default function Justificacion() {
           </ul>
         </motion.div>
       </div>
+      <div className='w-full flex justify-center'>
+        <a href="#precios" className="relative mt-20 mx-auto inline-block bg-verde text-white font-bold text-3xl py-5 px-7 rounded hover:bg-verde/80 mb-5">
+          ¡Cupos Limitados!
+      </a>
+      </div>
+      
     </section>
   );
 }
