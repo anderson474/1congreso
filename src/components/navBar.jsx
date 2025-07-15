@@ -62,7 +62,7 @@ export default function HeaderHero() {
               {/* Serifa Superior */}
               <div className="h-1.5 w-12 bg-white/80 rounded-full"></div>
               {/* Barra Vertical */}
-              <div className="h-24 w-6 bg-white/80"></div>
+              <div className="h-24 w-4 bg-white/80"></div>
               {/* Serifa Inferior */}
               <div className="h-1.5 w-12 bg-white/80 rounded-full"></div>
             </div>
@@ -71,7 +71,7 @@ export default function HeaderHero() {
             {/* ====================================================== */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mt-1 sm:mt-2">
               CONGRESO INTERNACIONAL DE
-              <span className="block text-3xl sm:text-5xl md:text-6xl text-white/80 mt-1">
+              <span className="block text-lg sm:text-xl md:text-3xl text-white/80 mt-1">
                 INNOVACIÓN EDUCATIVA Y PRÁCTICAS PEDAGÓGICAS INCLUSIVAS
               </span>
             </h1>
