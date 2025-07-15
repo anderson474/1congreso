@@ -69,10 +69,10 @@ export default function HeaderHero() {
             {/* ====================================================== */}
             {/* == NÚMERO ROMANO "I" CONSTRUIDO CON DIVS - FINAL   == */}
             {/* ====================================================== */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mt-1 sm:mt-2">
-              CONGRESO INTERNACIONAL DE
-              <span className="block text-lg sm:text-xl md:text-3xl text-white/80 mt-1">
-                INNOVACIÓN EDUCATIVA Y PRÁCTICAS PEDAGÓGICAS INCLUSIVAS
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mt-1 sm:mt-2">
+              CONGRESO INTERNACIONAL 
+              <span className="block text-lg sm:text-xl md:text-5xl text-white/80 mt-1">
+                DE INNOVACIÓN EDUCATIVA Y PRÁCTICAS PEDAGÓGICAS INCLUSIVAS
               </span>
             </h1>
           </div>
