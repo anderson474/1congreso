@@ -5,7 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 const BotonWhatsApp = () => {
   // Configura tu número de teléfono y el mensaje
   const numeroTelefono = '573054240301'; // Reemplaza con tu número (código de país + número)
-  const mensaje = '👋🏻Hola, me interesa el congreso, quiero saber más💯'; // Tu mensaje predeterminado
+  const mensaje = 'Hola, me interesa el congreso, quiero saber más'; // Tu mensaje predeterminado
 
   // Codifica el mensaje para la URL
   const mensajeCodificado = encodeURIComponent(mensaje);
