@@ -21,6 +21,7 @@ const initialSponsorData = {
   telefono: '',
   correo: ''
 };
+const paymentURL= "https://portalpagos.davivienda.com/#/comercio/11272/FUNDACIONES%20AVANCEMOS%20SERVICIOS%20INTEGRALES"
 
 
 const Formulario = () => {
@@ -99,6 +100,10 @@ const Formulario = () => {
         setFormData(isSponsor ? initialSponsorData : initialParticipantData);
         setAcceptedTerms(false);
         setUserType('publico'); // Reseteamos también aquí
+
+        setTimeout(() => {
+            window.location.href = paymentURL;
+          }, 2000); // Espera de 2 segundos
         
 
 
