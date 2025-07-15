@@ -10,6 +10,7 @@ import Programa from "@/components/Programa";
 import Participacion from "@/components/Participacion";
 import Fechas from "@/components/Fechas";
 import Footer from "@/components/Footer";
+import BotonWhatsApp from "@/components/botonWhatsapp"
 
 //import Banner from "@/components/banner";
 
@@ -22,6 +23,7 @@ export default function Home() {
       </div>
 
       <Navbar />
+      <BotonWhatsApp/>
       
       <Objetivos />
       {/* Contenido principal (con ancho restringido) */}
