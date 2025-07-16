@@ -14,11 +14,12 @@ const scheduleItems = [
   { time: '10:30 a.m. – 11:15 a.m.', text: 'Conferencia Dra. Melissa González Rubio Villa – Colombia', icon: <PanelBottom size={24} /> },
   { time: '11:15 a.m. – 12:00 p.m.', text: 'Conferencia Dr. Engels Owen Pozo Gutiérrez – Perú', icon: <DoorClosed size={24} /> },
   { time: '12:00 p.m. – 12:45 p.m.', text: 'Conferencia Dr. José Alberto Rúa Vásquez – Colombia', icon: <DoorClosed size={24} /> },
-  { time: '12:45 p.m. – 2:00 p.m.', text: 'Receso – Almuerzo libre', icon: <DoorClosed size={24} /> },
-  { time: '2:30 p.m. – 3:30 p.m.', text: 'Talleres simultáneos', icon: <DoorClosed size={24} /> },
-  { time: '3:30 p.m. – 3:45 p.m.', text: 'Coffee break – Receso corto', icon: <DoorClosed size={24} /> },
-  { time: '3:45 p.m. – 4:30 p.m.', text: 'Conferencia de cierre Dra. Conie Sauma Brito – Bolivia', icon: <DoorClosed size={24} /> },
-  { time: '4:30 p.m. – 5:00 p.m.', text: 'Clausura oficial y entrega de certificados', icon: <DoorClosed size={24} /> },
+  { time: '12:45 p.m. – 2:30 p.m.', text: 'Receso – Almuerzo libre', icon: <DoorClosed size={24} /> },
+  { time: '2:30 p.m. – 3:15 p.m.', text: 'Panel de expertos Mg. Mónica Maritza Orozco Holguin, Dra. (C) Maria Eugenia Patiño Atehortúa', icon: <DoorClosed size={24} /> },
+  { time: '3:15 p.m. – 4:00 p.m.', text: 'Conferencia Dra. Conie Sauma Brito – Bolivia', icon: <DoorClosed size={24} /> },
+  { time: '4:00 p.m. – 4:15 p.m.', text: 'Coffee break – Receso corto', icon: <DoorClosed size={24} /> },
+  { time: '4:15 p.m. – 5:00 p.m.', text: 'Conferencia de cierre Mg. Juan Guillermo Serna González', icon: <DoorClosed size={24} /> },
+  { time: '5:00 p.m. – 5:30 p.m.', text: 'Clausura oficial y entrega de certificados', icon: <DoorClosed size={24} /> },
 ];
 
 export default function Programa() {

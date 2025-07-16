@@ -7,11 +7,11 @@ import { CalendarDays, Ticket, Star } from "lucide-react";
 
 // Datos para las fechas y precios para mantener el JSX limpio
 const keyDates = [
-  { label: "Lanzamiento de convocatoria", date: "01 julio 2025" },
+  { label: "Lanzamiento de convocatoria", date: "15 julio 2025" },
   { label: "Recepción de propuestas", date: "hasta 15 agosto 2025" },
   { label: "Fecha límite de inscripción como asistentes", date: "01 octubre 2025" },
   { label: "Congreso", date: "24 octubre 2025" },
-  { label: "Publicación de memorias", date: "noviembre 2025" },
+  { label: "Publicación de memorias", date: "Febrero 2026" },
 ];
 
 const pricingTiers = [
@@ -34,12 +34,7 @@ const pricingTiers = [
     price: "60.000",
     currency: "COP",
     text:'Los participantes virtuales tendrán acceso a una plataforma, con conexión individual y acceso exclusivo. Recibirán certificación y las memorias.'
-  },
-  {
-    type: "Ponentes / Talleristas",
-    price: "Exentos",
-    currency: "",
-  },
+  }
 ];
 
 export default function FechasInscripcion() {

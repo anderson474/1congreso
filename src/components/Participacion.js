@@ -20,12 +20,6 @@ export default function Participacion() {
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-1">•</span>
             <p>
-              <strong>Taller temático:</strong> sesiones prácticas para el desarrollo de competencias aplicables en contextos educativos.
-            </p>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-blue-500 mt-1">•</span>
-            <p>
               <strong>Asistencia general:</strong> participación sin ponencia, con acceso completo a actividades y certificación.
             </p>
           </li>
@@ -45,21 +39,10 @@ export default function Participacion() {
         </ul>
       </div>
 
-      {/* Requisitos talleres */}
-      <div className="mb-8 p-6 bg-white rounded-xl shadow-md border border-gray-200">
-        <h3 className="flex items-center text-2xl font-semibold text-blue-700 mb-4">
-          <span className="mr-3 text-3xl">🎯</span> 3. Requisitos para talleres
-        </h3>
-        <ul className="list-disc list-inside space-y-3 text-gray-800">
-          <li>Propuesta (máx. 600 palabras) con título, objetivos de aprendizaje, metodología participativa, perfil del público, recursos y CV del facilitador/a.</li>
-          <li>Se valorarán enfoques prácticos y replicables.</li>
-        </ul>
-      </div>
-
       {/* Criterios de evaluación */}
       <div className="p-6 bg-white rounded-xl shadow-md border border-gray-200">
         <h3 className="flex items-center text-2xl font-semibold text-blue-700 mb-4">
-          <span className="mr-3 text-3xl">🔍</span> 4. Criterios de evaluación
+          <span className="mr-3 text-3xl">🔍</span> 3. Criterios de evaluación
         </h3>
         <ul className="list-disc list-inside space-y-3 text-gray-800">
           <li>Pertinencia con los ejes temáticos.</li>
@@ -71,13 +54,13 @@ export default function Participacion() {
       </div>
       <div className="p-6 bg-white rounded-xl shadow-md border border-gray-200 mt-10">
         <h3 className="flex items-center text-2xl font-semibold text-blue-700 mb-4">
-            <span className="mr-3 text-3xl">📋</span> 5. Contacto
+            <span className="mr-3 text-3xl">📋</span> 4. Contacto
         </h3>
         <>
         <p>Para mayor información sobre el congreso, ponencias o talleres, por favor comunicarse al correo:</p>
-        <a href="mailto:investigacion@avancemos.edu.co" className="text-blue-400 underline">📧 investigacion@avancemos.edu.co</a>
-        <p>Contacto: Andrés Felipe Gallego </p>
-        <strong>Líder de Investigación – Grupo Educativo Avancemos</strong>
+        <a href="mailto:auxiliar.mercadeo@avancemos.edu.co" className="text-blue-400 underline">📧 auxiliar.mercadeo@avancemos.edu.co</a>
+        <p>Contacto: Liney Sthefany Callejas Velásquez </p>
+        <strong>Auxiliar de mercadeo – Grupo Educativo Avancemos</strong>
         </>
       </div>
         

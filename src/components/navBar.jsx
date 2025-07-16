@@ -62,7 +62,7 @@ export default function HeaderHero() {
               {/* Serifa Superior */}
               <div className="h-1.5 w-12 bg-white/80 rounded-full"></div>
               {/* Barra Vertical */}
-              <div className="h-24 w-4 bg-white/80"></div>
+              <div className="h-48 w-4 bg-white/80"></div>
               {/* Serifa Inferior */}
               <div className="h-1.5 w-12 bg-white/80 rounded-full"></div>
             </div>

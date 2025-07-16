@@ -16,7 +16,7 @@ const leadersData = [
     name: 'Dr. Andrés Felipe Gallego Hurtado',
     role: 'Líder de Investigación',
     imageSrc: '/lideres/andres.png', // IMPORTANTE: Cambia a la ruta real de la imagen
-    bio: 'Impulsando la investigación y el desarrollo de prácticas pedagógicas inclusivas, que marcan la diferencia.',
+    bio: 'Doctor en Ciencias de la Educación. Impulsando la investigación y el desarrollo de prácticas pedagógicas inclusivas, que marcan la diferencia.',
   },
 ];
 
@@ -26,8 +26,7 @@ const speakersData = [
   {
   nombre: "Dra. Conie Sauma Brito",
   tema: "El poder de la diversidad en el aula, desde las habilidades blandas como ventaja competitiva del docente frente a las inteligencias artificiales.",
-  taller: "Neurodiversidad para potenciar la inclusión en el aula.",
-  HV: "Experiencia en docencia de pregrado y postgrado nacional e internacional. Escritora de libros de psicología aplicada a diversas ramas del conocimiento.",
+  HV: "Doctorado en Ciencias Empresariales.",
   imagen:'/conferencistas/conie.png',
   bandera:'/conferencistas/bandera_bolivia.png'
   },
@@ -35,35 +34,35 @@ const speakersData = [
   nombre: "Dr. Francisco Conejo Carrasco",
   tema: "El papel de la autorregulación del aprendizaje en la innovación educativa.",
   imagen:'/conferencistas/francisco-02.png',
-  HV: "Directivo docente de posgrados en Gerencia de instituciones educativas.",
+  HV: "Doctorado (C) en Ciencias de la Educación.",
   bandera:'/conferencistas/bandera_españa.png'
   },
   {
   nombre: "Dr. Engels Owen Pozo Gutierrez",
   tema: "Transformando la enseñanza con IA: Experiencias didácticas en gamificación y metodologías activas.",
   imagen:'/conferencistas/engels-02.png',
-  HV: "docente de pregrado en la Universidad Cesar Vallejo y posgrado en la Academia Diplomática del Perú",
+  HV: "Doctorado en Ciencias de la Educación.",
   bandera:'/conferencistas/bandera_engels.png'
   },
   {
   nombre: "Dr. Jaime Alfredo Mariano Torres",
   tema: "Desarrollo de competencias en estudiantes neurodivergentes: La ruta hacia la inclusión.",
   imagen:'/conferencistas/jaime-02.png',
-  HV: "Actualmente, es Director del Área de Ingeniería y Ciencias Químicas de la Universidad del Noreste, en Tampico, México.",
+  HV: "Doctorado en Tecnología Avanzada.",
   bandera:'/conferencistas/bandera_mexico.png'
   },
   {
   nombre: "Dra. Melissa Gonzalez Rubio Villa",
   tema: "Tensiones y desafíos para la implementación de la Educación inclusiva e intercultural para las niñeces indígenas en escuelas urbanas de la ciudad de Medellín.",
   imagen:'/conferencistas/melisa-02.png',
-  HV: "Ha sido coordinadora de semilleros de investigación, asesora de tesis a nivel de pregrado y evaluadora de tesis de maestría.",
+  HV: "Doctorado (C) en Ciencias de la Educación.",
   bandera:'/conferencistas/bandera_colombia.png'
   },
   {
   nombre: "Dr. José Alberto Rúa Vásquez",
   tema: "Retos en la educación superior: inclusión, diversidad, calidad y flexibilidad.",
   imagen:'/conferencistas/joseAlberto.png',
-  HV: "Vicerrector Académico de la Universidad De Medellín",
+  HV: "Doctorado en Ciencias Pedagógicas. Vicerrector Académico de la Universidad De Medellín",
   bandera:'/conferencistas/bandera_colombia.png'
   },
 ];
@@ -73,7 +72,7 @@ const Talleristas =[
   nombre: "Mg. Mónica Maritza Orozco Holguin",
   tema: "Neuroeducación en el aula: Una estrategia de integración.",
   imagen:'/conferencistas/monica-02.png',
-  HV: "docente universitaria con experiencia en planeación, gestión de proyectos, docente de prácticas, docente apoyo pedagógico con experiencia en niños con trastornos del aprendizaje y población en riesgo de exclusión mas de 25 años. Líder empresarial en consultoría y asistencia técnica en etnoeducación, género y victimas de conflicto.",
+  HV: "Magíster en Neuroeducación.",
   bandera:'/conferencistas/bandera_colombia.png'
   
   },
@@ -81,14 +80,14 @@ const Talleristas =[
   nombre: "Mg. Juan Guillermo Serna González",
   tema: "Robótica Educativa: Iniciación a la Programación con Arduino en el Aula.",
   imagen:'/conferencistas/juan-02.png',
-  HV: "Se desempeña como docente de aula en Ciencias Naturales y líder de semillero de robótica y programación, integrando la tecnología con procesos educativos para fortalecer habilidades STEM en contextos escolares, Medellín, Colombia.",
+  HV: "Magíster en Automatización y Control Industrial.",
   bandera:'/conferencistas/bandera_colombia.png'
   },
   {
-  nombre: "Dra.(c) Maria Eugenia Patiño Atehortúa",
+  nombre: "Dra. (C) Maria Eugenia Patiño Atehortúa",
   tema: "Evaluación Formativa, auténtica e inclusiva.",
   imagen:'/conferencistas/mariaEugenia.png',
-  HV: "",
+  HV: "Doctorado (C) en Humanidades",
   bandera:'/conferencistas/bandera_colombia.png'
   },
 ];
@@ -180,21 +179,14 @@ export default function ConferencistasSection() {
                     <strong>Conferencia:</strong> {conf.tema}
                   </p>
                 )}
-                {conf.taller && (
-                  <p className="text-gray-700 text-sm">
-                    <strong>Taller:</strong> {conf.taller}
-                  </p>
-                )}
                 
               </motion.div>
             ))}
           </div>  
         </div>
         <div>
-          <h2 className="text-3xl font-semibold text-[#305398] mb-40 mt-20">
-            Talleristas
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-40">
+          <div className=""></div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-40 mt-32">
               {Talleristas.map((conf, index) => (
                 <motion.div
                   key={index}
@@ -224,10 +216,14 @@ export default function ConferencistasSection() {
                   />
                   <h3 className="text-lg font-semibold text-[#305398]">{conf.nombre}</h3>
                 </div>
-                
+                {conf.HV && (
+                  <p className="text-gray-700 text-sm">
+                    <strong>{conf.HV}</strong> 
+                  </p>
+                )}
                 {conf.tema && (
                   <p className="text-gray-700 text-sm mb-2 mt-8">
-                    <strong>Taller:</strong> {conf.tema}
+                    <strong>Conferencia:</strong> {conf.tema}
                   </p>
                 )}
                 

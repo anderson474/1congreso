@@ -76,7 +76,7 @@ export async function POST(req) {
               
               <p><strong>Nuestro equipo de alianzas estratégicas revisará tu solicitud y se pondrá en contacto contigo a la brevedad</strong> para explorar las oportunidades de colaboración y presentarte nuestro portafolio de patrocinios. 📈</p>
               
-              <p>Si tienes alguna pregunta inmediata, no dudes en responder a este correo o escribirnos a <strong>investigacion@avancemos.edu.co</strong>.</p>
+              <p>Si tienes alguna pregunta inmediata, no dudes en responder a este correo o escribirnos a <strong>auxiliar.mercadeo@avancemos.edu.co</strong>.</p>
           </div>
           
           <!-- Footer (se mantiene el mismo para consistencia de marca) -->
@@ -102,7 +102,7 @@ export async function POST(req) {
               </div>
               
               <p style="margin-top: 20px; font-size: 12px; color: #777;">
-                  <a href="mailto:investigacion@avancemos.edu.co " style="color: #96b422;">investigacion@avancemos.edu.co </a> | 
+                  <a href="mailto:auxiliar.mercadeo@avancemos.edu.co " style="color: #96b422;">auxiliar.mercadeo@avancemos.edu.co </a> | 
                   <a href="tel:+573054240301" style="color: #96b422;">305 424 0301</a>
               </p>
           </div>
@@ -157,7 +157,7 @@ export async function POST(req) {
             
             <p>Muy pronto recibirás más información sobre la agenda, ponencias y recursos exclusivos del evento. ¡Mantente atento(a) a tu correo! 🗓️</p>
             
-            <p>Si tienes alguna pregunta o necesitas asistencia, no dudes en escribirnos al correo <strong>investigacion@avancemos.edu.co </strong> . ¡Nos alegra que hagas parte de esta gran experiencia!</p>
+            <p>Si tienes alguna pregunta o necesitas asistencia, no dudes en escribirnos al correo <strong>auxiliar.mercadeo@avancemos.edu.co </strong> . ¡Nos alegra que hagas parte de esta gran experiencia!</p>
           </div>
           
           <!-- Footer -->
@@ -183,7 +183,7 @@ export async function POST(req) {
             </div>
             
             <p style="margin-top: 20px; font-size: 12px; color: #777;">
-              <a href="mailto:investigacion@avancemos.edu.co" style="color: #96b422;">investigacion@avancemos.edu.co</a> | 
+              <a href="mailto:auxiliar.mercadeo@avancemos.edu.co" style="color: #96b422;">auxiliar.mercadeo@avancemos.edu.co</a> | 
               <a href="tel:+573054240301" style="color: #96b422;">305 424 0301</a>
             </p>
           </div>
@@ -202,7 +202,7 @@ export async function POST(req) {
     // Enviar email al administrador
     await resend.emails.send({
       from: fromEmail,
-      to: [adminEmail],
+      to: [adminEmail, "auxiliar.mercadeo@avancemos.edu.co"],
       subject: adminEmailSubject,
       html: adminEmailHtml,
     });
