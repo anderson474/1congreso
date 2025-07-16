@@ -62,7 +62,7 @@ const speakersData = [
   nombre: "Dr. José Alberto Rúa Vásquez",
   tema: "Retos en la educación superior: inclusión, diversidad, calidad y flexibilidad.",
   imagen:'/conferencistas/joseAlberto.png',
-  HV: "Doctorado en Ciencias Pedagógicas. Vicerrector Académico de la Universidad De Medellín",
+  HV: "Doctorado en Ciencias Pedagógicas. Vicerrector Académico de la Universidad De Medellín.",
   bandera:'/conferencistas/bandera_colombia.png'
   },
 ];
@@ -87,7 +87,7 @@ const Talleristas =[
   nombre: "Dra. (C) Maria Eugenia Patiño Atehortúa",
   tema: "Evaluación Formativa, auténtica e inclusiva.",
   imagen:'/conferencistas/mariaEugenia.png',
-  HV: "Doctorado (C) en Humanidades",
+  HV: "Doctorado (C) en Humanidades.",
   bandera:'/conferencistas/bandera_colombia.png'
   },
 ];
