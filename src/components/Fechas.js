@@ -20,14 +20,14 @@ const pricingTiers = [
     price: "$120.000",
     currency: "COP",
     highlighted: true, // Para destacar esta tarjeta
-    modalidad: "Modalidad: Presencial"
+    modalidad: "Modalidad: Presencial Universidad de Medellin"
   },
   {
     type: "Aliados",
     price: "$84.000",
     currency: "COP",
     text:'Clientes y docentes del Grupo Educativo Avancemos',
-    modalidad: "Modalidad: Presencial"
+    modalidad: "Modalidad: Presencial Universidad de Medellin"
   },
   {
     type: "Virtual",
