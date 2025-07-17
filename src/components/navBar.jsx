@@ -30,18 +30,18 @@ export default function HeaderHero() {
             - className: h-16 (64px) en pantallas medianas, h-12 (48px) en pequeñas. w-auto mantiene la proporción.
           */}
           <Image 
-            src="/logoEditorial.png" 
-            alt="Editorial Avancemos" 
-            width={537} // Proporción cuadrada
-            height={536} 
-            className="h-12 w-12 sm:h-36 sm:w-36 object-cover" 
-          />
-          <Image 
             src="/RevistaCientifica.png" 
             alt="Revista Científica Avancemos" 
             width={537} // Proporción rectangular 3:1
             height={536}
             className="h-12 w-12 sm:h-36 sm:w-36 object-contain" 
+          />
+          <Image 
+            src="/logoEditorial.png" 
+            alt="Editorial Avancemos" 
+            width={537} // Proporción cuadrada
+            height={536} 
+            className="h-12 w-12 sm:h-36 sm:w-36 object-cover" 
           />
           <Image 
             src="/aliados/udem-02.png" 
@@ -88,7 +88,7 @@ export default function HeaderHero() {
 
           <div className="pl-20 sm:pl-24 md:pl-32 mt-10">
             <Link
-              href="/formulario"
+              href="#precios"
               className="inline-block bg-[#96b422] text-white text-xl md:text-3xl px-10 py-4 rounded-lg font-bold shadow-xl
                          transform transition-all duration-300 ease-in-out 
                          hover:bg-[#a8c928] hover:scale-105 hover:shadow-2xl 
