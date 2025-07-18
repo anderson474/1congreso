@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Congreso Avancemos",
     images: [
       {
-        url: "https://avancemos.edu.co/wp-content/uploads/2025/07/Congreso_Internacional_piezas-2.png", // URL ABSOLUTA de tu imagen
+        url: "https://avancemos.edu.co/wp-content/uploads/2025/07/foto-de-perfil-congreso-jpg.png", // URL ABSOLUTA de tu imagen
         width: 1200,
         height: 630,
         alt: "Banner del Congreso Internacional de Innovación Educativa",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Congreso Internacional de Innovación Educativa",
     description: "Acompáñanos en este evento transformador. ¡Inscríbete ahora!",
     images: [
-      "https://avancemos.edu.co/wp-content/uploads/2025/07/Congreso_Internacional_piezas-2.png",
+      "https://avancemos.edu.co/wp-content/uploads/2025/07/foto-de-perfil-congreso-jpg.png",
     ], // URL ABSOLUTA
   },
 };
