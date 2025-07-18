@@ -34,21 +34,21 @@ export default function HeaderHero() {
             alt="Revista Científica Avancemos" 
             width={537} // Proporción rectangular 3:1
             height={536}
-            className="h-12 w-12 sm:h-36 sm:w-36 object-contain" 
+            className="h-20 w-20 sm:h-36 sm:w-36 object-contain" 
           />
           <Image 
             src="/logoEditorial.png" 
             alt="Editorial Avancemos" 
             width={537} // Proporción cuadrada
             height={536} 
-            className="h-12 w-12 sm:h-36 sm:w-36 object-cover" 
+            className="h-20 w-20 sm:h-36 sm:w-36 object-cover" 
           />
           <Image 
             src="/aliados/udem-02.png" 
             alt="Universidad de Medellín" 
             width={537} // Proporción rectangular
             height={535}
-            className="h-12 w-12 sm:h-36 sm:w-36 object-contain" // Este logo es más ancho, lo hacemos un poco menos alto para equilibrar
+            className="h-20 w-20 sm:h-36 sm:w-36 object-contain" // Este logo es más ancho, lo hacemos un poco menos alto para equilibrar
           />
         </div>
       <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl mx-auto px-6 lg:px-8 py-5 sm:py-28 sm:mt-24">
@@ -58,35 +58,35 @@ export default function HeaderHero() {
             {/* ====================================================== */}
             {/* == NÚMERO ROMANO "I" CONSTRUIDO CON DIVS - COMIENZO == */}
             {/* ====================================================== */}
-            <div className="flex flex-col items-center mt-2">
+            <div className="flex flex-col items-center mt-1.5 md:mt-4">
               {/* Serifa Superior */}
-              <div className="h-1.5 w-12 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-10 md:h-2 md:w-16 bg-white rounded-full"></div>
               {/* Barra Vertical */}
-              <div className="h-48 w-4 bg-white/80"></div>
+              <div className="h-[75px] w-2 md:h-48 md:w-3 bg-white"></div>
               {/* Serifa Inferior */}
-              <div className="h-1.5 w-12 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-10 md:h-2 md:w-16 bg-white rounded-full"></div>
             </div>
             {/* ====================================================== */}
             {/* == NÚMERO ROMANO "I" CONSTRUIDO CON DIVS - FINAL   == */}
             {/* ====================================================== */}
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mt-1 sm:mt-2">
+            <h1 className="text-xl leading-none sm:text-4xl md:text-6xl font-extrabold tracking-tight md:leading-none mt-1 sm:mt-2">
               CONGRESO INTERNACIONAL 
-              <span className="block text-lg sm:text-xl md:text-5xl text-white/80 mt-1">
+              <span className="block text-lg leading-tight sm:text-xl md:text-5xl md:leading-[1.1] text-white mt-1">
                 DE INNOVACIÓN EDUCATIVA Y PRÁCTICAS PEDAGÓGICAS INCLUSIVAS
               </span>
             </h1>
           </div>
           
-          <div className="pl-20 sm:pl-24 md:pl-32 mt-4 space-y-4">
-            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl">
+          <div className="mt-4 space-y-4">
+            <p className="text-base leading-none sm:text-lg md:text-xl text-white/90 max-w-2xl">
               Avances, prácticas y desafíos hacia una educación verdaderamente inclusiva.
             </p>
-            <p className="mt-2 px-4 py-1.5 inline-block bg-white/20 rounded-full border border-white/30 text-base md:text-lg font-semibold backdrop-blur-sm">
+            <p className="mt-2 px-4 py-1.5 inline-block bg-transparent rounded-full border-2 border-white/30 text-base md:text-lg font-semibold backdrop-blur-sm">
               24 de octubre 2025
             </p>
           </div>
 
-          <div className="pl-20 sm:pl-24 md:pl-32 mt-10">
+          <div className="mt-10">
             <Link
               href="#precios"
               className="inline-block bg-[#96b422] text-white text-xl md:text-3xl px-10 py-4 rounded-lg font-bold shadow-xl
