@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Particle from "@/components/Particle";
 import Image from "next/image";
+import BotonWhatsApp from "@/components/botonWhatsapp"
 
 // 1. Definimos los estados iniciales para cada tipo de formulario.
 // Esto ayuda a mantener el código limpio y a resetear los formularios fácilmente.
@@ -193,6 +194,7 @@ const Formulario = () => {
       <div className="fixed inset-0 -z-10">
         <Particle />
       </div>
+      <BotonWhatsApp/>
       <main className='min-h-screen w-full flex items-center justify-center p-4'>
         <div className="bg-blue-100 bg-opacity-30 backdrop-blur-md p-6 sm:p-8 rounded-lg shadow-lg my-5 w-full max-w-2xl relative">
           <div className='flex flex-row justify-center gap-4 sm:gap-8 md:gap-56'>
@@ -255,7 +257,12 @@ const Formulario = () => {
                     Acepto el <a href="/politica-de-datos" target="_blank" className="underline text-blue-400">tratamiento de mis datos personales</a>.
                 </label>
             </div>
-
+            <div className='col-span-2 flex justify-center'>
+              <p className=''>
+                  <strong>Después de realizar el pago,</strong> compártenos tu <p className='inline-block text-blue-800 font-bold underline'>comrobante de pago</p> a nuestro número de Whatsapp presionado el botón al lado inferior derecho o al correo <a href="mailto:auxiliar.mercadeo@avancemos.edu.co" class="hover:text-blue-500 text-blue-700 font-bold py-2 rounded">auxiliar.mercadeo@avancemos.edu.co</a>
+              </p>
+            </div>
+            
             <div className="col-span-2 flex justify-center">
               <button
                 type="submit"
@@ -273,6 +280,7 @@ const Formulario = () => {
         </div>
       </main>
     </div>
+    
   );
 };
 
