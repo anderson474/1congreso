@@ -61,7 +61,7 @@ const speakersData = [
     nombre: "Dr. José Alberto Rúa Vásquez",
     tema: "Retos en la educación superior: inclusión, diversidad, calidad y flexibilidad.",
     imagen: "/conferencistas/joseAlberto.png",
-    HV: "Doctorado en Ciencias Pedagógicas. Vicerrector Académico de la Universidad De Medellín.",
+    HV: "Doctorado en Ciencias Pedagógicas.",
     bandera: "/conferencistas/bandera_colombia.png",
   },
   {
