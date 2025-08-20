@@ -7,11 +7,12 @@ import Link from "next/link";
 const allies = [
   { name: "Universidad de Antioquia", logoSrc: "/aliados/udea-02.png" }, // Reemplaza con el nombre real de tu archivo
   { name: "Universidad de Medellín", logoSrc: "/aliados/udem-02.png" },
-  { name: "USDIDEA", logoSrc: "/aliados/logo-usdidea.png" },
   { name: "Adecopria", logoSrc: "/aliados/adecopria-02.png" }, // Reemplaza con el nombre real de tu archivo
   { name: "Adida", logoSrc: "/aliados/adida-02.png" }, // Reemplaza con el nombre real de tu archivo
   { name: "Conaceb", logoSrc: "/aliados/conaceb-02.png" }, // Reemplaza con el nombre real de tu archivo
   // Reemplaza con el nombre real de tu archivo
+  { name: "USDIDEA", logoSrc: "/aliados/logo-usdidea.png" },
+  { name: "ENTROPÍA ECUATIVA", logoSrc: "/aliados/ENTROPIA-LANDING.png" },
 ];
 
 export default function Footer() {
