@@ -83,7 +83,7 @@ export default function Participacion() {
             📧 comunicaciones@avancemos.edu.co
           </a>
           <p>Contacto: Mariana Marín Mejía </p>
-          <strong>Auxiliar de mercadeo – Grupo Educativo Avancemos</strong>
+          <strong>Comunicaciones – Grupo Educativo Avancemos</strong>
         </>
       </div>
     </section>
