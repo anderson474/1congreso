@@ -13,6 +13,8 @@ const allies = [
   // Reemplaza con el nombre real de tu archivo
   { name: "USDIDEA", logoSrc: "/aliados/logo-usdidea.png" },
   { name: "ENTROPÍA ECUATIVA", logoSrc: "/aliados/ENTROPIA-LANDING.png" },
+  { name: "Sisga", logoSrc: "/aliados/sisga.png" },
+  { name: "Evaluate", logoSrc: "/aliados/Logo-evaluate-ok.png" },
 ];
 
 export default function Footer() {

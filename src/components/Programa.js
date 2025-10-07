@@ -13,12 +13,12 @@ import {
 
 const scheduleItems = [
   {
-    time: "6:30 a.m. – 7:00 a.m.",
+    time: "7:30 a.m. – 8:00 a.m.",
     text: "Registro de participantes y entrega de materiales",
     icon: <ClipboardList size={24} />,
   },
   {
-    time: "8:00 a.m. – 8:30 a.m.",
+    time: "8:00 a.m. – 8:15 a.m.",
     text: "Acto de apertura institucional",
     icon: (
       <DoorClosed
@@ -29,62 +29,68 @@ const scheduleItems = [
     ),
   },
   {
-    time: "8:30 a.m. – 9:15 a.m.",
+    time: "8:15 a.m. – 8:55 a.m.",
     text: "Conferencia de apertura Dr. Francisco Conejo Carrasco – España",
     icon: <Mic size={24} />,
   },
   {
-    time: "9:15 a.m. – 10:00 a.m.",
-    text: "Conferencia Dr. Jaime Alfredo Mariano Torres – México",
+    time: "8:55 a.m. – 9:35 a.m.",
+    text: "Conferencia Mg. Juan Guillermo Serna Gonzales – Colombia",
     icon: <Users size={24} />,
   },
   {
-    time: "10:00 a.m. – 10:30 a.m.",
-    text: "Refrigerio – Pausa activa",
-    icon: <Hammer size={24} />,
-  },
-  {
-    time: "10:30 a.m. – 11:15 a.m.",
+    time: "9:35 a.m. – 10:15 a.m.",
     text: "Conferencia Dra. Melissa González Rubio Villa – Colombia",
     icon: <PanelBottom size={24} />,
   },
   {
-    time: "11:15 a.m. – 12:00 p.m.",
+    time: "10:15 a.m. – 10:45 a.m.",
+    text: "Refrigerio – Pausa activa",
+    icon: <Hammer size={24} />,
+  },
+  {
+    time: "10:45 a.m. – 11:25 p.m.",
     text: "Conferencia Dr. Engels Owen Pozo Gutiérrez – Perú",
     icon: <DoorClosed size={24} />,
   },
   {
-    time: "12:00 p.m. – 12:45 p.m.",
-    text: "Conferencia Dr. José Alberto Rúa Vásquez – Colombia",
-    icon: <DoorClosed size={24} />,
+    time: "11:25 a.m. – 12:05 a.m.",
+    text: "Conferencia Dra. Carolina Cárdenas Roa – Colombia",
+    icon: <Users size={24} />,
   },
   {
-    time: "12:45 p.m. – 2:30 p.m.",
+    time: "12:05 p.m. – 1:30 p.m.",
     text: "Receso – Almuerzo libre",
     icon: <DoorClosed size={24} />,
   },
   {
-    time: "2:30 p.m. – 3:15 p.m.",
-    text: "Panel de expertos Mg. Mónica Maritza Orozco Holguin, Dra. (C) Maria Eugenia Patiño Atehortúa",
+    time: "1:30 p.m. – 2:10 p.m.",
+    text: "Conferencia Dr. José Alberto Rúa Vásquez – Colombia",
     icon: <DoorClosed size={24} />,
   },
+
   {
-    time: "3:15 p.m. – 4:00 p.m.",
-    text: "Conferencia Dra. Conie Sauma Brito – Bolivia",
-    icon: <DoorClosed size={24} />,
+    time: "2:10 p.m. – 2:50 p.m.",
+    text: "Conferencia Dr. Jaime Alfredo Mariano Torres – México",
+    icon: <Users size={24} />,
   },
   {
-    time: "4:00 p.m. – 4:15 p.m.",
+    time: "2:50 p.m. – 3:05 p.m.",
     text: "Coffee break – Receso corto",
     icon: <DoorClosed size={24} />,
   },
   {
-    time: "4:15 p.m. – 5:00 p.m.",
-    text: "Conferencia de cierre Mg. Juan Guillermo Serna González",
+    time: "3:05 p.m. – 3:45 p.m.",
+    text: "Conferencia Dra. Conie Sauma Brito – Bolivia",
     icon: <DoorClosed size={24} />,
   },
   {
-    time: "5:00 p.m. – 5:30 p.m.",
+    time: "3:45 p.m. – 4:30 p.m.",
+    text: "Panel de expertos: Mg. Mónica Maritza Orozco Holguin, y Dra. (C) Maria Eugenia Patiño Atehortúa",
+    icon: <DoorClosed size={24} />,
+  },
+  {
+    time: "4:30 p.m. – 5:00 p.m.",
     text: "Clausura oficial y entrega de certificados",
     icon: <DoorClosed size={24} />,
   },
