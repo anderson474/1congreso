@@ -8,19 +8,27 @@ export default function Participacion() {
       {/* Modalidades */}
       <div className="mb-8 p-6 bg-white rounded-xl shadow-md border border-gray-200">
         <h3 className="flex items-center text-2xl font-semibold text-blue-700 mb-4">
-          <span className="mr-3 text-3xl">📋</span> 1. Modalidades de participación
+          <span className="mr-3 text-3xl">📋</span> 1. Modalidades de
+          participación
         </h3>
         <ul className="space-y-4 list-none">
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-1">•</span>
             <p>
-              <strong>Ponencia:</strong> presentación individual o grupal de resultados de investigación, sistematización de experiencias, estudios de caso o propuestas de innovación. Se enmarcarán en los ejes temáticos y serán evaluadas por el comité académico. Las aceptadas podrán postularse para un capítulo de libro con ISBN, editado por la Editorial Avancemos, con arbitraje y acceso abierto.
+              <strong>Ponencia:</strong> presentación individual o grupal de
+              resultados de investigación, sistematización de experiencias,
+              estudios de caso o propuestas de innovación. Se enmarcarán en los
+              ejes temáticos y serán evaluadas por el comité académico. Las
+              aceptadas podrán postularse para un capítulo de libro con ISBN,
+              editado por la Editorial Avancemos, con arbitraje y acceso
+              abierto.
             </p>
           </li>
           <li className="flex items-start gap-3">
             <span className="text-blue-500 mt-1">•</span>
             <p>
-              <strong>Asistencia general:</strong> participación sin ponencia, con acceso completo a actividades y certificación.
+              <strong>Asistencia general:</strong> participación sin ponencia,
+              con acceso completo a actividades y certificación.
             </p>
           </li>
         </ul>
@@ -32,10 +40,17 @@ export default function Participacion() {
           <span className="mr-3 text-3xl">✅</span> 2. Requisitos para ponencias
         </h3>
         <ul className="list-disc list-inside space-y-3 text-gray-800">
-          <li>Resumen (300–400 palabras) con título, autores, institución, objetivo, metodología (si aplica), resultados esperados o alcanzados y eje temático.</li>
+          <li>
+            Resumen (300–400 palabras) con título, autores, institución,
+            objetivo, metodología (si aplica), resultados esperados o alcanzados
+            y eje temático.
+          </li>
           <li>Indicar modalidad preferida.</li>
           <li>Ficha biográfica breve de los autores (máx. 150 palabras).</li>
-          <li>De ser aceptado, enviar presentación o póster digital en el formato del comité académico.</li>
+          <li>
+            De ser aceptado, enviar presentación o póster digital en el formato
+            del comité académico.
+          </li>
         </ul>
       </div>
 
@@ -54,17 +69,23 @@ export default function Participacion() {
       </div>
       <div className="p-6 bg-white rounded-xl shadow-md border border-gray-200 mt-10">
         <h3 className="flex items-center text-2xl font-semibold text-blue-700 mb-4">
-            <span className="mr-3 text-3xl">📋</span> 4. Contacto
+          <span className="mr-3 text-3xl">📋</span> 4. Contacto
         </h3>
         <>
-        <p>Para mayor información sobre el congreso, ponencias o talleres, por favor comunicarse al correo:</p>
-        <a href="mailto:auxiliar.mercadeo@avancemos.edu.co" className="text-blue-400 underline">📧 auxiliar.mercadeo@avancemos.edu.co</a>
-        <p>Contacto: Liney Sthefany Callejas Velásquez </p>
-        <strong>Auxiliar de mercadeo – Grupo Educativo Avancemos</strong>
+          <p>
+            Para mayor información sobre el congreso, ponencias o talleres, por
+            favor comunicarse al correo:
+          </p>
+          <a
+            href="mailto:auxiliar.mercadeo@avancemos.edu.co"
+            className="text-blue-400 underline"
+          >
+            📧 comunicaciones@avancemos.edu.co
+          </a>
+          <p>Contacto: Mariana Marín Mejía </p>
+          <strong>Auxiliar de mercadeo – Grupo Educativo Avancemos</strong>
         </>
       </div>
-        
-        
     </section>
   );
 }
