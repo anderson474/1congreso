@@ -35,7 +35,7 @@ const scheduleItems = [
   },
   {
     time: "8:55 a.m. – 9:35 a.m.",
-    text: "Conferencia Mg. Juan Guillermo Serna Gonzales – Colombia",
+    text: "Conferencia Mg. Juan Guillermo Serna González – Colombia",
     icon: <Users size={24} />,
   },
   {
