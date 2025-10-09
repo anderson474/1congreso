@@ -120,15 +120,13 @@ const scheduleItems = [
 
 export default function Programa() {
   useEffect(() => {
-    // Oculta todo excepto la agenda al acceder con #agenda
+    // Si se accede con #agenda, oculta otras secciones
     if (window.location.hash === "#agenda") {
       const allSections = document.querySelectorAll("section");
       const agenda = document.getElementById("agenda");
-
       allSections.forEach((sec) => {
         if (sec.id !== "agenda") sec.style.display = "none";
       });
-
       if (agenda) {
         agenda.style.minHeight = "100vh";
         agenda.style.display = "block";
@@ -139,24 +137,27 @@ export default function Programa() {
   return (
     <>
       <section id="agenda" className="relative overflow-hidden py-16 sm:py-24">
-        {/* Fondo */}
+        {/* 🌄 Fondo con imagen y capa oscura */}
         <div
-          className="absolute inset-0 bg-fixed bg-center bg-cover -z-10"
-          style={{ backgroundImage: `url('/fondo.jpg')` }}
+          className="absolute inset-0 bg-cover bg-center -z-10"
+          style={{
+            backgroundImage: `url('/fondo-congreso.jpg')`,
+            backgroundAttachment: "fixed",
+          }}
         />
-        <div className="absolute inset-0 bg-slate-900/60 -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/70 to-slate-800/80 -z-10" />
 
         {/* Animación decorativa */}
-        <div className="absolute top-4 right-4 z-10 opacity-80 pointer-events-none">
+        <div className="absolute top-6 right-6 z-10 opacity-80 pointer-events-none hidden sm:block">
           <DotLottieReact
             src="/hello.lottie"
             loop
             autoplay
-            style={{ width: 120, height: 120 }}
+            style={{ width: 130, height: 130 }}
           />
         </div>
 
-        {/* Contenido principal */}
+        {/* Contenido */}
         <div className="relative z-20 px-4 max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -164,25 +165,24 @@ export default function Programa() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-12 text-center text-white drop-shadow-lg"
           >
-            Agenda
+            Agenda Académica
           </motion.h2>
 
-          {/* Línea de tiempo */}
           <div className="relative timeline-container">
             {scheduleItems.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.1 * index }}
+                transition={{ duration: 0.4, delay: 0.08 * index }}
                 className="relative mb-6 sm:mb-8 flex items-start gap-3 sm:gap-4"
               >
                 <div className="absolute left-2 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-white rounded-full z-20 border-4 border-[#305398] mt-2" />
                 <div className="flex-shrink-0 z-30 text-white bg-[#305398] p-2 sm:p-3 rounded-full">
                   {item.icon}
                 </div>
-                <div className="flex-grow ml-2 sm:ml-0 w-full sm:max-w-[calc(50%-2rem)] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
+                <div className="flex-grow ml-2 sm:ml-0 w-full sm:max-w-[calc(50%-2rem)] bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-3 sm:p-4 hover:shadow-xl transition-all duration-300">
                   <p className="text-xs sm:text-sm font-medium text-[#305398]">
                     {item.time}
                   </p>
@@ -209,7 +209,7 @@ export default function Programa() {
           top: 0;
           bottom: 0;
           width: 3px;
-          background-color: rgba(255, 255, 255, 0.4);
+          background-color: rgba(255, 255, 255, 0.3);
           border-radius: 2px;
           left: 50%;
           transform: translateX(-50%);
