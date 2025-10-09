@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion } from "framer-motion";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 import {
   Users,
   Mic,
@@ -137,25 +139,56 @@ export default function Programa() {
         }, 300);
       }
     };
-
     showAgendaOnly();
   }, []);
 
+  const particlesInit = async (engine) => {
+    await loadFull(engine);
+  };
+
   return (
     <>
-      {/* 🔹 Sección Agenda con fondo oscuro */}
       <section
         id="agenda"
         className="relative overflow-hidden py-16 sm:py-24 bg-black"
       >
-        {/* Fondo texturizado tenue */}
-        <div className="absolute inset-0 bg-[url('/fondo-lineas.svg')] bg-center bg-cover opacity-10 -z-10" />
+        {/* Fondo animado */}
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          className="absolute inset-0 -z-10"
+          options={{
+            background: { color: "#000" },
+            fpsLimit: 60,
+            particles: {
+              color: { value: "#305398" },
+              links: {
+                color: "#305398",
+                distance: 120,
+                enable: true,
+                opacity: 0.3,
+                width: 1,
+              },
+              move: { enable: true, speed: 1 },
+              number: { value: 60 },
+              opacity: { value: 0.4 },
+              size: { value: 2 },
+            },
+            interactivity: {
+              events: {
+                onHover: { enable: true, mode: "repulse" },
+                resize: true,
+              },
+              modes: {
+                repulse: { distance: 100, duration: 0.3 },
+              },
+            },
+            detectRetina: true,
+          }}
+        />
 
-        {/* Capa oscura para contraste */}
-        <div className="absolute inset-0 bg-black/85 -z-10" />
-
-        {/* Animación decorativa */}
-        <div className="absolute top-4 right-4 z-10 opacity-70 pointer-events-none">
+        {/* Lottie decorativo */}
+        <div className="absolute top-4 right-4 z-10 opacity-60 pointer-events-none">
           <DotLottieReact
             src="/hello.lottie"
             loop
@@ -164,18 +197,17 @@ export default function Programa() {
           />
         </div>
 
-        {/* Título actualizado */}
+        {/* Contenido */}
         <div className="relative z-20 px-4 max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+            className="text-5xl font-extrabold mb-12 text-center text-white"
           >
             Agenda
           </motion.h2>
 
-          {/* Línea de tiempo */}
           <div className="relative timeline-container">
             {scheduleItems.map((item, index) => (
               <motion.div
@@ -186,24 +218,19 @@ export default function Programa() {
                 transition={{ duration: 0.4, delay: 0.1 * index }}
                 className="relative mb-6 sm:mb-8 flex items-start gap-3 sm:gap-4"
               >
-                {/* Punto central */}
                 <div className="absolute left-2 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-white rounded-full z-20 border-4 border-[#305398] mt-2" />
-
-                {/* Ícono */}
                 <div className="flex-shrink-0 z-30 text-white bg-[#305398] p-2 sm:p-3 rounded-full">
                   {item.icon}
                 </div>
-
-                {/* Tarjeta */}
                 <div className="flex-grow ml-2 sm:ml-0 w-full sm:max-w-[calc(50%-2rem)] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
                   <p className="text-xs sm:text-sm font-medium text-[#305398]">
                     {item.time}
                   </p>
-                  <p className="text-sm sm:text-base font-semibold text-gray-900 mt-1 leading-normal whitespace-pre-wrap break-words">
+                  <p className="text-sm sm:text-base font-semibold text-gray-900 mt-1 leading-normal">
                     {item.title}
                   </p>
                   {item.description && (
-                    <p className="text-xs sm:text-sm text-gray-700 mt-2 whitespace-pre-wrap break-words">
+                    <p className="text-xs sm:text-sm text-gray-700 mt-2">
                       {item.description}
                     </p>
                   )}
@@ -212,7 +239,7 @@ export default function Programa() {
             ))}
           </div>
 
-          {/* QR opcional */}
+          {/* QR */}
           <div className="flex flex-col items-center justify-center mt-16">
             <div className="bg-white p-4 rounded-2xl shadow-2xl">
               <QRCodeCanvas
@@ -231,7 +258,6 @@ export default function Programa() {
         </div>
       </section>
 
-      {/* Línea vertical del timeline */}
       <style jsx global>{`
         .timeline-container::before {
           content: "";
