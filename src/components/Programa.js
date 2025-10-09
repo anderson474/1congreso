@@ -13,7 +13,6 @@ import {
   GraduationCap,
   Handshake,
 } from "lucide-react";
-import { QRCodeCanvas } from "qrcode.react";
 
 const scheduleItems = [
   {
@@ -121,29 +120,20 @@ const scheduleItems = [
 
 export default function Programa() {
   useEffect(() => {
-    const showAgendaOnly = () => {
-      if (window.location.hash === "#agenda") {
-        // Esperar un poco para que el DOM esté listo
-        setTimeout(() => {
-          const allSections = document.querySelectorAll("section");
-          const agenda = document.getElementById("agenda");
+    // Oculta todo excepto la agenda al acceder con #agenda
+    if (window.location.hash === "#agenda") {
+      const allSections = document.querySelectorAll("section");
+      const agenda = document.getElementById("agenda");
 
-          if (agenda) {
-            allSections.forEach((sec) => {
-              if (sec.id !== "agenda") sec.style.display = "none";
-            });
+      allSections.forEach((sec) => {
+        if (sec.id !== "agenda") sec.style.display = "none";
+      });
 
-            agenda.style.minHeight = "100vh";
-            agenda.scrollIntoView({ behavior: "instant" });
-          } else {
-            // Si aún no se encuentra, recargar la vista una vez
-            window.location.reload();
-          }
-        }, 300);
+      if (agenda) {
+        agenda.style.minHeight = "100vh";
+        agenda.style.display = "block";
       }
-    };
-
-    showAgendaOnly();
+    }
   }, []);
 
   return (
@@ -156,7 +146,7 @@ export default function Programa() {
         />
         <div className="absolute inset-0 bg-slate-900/60 -z-10" />
 
-        {/* Decoración animada */}
+        {/* Animación decorativa */}
         <div className="absolute top-4 right-4 z-10 opacity-80 pointer-events-none">
           <DotLottieReact
             src="/hello.lottie"
@@ -177,6 +167,7 @@ export default function Programa() {
             Agenda
           </motion.h2>
 
+          {/* Línea de tiempo */}
           <div className="relative timeline-container">
             {scheduleItems.map((item, index) => (
               <motion.div
@@ -207,29 +198,10 @@ export default function Programa() {
               </motion.div>
             ))}
           </div>
-
-          {/* QR opcional */}
-          <div className="flex flex-col items-center justify-center mt-16">
-            <h3 className="text-white text-lg font-semibold mb-3 text-center">
-              Escanea para abrir directamente esta agenda
-            </h3>
-            <div className="bg-white p-4 rounded-2xl shadow-2xl">
-              <QRCodeCanvas
-                value="https://congreso.avancemos.edu.co/#agenda"
-                size={180}
-                bgColor="#ffffff"
-                fgColor="#305398"
-                level="H"
-                includeMargin
-              />
-            </div>
-            <p className="text-slate-300 text-sm mt-3 text-center break-all">
-              https://congreso.avancemos.edu.co/#agenda
-            </p>
-          </div>
         </div>
       </section>
 
+      {/* Línea vertical */}
       <style jsx global>{`
         .timeline-container::before {
           content: "";
@@ -242,6 +214,7 @@ export default function Programa() {
           left: 50%;
           transform: translateX(-50%);
         }
+
         @media (max-width: 640px) {
           .timeline-container::before {
             left: 1.3rem;
