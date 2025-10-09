@@ -11,15 +11,19 @@ import {
   Utensils,
   DoorOpen,
   GraduationCap,
+  Hammer,
+  DoorClosed,
+  PanelBottom,
   Handshake,
 } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
 
+// 🕒 Agenda basada en el código madre original
 const scheduleItems = [
   {
     time: "7:30 a.m. – 8:00 a.m.",
-    title: "Registro de participantes",
-    description: "Entrega de materiales y acreditaciones.",
+    title: "Registro de participantes y entrega de materiales",
+    description: "",
     icon: <ClipboardList size={22} />,
   },
   {
@@ -38,17 +42,15 @@ const scheduleItems = [
   },
   {
     time: "8:55 a.m. – 9:35 a.m.",
-    title:
-      "Conferencia: Robótica educativa: iniciación a la programación con Arduino en el aula",
-    description: "Mg. Juan Guillermo Serna González – Colombia",
-    icon: <Mic size={22} />,
+    title: "Conferencia: Mg. Juan Guillermo Serna González – Colombia",
+    description: "",
+    icon: <Users size={22} />,
   },
   {
     time: "9:35 a.m. – 10:15 a.m.",
-    title:
-      "Conferencia: Tensiones y desafíos para la implementación de la educación inclusiva e intercultural para la niñez indígena en escuelas urbanas de Medellín",
-    description: "Dra. Melissa González Rubio Villa – Colombia",
-    icon: <Mic size={22} />,
+    title: "Conferencia: Dra. Melissa González Rubio Villa – Colombia",
+    description: "",
+    icon: <PanelBottom size={22} />,
   },
   {
     time: "10:15 a.m. – 10:45 a.m.",
@@ -58,17 +60,15 @@ const scheduleItems = [
   },
   {
     time: "10:45 a.m. – 11:25 a.m.",
-    title:
-      "Conferencia: Transformando las enseñanzas con IA. Experiencias didácticas en gamificación y metodologías activas.",
-    description: "Dr. Engels Owen Pozo Gutiérrez – Perú",
+    title: "Conferencia: Dr. Engels Owen Pozo Gutiérrez – Perú",
+    description: "",
     icon: <Mic size={22} />,
   },
   {
     time: "11:25 a.m. – 12:05 p.m.",
-    title:
-      "Conferencia: La inclusión educativa: más allá de las adaptaciones y los ajustes razonables",
-    description: "Dra. Carolina Cárdenas Roa – Colombia",
-    icon: <Mic size={22} />,
+    title: "Conferencia: Dra. Carolina Cárdenas Roa – Colombia",
+    description: "",
+    icon: <Users size={22} />,
   },
   {
     time: "12:05 p.m. – 1:30 p.m.",
@@ -78,17 +78,15 @@ const scheduleItems = [
   },
   {
     time: "1:30 p.m. – 2:10 p.m.",
-    title:
-      "Conferencia: Retos en la educación superior e inclusión, diversidad, calidad y flexibilidad",
-    description: "Dr. José Alberto Rúa Vásquez – Colombia",
+    title: "Conferencia: Dr. José Alberto Rúa Vásquez – Colombia",
+    description: "",
     icon: <Mic size={22} />,
   },
   {
     time: "2:10 p.m. – 2:50 p.m.",
-    title:
-      "Conferencia: Desarrollo de competencias en estudiantes neurodivergentes. La ruta hacia la inclusión",
-    description: "Dr. Jaime Alfredo Mariano Torres – México",
-    icon: <Mic size={22} />,
+    title: "Conferencia: Dr. Jaime Alfredo Mariano Torres – México",
+    description: "",
+    icon: <Users size={22} />,
   },
   {
     time: "2:50 p.m. – 3:05 p.m.",
@@ -98,66 +96,56 @@ const scheduleItems = [
   },
   {
     time: "3:05 p.m. – 3:45 p.m.",
-    title:
-      "Conferencia: El poder de la diversidad en el aula desde las habilidades blandas como ventaja competitiva del docente frente a las inteligencias artificiales.",
-    description: "Dra. Conie Sauma Brito – Bolivia",
+    title: "Conferencia: Dra. Conie Sauma Brito – Bolivia",
+    description:
+      "El poder de la diversidad en el aula desde las habilidades blandas como ventaja competitiva del docente frente a las inteligencias artificiales.",
     icon: <Mic size={22} />,
   },
   {
     time: "3:45 p.m. – 4:30 p.m.",
-    title:
-      "Panel de expertos: Neuroeducación en el aula, una estrategia de integración",
+    title: "Panel de expertos",
     description:
       "Mg. Mónica Maritza Orozco Holguín y Dra. (C) María Eugenia Patiño Atehortúa",
     icon: <Handshake size={22} />,
   },
   {
     time: "4:30 p.m. – 5:00 p.m.",
-    title: "Clausura oficial",
-    description: "Entrega de certificados y cierre del evento.",
+    title: "Clausura oficial y entrega de certificados",
+    description: "",
     icon: <GraduationCap size={22} />,
   },
 ];
 
 export default function Programa() {
   useEffect(() => {
-    const showAgendaOnly = () => {
-      if (window.location.hash === "#agenda") {
-        // Esperar un poco para que el DOM esté listo
-        setTimeout(() => {
-          const allSections = document.querySelectorAll("section");
-          const agenda = document.getElementById("agenda");
-
-          if (agenda) {
-            allSections.forEach((sec) => {
-              if (sec.id !== "agenda") sec.style.display = "none";
-            });
-
-            agenda.style.minHeight = "100vh";
-            agenda.scrollIntoView({ behavior: "instant" });
-          } else {
-            // Si aún no se encuentra, recargar la vista una vez
-            window.location.reload();
-          }
-        }, 300);
-      }
-    };
-
-    showAgendaOnly();
+    // ✅ Muestra solo la agenda si se accede con #agenda
+    if (window.location.hash === "#agenda") {
+      const hideSections = () => {
+        const allSections = document.querySelectorAll("section");
+        const agenda = document.getElementById("agenda");
+        if (!agenda) return;
+        allSections.forEach((sec) => {
+          if (sec.id !== "agenda") sec.style.display = "none";
+        });
+        agenda.style.minHeight = "100vh";
+        agenda.scrollIntoView({ behavior: "instant" });
+      };
+      setTimeout(hideSections, 300);
+    }
   }, []);
 
   return (
     <>
       <section id="agenda" className="relative overflow-hidden py-16 sm:py-24">
-        {/* Fondo */}
+        {/* 🌄 Fondo */}
         <div
-          className="absolute inset-0 bg-fixed bg-center bg-cover -z-10"
-          style={{ backgroundImage: `url('/fondo.jpg')` }}
+          className="absolute inset-0 bg-cover bg-center -z-10"
+          style={{ backgroundImage: "url('/fondo.jpg')" }}
         />
-        <div className="absolute inset-0 bg-slate-900/60 -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/70 to-slate-800/90 -z-10" />
 
-        {/* Decoración animada */}
-        <div className="absolute top-4 right-4 z-10 opacity-80 pointer-events-none">
+        {/* ✨ Lottie decorativo */}
+        <div className="absolute top-6 right-6 z-10 opacity-80 pointer-events-none hidden sm:block">
           <DotLottieReact
             src="/hello.lottie"
             loop
@@ -166,7 +154,7 @@ export default function Programa() {
           />
         </div>
 
-        {/* Contenido principal */}
+        {/* 🕓 Contenido */}
         <div className="relative z-20 px-4 max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -174,17 +162,18 @@ export default function Programa() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-12 text-center text-white drop-shadow-lg"
           >
-            Agenda
+            Agenda Académica
           </motion.h2>
 
+          {/* Timeline */}
           <div className="relative timeline-container">
-            {scheduleItems.map((item, index) => (
+            {scheduleItems.map((item, i) => (
               <motion.div
-                key={index}
+                key={i}
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.1 * index }}
+                transition={{ duration: 0.4, delay: 0.05 * i }}
                 className="relative mb-6 sm:mb-8 flex items-start gap-3 sm:gap-4"
               >
                 <div className="absolute left-2 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-white rounded-full z-20 border-4 border-[#305398] mt-2" />
@@ -208,7 +197,7 @@ export default function Programa() {
             ))}
           </div>
 
-          {/* QR opcional */}
+          {/* 🔗 QR */}
           <div className="flex flex-col items-center justify-center mt-16">
             <h3 className="text-white text-lg font-semibold mb-3 text-center">
               Escanea para abrir directamente esta agenda
@@ -230,6 +219,7 @@ export default function Programa() {
         </div>
       </section>
 
+      {/* 🧭 Línea central */}
       <style jsx global>{`
         .timeline-container::before {
           content: "";
@@ -237,7 +227,7 @@ export default function Programa() {
           top: 0;
           bottom: 0;
           width: 3px;
-          background-color: rgba(255, 255, 255, 0.4);
+          background-color: rgba(255, 255, 255, 0.3);
           border-radius: 2px;
           left: 50%;
           transform: translateX(-50%);
