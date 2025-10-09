@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion } from "framer-motion";
 import {
@@ -13,9 +14,7 @@ import {
   Handshake,
 } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
-import { useEffect } from "react";
 
-// 🕒 Agenda completa y organizada
 const scheduleItems = [
   {
     time: "7:30 a.m. – 8:00 a.m.",
@@ -121,34 +120,44 @@ const scheduleItems = [
 ];
 
 export default function Programa() {
-  // 🧭 Mostrar solo la agenda si el enlace incluye #agenda
   useEffect(() => {
-    if (window.location.hash === "#agenda") {
-      const allSections = document.querySelectorAll("section");
-      allSections.forEach((sec) => {
-        if (sec.id !== "agenda") sec.style.display = "none";
-      });
-      const agenda = document.getElementById("agenda");
-      if (agenda) {
-        agenda.style.minHeight = "100vh";
-        agenda.scrollIntoView({ behavior: "instant" });
+    const showAgendaOnly = () => {
+      if (window.location.hash === "#agenda") {
+        // Esperar un poco para que el DOM esté listo
+        setTimeout(() => {
+          const allSections = document.querySelectorAll("section");
+          const agenda = document.getElementById("agenda");
+
+          if (agenda) {
+            allSections.forEach((sec) => {
+              if (sec.id !== "agenda") sec.style.display = "none";
+            });
+
+            agenda.style.minHeight = "100vh";
+            agenda.scrollIntoView({ behavior: "instant" });
+          } else {
+            // Si aún no se encuentra, recargar la vista una vez
+            window.location.reload();
+          }
+        }, 300);
       }
-    }
+    };
+
+    showAgendaOnly();
   }, []);
 
   return (
     <>
-      {/* 🔖 Sección de la Agenda */}
       <section id="agenda" className="relative overflow-hidden py-16 sm:py-24">
         {/* Fondo */}
         <div
-          className="absolute inset-0 bg-fixed bg-center bg-cover z-0"
+          className="absolute inset-0 bg-fixed bg-center bg-cover -z-10"
           style={{ backgroundImage: `url('/fondo.jpg')` }}
         />
-        <div className="absolute inset-0 bg-slate-900/60 z-0 backdrop-brightness-50" />
+        <div className="absolute inset-0 bg-slate-900/60 -z-10" />
 
-        {/* Animación decorativa */}
-        <div className="absolute top-4 right-4 z-20 pointer-events-none opacity-80">
+        {/* Decoración animada */}
+        <div className="absolute top-4 right-4 z-10 opacity-80 pointer-events-none">
           <DotLottieReact
             src="/hello.lottie"
             loop
@@ -158,18 +167,16 @@ export default function Programa() {
         </div>
 
         {/* Contenido principal */}
-        <div className="relative z-10 px-4 max-w-4xl mx-auto">
+        <div className="relative z-20 px-4 max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-12 text-center text-white drop-shadow-lg"
           >
             Agenda
           </motion.h2>
 
-          {/* Línea de tiempo */}
           <div className="relative timeline-container">
             {scheduleItems.map((item, index) => (
               <motion.div
@@ -180,24 +187,19 @@ export default function Programa() {
                 transition={{ duration: 0.4, delay: 0.1 * index }}
                 className="relative mb-6 sm:mb-8 flex items-start gap-3 sm:gap-4"
               >
-                {/* Punto */}
                 <div className="absolute left-2 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-white rounded-full z-20 border-4 border-[#305398] mt-2" />
-
-                {/* Ícono */}
-                <div className="flex-shrink-0 z-30 text-white bg-[#305398] p-2 sm:p-3 rounded-full relative ml-[0.3rem] sm:ml-0">
+                <div className="flex-shrink-0 z-30 text-white bg-[#305398] p-2 sm:p-3 rounded-full">
                   {item.icon}
                 </div>
-
-                {/* Tarjeta */}
                 <div className="flex-grow ml-2 sm:ml-0 w-full sm:max-w-[calc(50%-2rem)] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
                   <p className="text-xs sm:text-sm font-medium text-[#305398]">
                     {item.time}
                   </p>
-                  <p className="text-sm sm:text-base font-semibold text-gray-900 leading-normal mt-1 whitespace-pre-wrap break-words">
+                  <p className="text-sm sm:text-base font-semibold text-gray-900 mt-1 leading-normal">
                     {item.title}
                   </p>
                   {item.description && (
-                    <p className="text-xs sm:text-sm text-gray-700 mt-2 whitespace-pre-wrap break-words">
+                    <p className="text-xs sm:text-sm text-gray-700 mt-2">
                       {item.description}
                     </p>
                   )}
@@ -206,19 +208,12 @@ export default function Programa() {
             ))}
           </div>
 
-          {/* Sección QR opcional */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center mt-16"
-          >
+          {/* QR opcional */}
+          <div className="flex flex-col items-center justify-center mt-16">
             <h3 className="text-white text-lg font-semibold mb-3 text-center">
               Escanea para abrir directamente esta agenda
             </h3>
-
-            <div className="bg-white p-4 rounded-2xl shadow-2xl flex items-center justify-center">
+            <div className="bg-white p-4 rounded-2xl shadow-2xl">
               <QRCodeCanvas
                 value="https://congreso.avancemos.edu.co/#agenda"
                 size={180}
@@ -228,15 +223,13 @@ export default function Programa() {
                 includeMargin
               />
             </div>
-
             <p className="text-slate-300 text-sm mt-3 text-center break-all">
               https://congreso.avancemos.edu.co/#agenda
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Línea vertical de la timeline */}
       <style jsx global>{`
         .timeline-container::before {
           content: "";
@@ -249,12 +242,10 @@ export default function Programa() {
           left: 50%;
           transform: translateX(-50%);
         }
-
         @media (max-width: 640px) {
           .timeline-container::before {
             left: 1.3rem;
             width: 2px;
-            background-color: rgba(255, 255, 255, 0.5);
           }
         }
       `}</style>
