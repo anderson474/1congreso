@@ -10,10 +10,9 @@ import {
   Utensils,
   DoorOpen,
   GraduationCap,
-  Sparkles,
-  PanelBottom,
   Handshake,
 } from "lucide-react";
+import { QRCodeCanvas } from "qrcode.react";
 
 const scheduleItems = [
   {
@@ -31,19 +30,22 @@ const scheduleItems = [
   },
   {
     time: "8:15 a.m. – 8:55 a.m.",
-    title: "Conferencia de apertura",
+    title:
+      "Conferencia de apertura: El papel de la autorregulación del aprendizaje en la innovación educativa.",
     description: "Dr. Francisco Conejo Carrasco – España",
     icon: <Mic size={22} />,
   },
   {
     time: "8:55 a.m. – 9:35 a.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia:Robótica educativa: iniciación a la programación con Arduino en el aula",
     description: "Mg. Juan Guillermo Serna González – Colombia",
     icon: <Mic size={22} />,
   },
   {
     time: "9:35 a.m. – 10:15 a.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia:Tensiones y desafíos para la implementación de la educación inclusiva e intercultural para la niñez indígena en escuelas urbanas de Medellín",
     description: "Dra. Melissa González Rubio Villa – Colombia",
     icon: <Mic size={22} />,
   },
@@ -55,13 +57,15 @@ const scheduleItems = [
   },
   {
     time: "10:45 a.m. – 11:25 a.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia:Transformando las enseñanzas con IA. Experiencias didácticas en gamificación y metodologías activas.",
     description: "Dr. Engels Owen Pozo Gutiérrez – Perú",
     icon: <Mic size={22} />,
   },
   {
     time: "11:25 a.m. – 12:05 p.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia:La inclusión educativa: más allá de las adaptaciones y los ajustes razonables",
     description: "Dra. Carolina Cárdenas Roa – Colombia",
     icon: <Mic size={22} />,
   },
@@ -73,13 +77,15 @@ const scheduleItems = [
   },
   {
     time: "1:30 p.m. – 2:10 p.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia:Retos en la educación superior e inclusión, diversidad, calidad y flexibilidad",
     description: "Dr. José Alberto Rúa Vásquez – Colombia",
     icon: <Mic size={22} />,
   },
   {
     time: "2:10 p.m. – 2:50 p.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia:Desarrollo de competencias en estudiantes neurodivergentes.  La ruta hacia la inclusión",
     description: "Dr. Jaime Alfredo Mariano Torres – México",
     icon: <Mic size={22} />,
   },
@@ -91,13 +97,15 @@ const scheduleItems = [
   },
   {
     time: "3:05 p.m. – 3:45 p.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia:El poder de la diversidad en el aula desde las habilidades blandas como ventaja competitiva del docente frente a las inteligencias artificiales.",
     description: "Dra. Conie Sauma Brito – Bolivia",
     icon: <Mic size={22} />,
   },
   {
     time: "3:45 p.m. – 4:30 p.m.",
-    title: "Panel de expertos",
+    title:
+      "Panel de expertos:Neuroeducación en el aula, una estrategia de integración",
     description:
       "Mg. Mónica Maritza Orozco Holguín y Dra. (C) María Eugenia Patiño Atehortúa",
     icon: <Handshake size={22} />,
@@ -113,7 +121,8 @@ const scheduleItems = [
 export default function Programa() {
   return (
     <>
-      <section className="relative overflow-hidden py-16 sm:py-24">
+      {/* 🔖 Ancla para acceso directo con #agenda */}
+      <section id="agenda" className="relative overflow-hidden py-16 sm:py-24">
         {/* Fondo */}
         <div
           className="absolute inset-0 bg-fixed bg-center bg-cover z-0"
@@ -179,6 +188,32 @@ export default function Programa() {
               </motion.div>
             ))}
           </div>
+
+          {/* QR integrado */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center justify-center mt-16"
+          >
+            <h3 className="text-white text-lg font-semibold mb-3">
+              Escanea para abrir directamente esta agenda
+            </h3>
+            <div className="bg-white p-3 rounded-xl shadow-lg">
+              <QRCodeCanvas
+                value="https://congreso.avancemos.edu.co/#agenda"
+                size={160}
+                bgColor="#ffffff"
+                fgColor="#305398"
+                level="H"
+                includeMargin
+              />
+            </div>
+            <p className="text-slate-300 text-sm mt-3">
+              https://congreso.avancemos.edu.co/#agenda
+            </p>
+          </motion.div>
         </div>
       </section>
 
