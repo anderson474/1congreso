@@ -13,6 +13,7 @@ import {
   Handshake,
 } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
+import { useEffect } from "react";
 
 const scheduleItems = [
   {
@@ -30,19 +31,22 @@ const scheduleItems = [
   },
   {
     time: "8:15 a.m. – 8:55 a.m.",
-    title: "Conferencia de apertura",
+    title:
+      "Conferencia de apertura: El papel de la autorregulación del aprendizaje en la innovación educativa.",
     description: "Dr. Francisco Conejo Carrasco – España",
     icon: <Mic size={22} />,
   },
   {
     time: "8:55 a.m. – 9:35 a.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia: Robótica educativa: iniciación a la programación con Arduino en el aula",
     description: "Mg. Juan Guillermo Serna González – Colombia",
     icon: <Mic size={22} />,
   },
   {
     time: "9:35 a.m. – 10:15 a.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia: Tensiones y desafíos para la implementación de la educación inclusiva e intercultural para la niñez indígena en escuelas urbanas de Medellín",
     description: "Dra. Melissa González Rubio Villa – Colombia",
     icon: <Mic size={22} />,
   },
@@ -54,13 +58,15 @@ const scheduleItems = [
   },
   {
     time: "10:45 a.m. – 11:25 a.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia: Transformando las enseñanzas con IA. Experiencias didácticas en gamificación y metodologías activas.",
     description: "Dr. Engels Owen Pozo Gutiérrez – Perú",
     icon: <Mic size={22} />,
   },
   {
     time: "11:25 a.m. – 12:05 p.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia: La inclusión educativa: más allá de las adaptaciones y los ajustes razonables",
     description: "Dra. Carolina Cárdenas Roa – Colombia",
     icon: <Mic size={22} />,
   },
@@ -72,13 +78,15 @@ const scheduleItems = [
   },
   {
     time: "1:30 p.m. – 2:10 p.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia: Retos en la educación superior e inclusión, diversidad, calidad y flexibilidad",
     description: "Dr. José Alberto Rúa Vásquez – Colombia",
     icon: <Mic size={22} />,
   },
   {
     time: "2:10 p.m. – 2:50 p.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia: Desarrollo de competencias en estudiantes neurodivergentes. La ruta hacia la inclusión",
     description: "Dr. Jaime Alfredo Mariano Torres – México",
     icon: <Mic size={22} />,
   },
@@ -90,13 +98,15 @@ const scheduleItems = [
   },
   {
     time: "3:05 p.m. – 3:45 p.m.",
-    title: "Conferencia",
+    title:
+      "Conferencia: El poder de la diversidad en el aula desde las habilidades blandas como ventaja competitiva del docente frente a las inteligencias artificiales.",
     description: "Dra. Conie Sauma Brito – Bolivia",
     icon: <Mic size={22} />,
   },
   {
     time: "3:45 p.m. – 4:30 p.m.",
-    title: "Panel de expertos",
+    title:
+      "Panel de expertos: Neuroeducación en el aula, una estrategia de integración",
     description:
       "Mg. Mónica Maritza Orozco Holguín y Dra. (C) María Eugenia Patiño Atehortúa",
     icon: <Handshake size={22} />,
@@ -110,9 +120,26 @@ const scheduleItems = [
 ];
 
 export default function Programa() {
+  // ✅ Detectar si se abre directamente con #agenda y ocultar otras secciones
+  useEffect(() => {
+    if (window.location.hash === "#agenda") {
+      const allSections = document.querySelectorAll("section");
+      allSections.forEach((sec) => {
+        if (sec.id !== "agenda") {
+          sec.style.display = "none";
+        }
+      });
+      const agenda = document.getElementById("agenda");
+      if (agenda) {
+        agenda.style.minHeight = "100vh";
+        agenda.scrollIntoView({ behavior: "instant" });
+      }
+    }
+  }, []);
+
   return (
     <>
-      {/* 🔖 Ancla para acceso directo con #agenda */}
+      {/* 🔖 Sección Agenda */}
       <section id="agenda" className="relative overflow-hidden py-16 sm:py-24">
         {/* Fondo */}
         <div
@@ -163,15 +190,15 @@ export default function Programa() {
                 </div>
 
                 {/* Tarjeta */}
-                <div className="flex-grow ml-2 sm:ml-0 w-full sm:w-[calc(50%-2rem)] bg-white/80 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
+                <div className="flex-grow ml-2 sm:ml-0 w-full sm:max-w-[calc(50%-2rem)] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
                   <p className="text-xs sm:text-sm font-medium text-[#305398]">
                     {item.time}
                   </p>
-                  <p className="text-sm sm:text-base font-semibold text-gray-800 leading-tight mt-1">
+                  <p className="text-sm sm:text-base font-semibold text-gray-900 leading-normal mt-1 whitespace-pre-wrap break-words">
                     {item.title}
                   </p>
                   {item.description && (
-                    <p className="text-xs sm:text-sm text-gray-600 mt-1">
+                    <p className="text-xs sm:text-sm text-gray-700 mt-2 whitespace-pre-wrap break-words">
                       {item.description}
                     </p>
                   )}
@@ -188,20 +215,22 @@ export default function Programa() {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center justify-center mt-16"
           >
-            <h3 className="text-white text-lg font-semibold mb-3">
+            <h3 className="text-white text-lg font-semibold mb-3 text-center">
               Escanea para abrir directamente esta agenda
             </h3>
-            <div className="bg-white p-3 rounded-xl shadow-lg">
+
+            <div className="bg-white p-4 rounded-2xl shadow-2xl flex items-center justify-center">
               <QRCodeCanvas
                 value="https://congreso.avancemos.edu.co/#agenda"
-                size={160}
+                size={180}
                 bgColor="#ffffff"
                 fgColor="#305398"
                 level="H"
                 includeMargin
               />
             </div>
-            <p className="text-slate-300 text-sm mt-3">
+
+            <p className="text-slate-300 text-sm mt-3 text-center break-all">
               https://congreso.avancemos.edu.co/#agenda
             </p>
           </motion.div>
