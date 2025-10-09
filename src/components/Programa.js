@@ -6,9 +6,13 @@ import {
   Users,
   Mic,
   ClipboardList,
-  Hammer,
+  Coffee,
+  Utensils,
+  DoorOpen,
+  GraduationCap,
+  Sparkles,
   PanelBottom,
-  DoorClosed,
+  Handshake,
 } from "lucide-react";
 
 const scheduleItems = [
@@ -23,7 +27,7 @@ const scheduleItems = [
     title: "Acto de apertura institucional",
     description:
       "Palabras de bienvenida – Grupo Educativo Avancemos y Universidad de Medellín. Presentación artística.",
-    icon: <DoorClosed size={22} />,
+    icon: <DoorOpen size={22} />,
   },
   {
     time: "8:15 a.m. – 8:55 a.m.",
@@ -35,74 +39,74 @@ const scheduleItems = [
     time: "8:55 a.m. – 9:35 a.m.",
     title: "Conferencia",
     description: "Mg. Juan Guillermo Serna González – Colombia",
-    icon: <Users size={22} />,
+    icon: <Mic size={22} />,
   },
   {
     time: "9:35 a.m. – 10:15 a.m.",
     title: "Conferencia",
     description: "Dra. Melissa González Rubio Villa – Colombia",
-    icon: <PanelBottom size={22} />,
+    icon: <Mic size={22} />,
   },
   {
     time: "10:15 a.m. – 10:45 a.m.",
     title: "Refrigerio – Pausa activa",
     description: "",
-    icon: <Hammer size={22} />,
+    icon: <Coffee size={22} />,
   },
   {
     time: "10:45 a.m. – 11:25 a.m.",
     title: "Conferencia",
     description: "Dr. Engels Owen Pozo Gutiérrez – Perú",
-    icon: <DoorClosed size={22} />,
+    icon: <Mic size={22} />,
   },
   {
     time: "11:25 a.m. – 12:05 p.m.",
     title: "Conferencia",
     description: "Dra. Carolina Cárdenas Roa – Colombia",
-    icon: <Users size={22} />,
+    icon: <Mic size={22} />,
   },
   {
     time: "12:05 p.m. – 1:30 p.m.",
     title: "Receso – Almuerzo libre",
     description: "",
-    icon: <DoorClosed size={22} />,
+    icon: <Utensils size={22} />,
   },
   {
     time: "1:30 p.m. – 2:10 p.m.",
     title: "Conferencia",
     description: "Dr. José Alberto Rúa Vásquez – Colombia",
-    icon: <DoorClosed size={22} />,
+    icon: <Mic size={22} />,
   },
   {
     time: "2:10 p.m. – 2:50 p.m.",
     title: "Conferencia",
     description: "Dr. Jaime Alfredo Mariano Torres – México",
-    icon: <Users size={22} />,
+    icon: <Mic size={22} />,
   },
   {
     time: "2:50 p.m. – 3:05 p.m.",
     title: "Coffee break – Receso corto",
     description: "",
-    icon: <DoorClosed size={22} />,
+    icon: <Coffee size={22} />,
   },
   {
     time: "3:05 p.m. – 3:45 p.m.",
     title: "Conferencia",
     description: "Dra. Conie Sauma Brito – Bolivia",
-    icon: <DoorClosed size={22} />,
+    icon: <Mic size={22} />,
   },
   {
     time: "3:45 p.m. – 4:30 p.m.",
     title: "Panel de expertos",
     description:
       "Mg. Mónica Maritza Orozco Holguín y Dra. (C) María Eugenia Patiño Atehortúa",
-    icon: <DoorClosed size={22} />,
+    icon: <Handshake size={22} />,
   },
   {
     time: "4:30 p.m. – 5:00 p.m.",
     title: "Clausura oficial",
-    description: "Entrega de certificados.",
-    icon: <DoorClosed size={22} />,
+    description: "Entrega de certificados y cierre del evento.",
+    icon: <GraduationCap size={22} />,
   },
 ];
 
@@ -110,16 +114,14 @@ export default function Programa() {
   return (
     <>
       <section className="relative overflow-hidden py-16 sm:py-24">
-        {/* Imagen de fondo */}
+        {/* Fondo */}
         <div
           className="absolute inset-0 bg-fixed bg-center bg-cover z-0"
           style={{ backgroundImage: `url('/fondo.jpg')` }}
         />
-
-        {/* Capa oscura */}
         <div className="absolute inset-0 bg-slate-900/50 z-0 backdrop-brightness-50" />
 
-        {/* Lottie decorativo */}
+        {/* Animación decorativa */}
         <div className="absolute top-4 right-4 z-20 pointer-events-none opacity-80">
           <DotLottieReact
             src="/hello.lottie"
@@ -152,7 +154,7 @@ export default function Programa() {
                 transition={{ duration: 0.4, delay: 0.1 * index }}
                 className="relative mb-6 sm:mb-8 flex items-start gap-3 sm:gap-4"
               >
-                {/* Punto en la línea */}
+                {/* Punto */}
                 <div className="absolute left-2 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-white rounded-full z-20 border-4 border-[#305398] mt-2" />
 
                 {/* Ícono */}
@@ -180,7 +182,7 @@ export default function Programa() {
         </div>
       </section>
 
-      {/* Estilos de la línea */}
+      {/* Línea vertical */}
       <style jsx global>{`
         .timeline-container::before {
           content: "";
