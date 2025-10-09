@@ -30,22 +30,19 @@ const scheduleItems = [
   },
   {
     time: "8:15 a.m. – 8:55 a.m.",
-    title:
-      "Conferencia de apertura: El papel de la autorregulación del aprendizaje en la innovación educativa.",
+    title: "Conferencia de apertura",
     description: "Dr. Francisco Conejo Carrasco – España",
     icon: <Mic size={22} />,
   },
   {
     time: "8:55 a.m. – 9:35 a.m.",
-    title:
-      "Conferencia: Robótica educativa: iniciación a la programación con Arduino en el aula.",
+    title: "Conferencia",
     description: "Mg. Juan Guillermo Serna González – Colombia",
     icon: <Mic size={22} />,
   },
   {
     time: "9:35 a.m. – 10:15 a.m.",
-    title:
-      "Conferencia: Tensiones y desafíos para la implementación de la educación inclusiva e intercultural para la niñez indígena en escuelas urbanas de Medellín.",
+    title: "Conferencia",
     description: "Dra. Melissa González Rubio Villa – Colombia",
     icon: <Mic size={22} />,
   },
@@ -57,15 +54,13 @@ const scheduleItems = [
   },
   {
     time: "10:45 a.m. – 11:25 a.m.",
-    title:
-      "Conferencia: Transformando las enseñanzas con IA. Experiencias didácticas en gamificación y metodologías activas.",
+    title: "Conferencia",
     description: "Dr. Engels Owen Pozo Gutiérrez – Perú",
     icon: <Mic size={22} />,
   },
   {
     time: "11:25 a.m. – 12:05 p.m.",
-    title:
-      "Conferencia: La inclusión educativa: más allá de las adaptaciones y los ajustes razonables.",
+    title: "Conferencia",
     description: "Dra. Carolina Cárdenas Roa – Colombia",
     icon: <Mic size={22} />,
   },
@@ -77,15 +72,13 @@ const scheduleItems = [
   },
   {
     time: "1:30 p.m. – 2:10 p.m.",
-    title:
-      "Conferencia: Retos en la educación superior e inclusión, diversidad, calidad y flexibilidad.",
+    title: "Conferencia",
     description: "Dr. José Alberto Rúa Vásquez – Colombia",
     icon: <Mic size={22} />,
   },
   {
     time: "2:10 p.m. – 2:50 p.m.",
-    title:
-      "Conferencia: Desarrollo de competencias en estudiantes neurodivergentes. La ruta hacia la inclusión.",
+    title: "Conferencia",
     description: "Dr. Jaime Alfredo Mariano Torres – México",
     icon: <Mic size={22} />,
   },
@@ -97,15 +90,13 @@ const scheduleItems = [
   },
   {
     time: "3:05 p.m. – 3:45 p.m.",
-    title:
-      "Conferencia: El poder de la diversidad en el aula desde las habilidades blandas como ventaja competitiva del docente frente a las inteligencias artificiales.",
+    title: "Conferencia",
     description: "Dra. Conie Sauma Brito – Bolivia",
     icon: <Mic size={22} />,
   },
   {
     time: "3:45 p.m. – 4:30 p.m.",
-    title:
-      "Panel de expertos: Neuroeducación en el aula, una estrategia de integración.",
+    title: "Panel de expertos",
     description:
       "Mg. Mónica Maritza Orozco Holguín y Dra. (C) María Eugenia Patiño Atehortúa",
     icon: <Handshake size={22} />,
@@ -121,7 +112,7 @@ const scheduleItems = [
 export default function Programa() {
   return (
     <>
-      {/* 🔖 Sección con ancla para #agenda */}
+      {/* 🔖 Ancla para acceso directo con #agenda */}
       <section id="agenda" className="relative overflow-hidden py-16 sm:py-24">
         {/* Fondo */}
         <div
@@ -172,15 +163,15 @@ export default function Programa() {
                 </div>
 
                 {/* Tarjeta */}
-                <div className="flex-grow ml-2 sm:ml-0 w-full sm:max-w-[calc(50%-2rem)] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
+                <div className="flex-grow ml-2 sm:ml-0 w-full sm:w-[calc(50%-2rem)] bg-white/80 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
                   <p className="text-xs sm:text-sm font-medium text-[#305398]">
                     {item.time}
                   </p>
-                  <p className="text-[0.9rem] sm:text-base font-semibold text-gray-900 leading-normal mt-1 whitespace-pre-wrap break-words text-balance hyphens-auto">
+                  <p className="text-sm sm:text-base font-semibold text-gray-800 leading-tight mt-1">
                     {item.title}
                   </p>
                   {item.description && (
-                    <p className="text-xs sm:text-sm text-gray-800 mt-2 whitespace-pre-wrap break-words">
+                    <p className="text-xs sm:text-sm text-gray-600 mt-1">
                       {item.description}
                     </p>
                   )}
@@ -197,7 +188,7 @@ export default function Programa() {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center justify-center mt-16"
           >
-            <h3 className="text-white text-lg font-semibold mb-3 text-center">
+            <h3 className="text-white text-lg font-semibold mb-3">
               Escanea para abrir directamente esta agenda
             </h3>
             <div className="bg-white p-3 rounded-xl shadow-lg">
@@ -210,14 +201,14 @@ export default function Programa() {
                 includeMargin
               />
             </div>
-            <p className="text-slate-300 text-sm mt-3 text-center">
+            <p className="text-slate-300 text-sm mt-3">
               https://congreso.avancemos.edu.co/#agenda
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Línea vertical + ajustes responsivos */}
+      {/* Línea vertical */}
       <style jsx global>{`
         .timeline-container::before {
           content: "";
@@ -236,10 +227,6 @@ export default function Programa() {
             left: 1.3rem;
             width: 2px;
             background-color: rgba(255, 255, 255, 0.5);
-          }
-          p {
-            word-wrap: break-word;
-            hyphens: auto;
           }
         }
       `}</style>
