@@ -38,14 +38,14 @@ const scheduleItems = [
   {
     time: "8:55 a.m. – 9:35 a.m.",
     title:
-      "Conferencia: Robótica educativa: iniciación a la programación con Arduino en el aula",
+      "Conferencia: Robótica educativa: iniciación a la programación con Arduino en el aula.",
     description: "Mg. Juan Guillermo Serna González – Colombia",
     icon: <Mic size={22} />,
   },
   {
     time: "9:35 a.m. – 10:15 a.m.",
     title:
-      "Conferencia: Tensiones y desafíos para la implementación de la educación inclusiva e intercultural para la niñez indígena en escuelas urbanas de Medellín",
+      "Conferencia: Tensiones y desafíos para la implementación de la educación inclusiva e intercultural para la niñez indígena en escuelas urbanas de Medellín.",
     description: "Dra. Melissa González Rubio Villa – Colombia",
     icon: <Mic size={22} />,
   },
@@ -65,7 +65,7 @@ const scheduleItems = [
   {
     time: "11:25 a.m. – 12:05 p.m.",
     title:
-      "Conferencia: La inclusión educativa: más allá de las adaptaciones y los ajustes razonables",
+      "Conferencia: La inclusión educativa: más allá de las adaptaciones y los ajustes razonables.",
     description: "Dra. Carolina Cárdenas Roa – Colombia",
     icon: <Mic size={22} />,
   },
@@ -78,14 +78,14 @@ const scheduleItems = [
   {
     time: "1:30 p.m. – 2:10 p.m.",
     title:
-      "Conferencia: Retos en la educación superior e inclusión, diversidad, calidad y flexibilidad",
+      "Conferencia: Retos en la educación superior e inclusión, diversidad, calidad y flexibilidad.",
     description: "Dr. José Alberto Rúa Vásquez – Colombia",
     icon: <Mic size={22} />,
   },
   {
     time: "2:10 p.m. – 2:50 p.m.",
     title:
-      "Conferencia: Desarrollo de competencias en estudiantes neurodivergentes. La ruta hacia la inclusión",
+      "Conferencia: Desarrollo de competencias en estudiantes neurodivergentes. La ruta hacia la inclusión.",
     description: "Dr. Jaime Alfredo Mariano Torres – México",
     icon: <Mic size={22} />,
   },
@@ -105,7 +105,7 @@ const scheduleItems = [
   {
     time: "3:45 p.m. – 4:30 p.m.",
     title:
-      "Panel de expertos: Neuroeducación en el aula, una estrategia de integración",
+      "Panel de expertos: Neuroeducación en el aula, una estrategia de integración.",
     description:
       "Mg. Mónica Maritza Orozco Holguín y Dra. (C) María Eugenia Patiño Atehortúa",
     icon: <Handshake size={22} />,
@@ -121,7 +121,8 @@ const scheduleItems = [
 export default function Programa() {
   return (
     <>
-      <section id="agenda" className="relative overflow-hidden py-14 sm:py-24">
+      {/* 🔖 Sección con ancla para #agenda */}
+      <section id="agenda" className="relative overflow-hidden py-16 sm:py-24">
         {/* Fondo */}
         <div
           className="absolute inset-0 bg-fixed bg-center bg-cover z-0"
@@ -130,7 +131,7 @@ export default function Programa() {
         <div className="absolute inset-0 bg-slate-900/50 z-0 backdrop-brightness-50" />
 
         {/* Animación decorativa */}
-        <div className="absolute top-4 right-4 z-20 pointer-events-none opacity-80 hidden sm:block">
+        <div className="absolute top-4 right-4 z-20 pointer-events-none opacity-80">
           <DotLottieReact
             src="/hello.lottie"
             loop
@@ -146,7 +147,7 @@ export default function Programa() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-5xl font-bold mb-10 sm:mb-12 text-center text-white drop-shadow-lg"
+            className="text-4xl md:text-5xl font-bold mb-12 text-center text-white drop-shadow-lg"
           >
             Agenda
           </motion.h2>
@@ -159,8 +160,8 @@ export default function Programa() {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: 0.05 * index }}
-                className="relative mb-5 sm:mb-8 flex items-start gap-3 sm:gap-4"
+                transition={{ duration: 0.4, delay: 0.1 * index }}
+                className="relative mb-6 sm:mb-8 flex items-start gap-3 sm:gap-4"
               >
                 {/* Punto */}
                 <div className="absolute left-2 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-white rounded-full z-20 border-4 border-[#305398] mt-2" />
@@ -171,15 +172,15 @@ export default function Programa() {
                 </div>
 
                 {/* Tarjeta */}
-                <div className="flex-grow ml-2 sm:ml-0 w-full sm:w-[calc(50%-2rem)] bg-white/85 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
+                <div className="flex-grow ml-2 sm:ml-0 w-full sm:max-w-[calc(50%-2rem)] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
                   <p className="text-xs sm:text-sm font-medium text-[#305398]">
                     {item.time}
                   </p>
-                  <p className="text-[15px] sm:text-base font-semibold text-gray-800 leading-snug mt-1 whitespace-pre-line break-words">
+                  <p className="text-[0.9rem] sm:text-base font-semibold text-gray-900 leading-normal mt-1 whitespace-pre-wrap break-words text-balance hyphens-auto">
                     {item.title}
                   </p>
                   {item.description && (
-                    <p className="text-xs sm:text-sm text-gray-600 mt-1">
+                    <p className="text-xs sm:text-sm text-gray-800 mt-2 whitespace-pre-wrap break-words">
                       {item.description}
                     </p>
                   )}
@@ -194,29 +195,29 @@ export default function Programa() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center mt-14 sm:mt-16"
+            className="flex flex-col items-center justify-center mt-16"
           >
-            <h3 className="text-white text-base sm:text-lg font-semibold mb-3 text-center">
+            <h3 className="text-white text-lg font-semibold mb-3 text-center">
               Escanea para abrir directamente esta agenda
             </h3>
-            <div className="bg-white p-2 sm:p-3 rounded-xl shadow-lg">
+            <div className="bg-white p-3 rounded-xl shadow-lg">
               <QRCodeCanvas
                 value="https://congreso.avancemos.edu.co/#agenda"
-                size={130}
+                size={160}
                 bgColor="#ffffff"
                 fgColor="#305398"
                 level="H"
                 includeMargin
               />
             </div>
-            <p className="text-slate-300 text-xs sm:text-sm mt-3 text-center break-words">
+            <p className="text-slate-300 text-sm mt-3 text-center">
               https://congreso.avancemos.edu.co/#agenda
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Línea vertical */}
+      {/* Línea vertical + ajustes responsivos */}
       <style jsx global>{`
         .timeline-container::before {
           content: "";
@@ -235,6 +236,10 @@ export default function Programa() {
             left: 1.3rem;
             width: 2px;
             background-color: rgba(255, 255, 255, 0.5);
+          }
+          p {
+            word-wrap: break-word;
+            hyphens: auto;
           }
         }
       `}</style>
