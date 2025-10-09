@@ -12,7 +12,6 @@ import {
   GraduationCap,
   Handshake,
 } from "lucide-react";
-import { QRCodeCanvas } from "qrcode.react";
 
 const scheduleItems = [
   {
@@ -51,7 +50,7 @@ const scheduleItems = [
 ];
 
 export default function Programa() {
-  // 🔧 Detecta si se abre con #agenda y hace scroll u oculta el resto
+  // Cuando se entra con #agenda, oculta todo lo demás
   useEffect(() => {
     const handleHash = () => {
       if (window.location.hash === "#agenda") {
@@ -136,32 +135,6 @@ export default function Programa() {
             </motion.div>
           ))}
         </div>
-
-        {/* QR */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col items-center justify-center mt-16"
-        >
-          <h3 className="text-white text-lg font-semibold mb-3 text-center">
-            Escanea para abrir directamente esta agenda
-          </h3>
-          <div className="bg-white p-4 rounded-2xl shadow-2xl flex items-center justify-center">
-            <QRCodeCanvas
-              value="https://congreso.avancemos.edu.co/#agenda"
-              size={180}
-              bgColor="#ffffff"
-              fgColor="#305398"
-              level="H"
-              includeMargin
-            />
-          </div>
-          <p className="text-slate-300 text-sm mt-3 text-center break-all">
-            https://congreso.avancemos.edu.co/#agenda
-          </p>
-        </motion.div>
       </div>
 
       <style jsx global>{`
