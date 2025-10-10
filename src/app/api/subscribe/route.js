@@ -1,5 +1,3 @@
-// ruta: /app/api/inscribir/route.js
-
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
 import { Resend } from "resend";
@@ -68,48 +66,48 @@ export async function POST(req) {
           
           <!-- Encabezado con color de marca (se mantiene el mismo) -->
           <div style="background-color: #2da836; color: white; padding: 20px; text-align: center;">
-              <h1 style="margin: 0; font-size: 24px;">Gracias por tu Interés en Colaborar</h1>
+            <h1 style="margin: 0; font-size: 24px;">Gracias por tu Interés en Colaborar</h1>
           </div>
           
           <!-- Contenido del correo adaptado para patrocinadores -->
           <div style="padding: 25px;">
-              <h2 style="font-size: 20px; color: #333;">¡Hola, ${nombreORazonSocial}! 👋</h2>
-              
-              <p>Hemos recibido con gran interés tu solicitud para ser patrocinador de nuestro <strong>I Congreso Internacional de Innovación Educativa y Prácticas Pedagógicas Inclusivas</strong>. ¡Gracias por considerar unirte a nuestra misión!</p>
-              
-              <p>El apoyo de organizaciones y líderes como tú es fundamental para crear un evento de alto impacto, capaz de generar un cambio real en la educación. Valoramos enormemente tu disposición a ser parte de esta iniciativa. 🤝</p>
-              
-              <p><strong>Nuestro equipo de alianzas estratégicas revisará tu solicitud y se pondrá en contacto contigo a la brevedad</strong> para explorar las oportunidades de colaboración y presentarte nuestro portafolio de patrocinios. 📈</p>
-              
-              <p>Si tienes alguna pregunta inmediata, no dudes en responder a este correo o escribirnos a <strong>auxiliar.mercadeo@avancemos.edu.co</strong>.</p>
+            <h2 style="font-size: 20px; color: #333;">¡Hola, ${nombreORazonSocial}! 👋</h2>
+            
+            <p>Hemos recibido con gran interés tu solicitud para ser patrocinador de nuestro <strong>I Congreso Internacional de Innovación Educativa y Prácticas Pedagógicas Inclusivas</strong>. ¡Gracias por considerar unirte a nuestra misión!</p>
+            
+            <p>El apoyo de organizaciones y líderes como tú es fundamental para crear un evento de alto impacto, capaz de generar un cambio real en la educación. Valoramos enormemente tu disposición a ser parte de esta iniciativa. 🤝</p>
+            
+            <p><strong>Nuestro equipo de alianzas estratégicas revisará tu solicitud y se pondrá en contacto contigo a la brevedad</strong> para explorar las oportunidades de colaboración y presentarte nuestro portafolio de patrocinios. 📈</p>
+            
+            <p>Si tienes alguna pregunta inmediata, no dudes en responder a este correo o escribirnos a <strong>auxiliar.mercadeo@avancemos.edu.co</strong>.</p>
           </div>
           
           <!-- Footer (se mantiene el mismo para consistencia de marca) -->
           <div style="background-color: #f7f7f7; padding: 20px; text-align: center;">
-              <p style="margin: 0 0 10px 0;">Cordialmente,</p>
-              <p style="margin: 0; font-weight: bold;">El Equipo Organizador</p>
-              <p style="margin: 0; font-style: italic; color: #555;">Grupo Educativo Avancemos</p>
-              
-              <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;">
-              
-              <!-- Redes Sociales (se mantienen las mismas) -->
-              <p style="margin: 0 0 15px 0; font-weight: bold;">Síguenos para no perderte ninguna novedad:</p>
-              <div>
-                  <a href="https://www.instagram.com/grupoeducativoavancemos/?hl=es-la" style="margin: 0 10px; text-decoration: none;">
-                      <img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" alt="Instagram" width="32" />
-                  </a>
-                  <a href="https://www.facebook.com/GrupoEducativoAvancemos/?locale=es_LA" style="margin: 0 10px; text-decoration: none;">
-                      <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" width="32" />
-                  </a>
-                  <a href="https://www.linkedin.com/company/grupo-educativo-avancemos" style="margin: 0 10px; text-decoration: none;">
-                      <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn" width="32" />
-                  </a>
-              </div>
-              
-              <p style="margin-top: 20px; font-size: 12px; color: #777;">
-                  <a href="mailto:auxiliar.mercadeo@avancemos.edu.co " style="color: #96b422;">auxiliar.mercadeo@avancemos.edu.co </a> | 
-                  <a href="tel:+573054240301" style="color: #96b422;">305 424 0301</a>
-              </p>
+            <p style="margin: 0 0 10px 0;">Cordialmente,</p>
+            <p style="margin: 0; font-weight: bold;">El Equipo Organizador</p>
+            <p style="margin: 0; font-style: italic; color: #555;">Grupo Educativo Avancemos</p>
+            
+            <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+            
+            <!-- Redes Sociales (se mantienen las mismas) -->
+            <p style="margin: 0 0 15px 0; font-weight: bold;">Síguenos para no perderte ninguna novedad:</p>
+            <div>
+              <a href="https://www.instagram.com/grupoeducativoavancemos/?hl=es-la" style="margin: 0 10px; text-decoration: none;">
+                  <img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" alt="Instagram" width="32" />
+              </a>
+              <a href="https://www.facebook.com/GrupoEducativoAvancemos/?locale=es_LA" style="margin: 0 10px; text-decoration: none;">
+                  <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" width="32" />
+              </a>
+              <a href="https://www.linkedin.com/company/grupo-educativo-avancemos" style="margin: 0 10px; text-decoration: none;">
+                  <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn" width="32" />
+              </a>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 12px; color: #777;">
+              <a href="mailto:auxiliar.mercadeo@avancemos.edu.co " style="color: #96b422;">auxiliar.mercadeo@avancemos.edu.co </a> | 
+              <a href="tel:+573054240301" style="color: #96b422;">305 424 0301</a>
+            </p>
           </div>
       </div>
       `;
@@ -117,7 +115,7 @@ export async function POST(req) {
       successMessage =
         "¡Gracias por tu interés! Hemos recibido tu solicitud y pronto nos pondremos en contacto contigo.";
     } else {
-      // --- LÓGICA PARA PARTICIPANTES (tu código original) ---
+      // --- LÓGICA PARA PARTICIPANTES: MODIFICADA ---
       const {
         nombre,
         apellido,
@@ -127,6 +125,7 @@ export async function POST(req) {
         NdeIdentidad,
         medio,
         tipoAsistente = "Público General",
+        referidoPor = "", // 👈 CAPTURA
       } = body;
 
       // Datos para Google Sheets
@@ -141,20 +140,24 @@ export async function POST(req) {
         "Es Patrocinador": "No", // Marcamos como no patrocinador
         FechaInscripcion: fecha,
         "Tipo Asistente": tipoAsistente,
+        "Referido Por": referidoPor, // 👈 INSERCIÓN
       };
 
       // Contenido de los correos para participantes
       adminEmailSubject = "¡Nueva inscripción al Congreso!";
+      // Agregamos el campo "Referido Por" al email del administrador
       adminEmailHtml = `
         <h1>Nueva Inscripción Recibida</h1>
         <p><strong>Nombre:</strong> ${nombre} ${apellido}</p>
         <p><strong>Correo:</strong> ${correo}</p>
         <p><strong>Celular:</strong> ${celular}</p>
+        <p><strong>Tipo de Asistente:</strong> ${tipoAsistente}</p>
+        ${referidoPor ? `<p><strong>Referido Por:</strong> ${referidoPor}</p>` : ""} <!-- Muestra solo si existe -->
       `;
 
+      // Los correos al usuario no necesitan cambios grandes, ya que el mensaje de confirmación es genérico.
       userConfirmationSubject =
         "✅ ¡Inscripción Confirmada! Congreso Internacional de Innovación Educativa";
-      // Aquí usamos tu HTML original para el participante
       userConfirmationHtml = `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
         <!-- Encabezado con color de marca -->
@@ -168,10 +171,13 @@ export async function POST(req) {
             
             <p>¡Gracias por inscribirte a nuestro <strong>I Congreso Internacional de Innovación Educativa y Prácticas Pedagógicas Inclusivas</strong>! 🎉</p>
             
-            <p>Es un honor contar con tu participación en este espacio diseñado para compartir experiencias, fortalecer saberes y construir juntos una educación más <strong>transformadora, inclusiva y pertinente</strong> para los desafíos del presente. 💡</p>
-            
-            <p>Muy pronto recibirás más información sobre la agenda, ponencias y recursos exclusivos del evento. ¡Mantente atento(a) a tu correo! 🗓️</p>
-            
+            ${
+              tipoAsistente === "Cortesía Presencial" ||
+              tipoAsistente === "Cortesía Virtual"
+                ? `<p>Tu participación ha sido registrada como <strong>${tipoAsistente}</strong> por referencia de ${referidoPor}. ¡Nos vemos pronto!</p>`
+                : `<p>Es un honor contar con tu participación en este espacio diseñado para compartir experiencias, fortalecer saberes y construir juntos una educación más <strong>transformadora, inclusiva y pertinente</strong> para los desafíos del presente. 💡</p>`
+            }
+
             <p>Si tienes alguna pregunta o necesitas asistencia, no dudes en escribirnos al correo <strong>auxiliar.mercadeo@avancemos.edu.co </strong> . ¡Nos alegra que hagas parte de esta gran experiencia!</p>
           </div>
           
