@@ -13,7 +13,7 @@ const initialParticipantData = {
   NdeIdentidad: "",
   medio: "",
   tDocument: "",
-  referidoPor: "", // 👈 Nuevo campo
+  referidoPor: "",
 };
 
 const initialSponsorData = {
@@ -34,9 +34,13 @@ const Formulario = () => {
   const [success, setSuccess] = useState("");
   const [userType, setUserType] = useState("publico");
 
-  // 👇 Limpia el campo "referidoPor" si se cambia de cortesía a otro tipo
+  // 👇 Limpia el campo "referidoPor" si NO es cortesía
   useEffect(() => {
-    if (userType !== "Cortesía" && formData.referidoPor) {
+    if (
+      userType !== "Cortesía presencial" &&
+      userType !== "Cortesía virtual" &&
+      formData.referidoPor
+    ) {
       setFormData((prev) => ({ ...prev, referidoPor: "" }));
     }
   }, [userType]);
@@ -67,7 +71,10 @@ const Formulario = () => {
     }
 
     // 👇 Validación específica para cortesía
-    if (userType === "Cortesía" && !formData.referidoPor) {
+    if (
+      (userType === "Cortesía presencial" || userType === "Cortesía virtual") &&
+      !formData.referidoPor
+    ) {
       setError("Por favor selecciona quién refirió la cortesía.");
       return;
     }
@@ -100,7 +107,10 @@ const Formulario = () => {
         setUserType("publico");
 
         // 👇 Solo redirige a pagos si NO es cortesía
-        if (userType !== "Cortesía") {
+        if (
+          userType !== "Cortesía presencial" &&
+          userType !== "Cortesía virtual"
+        ) {
           setTimeout(() => {
             window.location.href = paymentURL;
           }, 2000);
@@ -129,11 +139,13 @@ const Formulario = () => {
         <option value="publico">Público general - 180.000</option>
         <option value="aliado">Presencial aliado - 140.000</option>
         <option value="Virtual">Virtual - 120.000</option>
-        <option value="Cortesía">Cortesía</option>
+        <option value="Cortesía presencial">Cortesía presencial</option>
+        <option value="Cortesía virtual">Cortesía virtual</option>
       </select>
 
       {/* 👇 Campo solo visible en cortesía */}
-      {userType === "Cortesía" && (
+      {(userType === "Cortesía presencial" ||
+        userType === "Cortesía virtual") && (
         <>
           <label htmlFor="referidoPor">¿Quién refirió la cortesía?</label>
           <select
@@ -142,6 +154,7 @@ const Formulario = () => {
             className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             value={formData.referidoPor}
             onChange={handleChange}
+            required
           >
             <option value="">Selecciona...</option>
             <option value="Álvaro">Álvaro</option>
@@ -209,9 +222,9 @@ const Formulario = () => {
         required
       >
         <option value="">Elige tu tipo de documento...</option>
-        <option value="Cedula de Ciudadania">Cédula de Ciudadanía</option>
+        <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
         <option value="Pasaporte">Pasaporte</option>
-        <option value="Cedula de extranjería">Cédula de extranjería</option>
+        <option value="Cédula de extranjería">Cédula de extranjería</option>
       </select>
 
       <label htmlFor="NdeIdentidad">Número de identificación:</label>
@@ -310,13 +323,17 @@ const Formulario = () => {
           <div className="flex justify-center my-6">
             <button
               onClick={() => handleFormTypeChange(false)}
-              className={`px-6 py-2 rounded-l-lg transition-colors ${!isSponsor ? "bg-blue-800 text-white" : "bg-gray-200 text-black"}`}
+              className={`px-6 py-2 rounded-l-lg transition-colors ${
+                !isSponsor ? "bg-blue-800 text-white" : "bg-gray-200 text-black"
+              }`}
             >
               Inscripción
             </button>
             <button
               onClick={() => handleFormTypeChange(true)}
-              className={`px-6 py-2 rounded-r-lg transition-colors ${isSponsor ? "bg-blue-800 text-white" : "bg-gray-200 text-black"}`}
+              className={`px-6 py-2 rounded-r-lg transition-colors ${
+                isSponsor ? "bg-blue-800 text-white" : "bg-gray-200 text-black"
+              }`}
             >
               Quiero ser Patrocinador
             </button>
@@ -355,23 +372,24 @@ const Formulario = () => {
               </label>
             </div>
 
-            {userType !== "Cortesía" && (
-              <div className="col-span-2 flex justify-center">
-                <p>
-                  <strong>Después de realizar el pago,</strong> compártenos tu{" "}
-                  <span className="text-blue-800 font-bold underline">
-                    comprobante de pago
-                  </span>{" "}
-                  a nuestro número de Whatsapp o al correo{" "}
-                  <a
-                    href="mailto:auxiliar.mercadeo@avancemos.edu.co"
-                    className="hover:text-blue-500 text-blue-700 font-bold"
-                  >
-                    auxiliar.mercadeo@avancemos.edu.co
-                  </a>
-                </p>
-              </div>
-            )}
+            {userType !== "Cortesía presencial" &&
+              userType !== "Cortesía virtual" && (
+                <div className="col-span-2 flex justify-center">
+                  <p>
+                    <strong>Después de realizar el pago,</strong> compártenos tu{" "}
+                    <span className="text-blue-800 font-bold underline">
+                      comprobante de pago
+                    </span>{" "}
+                    a nuestro número de Whatsapp o al correo{" "}
+                    <a
+                      href="mailto:auxiliar.mercadeo@avancemos.edu.co"
+                      className="hover:text-blue-500 text-blue-700 font-bold"
+                    >
+                      auxiliar.mercadeo@avancemos.edu.co
+                    </a>
+                  </p>
+                </div>
+              )}
 
             <div className="col-span-2 flex justify-center">
               <button

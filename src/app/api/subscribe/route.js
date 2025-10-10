@@ -1,18 +1,20 @@
 // ruta: /app/api/inscribir/route.js
 
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import { JWT } from 'google-auth-library';
-import { Resend } from 'resend';
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import { JWT } from "google-auth-library";
+import { Resend } from "resend";
 
 // --- INICIALIZACIÓN DE CLIENTES (sin cambios) ---
 const resend = new Resend(process.env.RESEND_API_KEY);
 const serviceAccountAuth = new JWT({
   email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-  key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
-const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
-
+const doc = new GoogleSpreadsheet(
+  process.env.GOOGLE_SHEET_ID,
+  serviceAccountAuth
+);
 
 // --- FUNCIÓN POST ACTUALIZADA ---
 export async function POST(req) {
@@ -29,9 +31,11 @@ export async function POST(req) {
     let userConfirmationHtml;
     let successMessage;
 
-    const fromEmail = 'Congreso <noreply@avancemos.edu.co>';
+    const fromEmail = "Congreso <noreply@avancemos.edu.co>";
     const adminEmail = process.env.ADMIN_EMAIL;
-    const fecha = new Date().toLocaleString('es-CO', { timeZone: 'America/Guayaquil' });
+    const fecha = new Date().toLocaleString("es-CO", {
+      timeZone: "America/Guayaquil",
+    });
 
     // 3. Lógica condicional basada en si es patrocinador o no
     if (esPatrocinador) {
@@ -40,15 +44,15 @@ export async function POST(req) {
 
       // Datos para Google Sheets
       rowData = {
-        'Nombre o Razón Social': nombreORazonSocial,
-        'Correo': correo,
-        'Contacto (Celular/Teléfono)': telefono,
-        'Es Patrocinador': 'Sí', // Marcamos como patrocinador
-        'FechaInscripcion': fecha,
+        "Nombre o Razón Social": nombreORazonSocial,
+        Correo: correo,
+        "Contacto (Celular/Teléfono)": telefono,
+        "Es Patrocinador": "Sí", // Marcamos como patrocinador
+        FechaInscripcion: fecha,
       };
 
       // Contenido de los correos para patrocinadores
-      adminEmailSubject = '¡Interés de Nuevo Patrocinador!';
+      adminEmailSubject = "¡Interés de Nuevo Patrocinador!";
       adminEmailHtml = `
         <h1>Solicitud de Patrocinio Recibida</h1>
         <p>Una nueva empresa/persona ha mostrado interés en ser patrocinador del congreso.</p>
@@ -57,7 +61,8 @@ export async function POST(req) {
         <p><strong>Teléfono de Contacto:</strong> ${telefono}</p>
       `;
 
-      userConfirmationSubject = 'Hemos recibido tu interés para ser patrocinador';
+      userConfirmationSubject =
+        "Hemos recibido tu interés para ser patrocinador";
       userConfirmationHtml = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
           
@@ -109,28 +114,38 @@ export async function POST(req) {
       </div>
       `;
 
-      successMessage = '¡Gracias por tu interés! Hemos recibido tu solicitud y pronto nos pondremos en contacto contigo.';
-
+      successMessage =
+        "¡Gracias por tu interés! Hemos recibido tu solicitud y pronto nos pondremos en contacto contigo.";
     } else {
       // --- LÓGICA PARA PARTICIPANTES (tu código original) ---
-      const { nombre, apellido, correo, celular, tDocument, NdeIdentidad, medio, tipoAsistente = 'Público General' } = body;
+      const {
+        nombre,
+        apellido,
+        correo,
+        celular,
+        tDocument,
+        NdeIdentidad,
+        medio,
+        tipoAsistente = "Público General",
+      } = body;
 
       // Datos para Google Sheets
       rowData = {
-        'Nombre': nombre,
-        'Apellido': apellido,
-        'Correo': correo,
-        'Contacto (Celular/Teléfono)': celular,
-        'TipoDocumento': tDocument,      
-        'NumeroIdentidad': NdeIdentidad, 
-        'ComoNosEncontro': medio, 
-        'Es Patrocinador': 'No', // Marcamos como no patrocinador
-        'FechaInscripcion': fecha,
-        'Tipo Asistente': tipoAsistente,
+        Nombre: nombre,
+        Apellido: apellido,
+        Correo: correo,
+        "Contacto (Celular/Teléfono)": celular,
+        TipoDocumento: tDocument,
+        NumeroIdentidad: NdeIdentidad,
+        ComoNosEncontro: medio,
+        "Es Patrocinador": "No", // Marcamos como no patrocinador
+        FechaInscripcion: fecha,
+        "Tipo Asistente": tipoAsistente,
+        "Referido por": referidopor,
       };
 
       // Contenido de los correos para participantes
-      adminEmailSubject = '¡Nueva inscripción al Congreso!';
+      adminEmailSubject = "¡Nueva inscripción al Congreso!";
       adminEmailHtml = `
         <h1>Nueva Inscripción Recibida</h1>
         <p><strong>Nombre:</strong> ${nombre} ${apellido}</p>
@@ -138,7 +153,8 @@ export async function POST(req) {
         <p><strong>Celular:</strong> ${celular}</p>
       `;
 
-      userConfirmationSubject = '✅ ¡Inscripción Confirmada! Congreso Internacional de Innovación Educativa';
+      userConfirmationSubject =
+        "✅ ¡Inscripción Confirmada! Congreso Internacional de Innovación Educativa";
       // Aquí usamos tu HTML original para el participante
       userConfirmationHtml = `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
@@ -189,7 +205,8 @@ export async function POST(req) {
           </div>
         </div>
       `;
-      successMessage = '¡Inscripción exitosa! Revisa tu correo para la confirmación.';
+      successMessage =
+        "¡Inscripción exitosa! Revisa tu correo para la confirmación.";
     }
 
     // --- 4. Ejecutar las acciones comunes ---
@@ -214,18 +231,20 @@ export async function POST(req) {
       subject: userConfirmationSubject,
       html: userConfirmationHtml,
     });
-    
+
     // --- 5. Respuesta Exitosa ---
     return new Response(
       JSON.stringify({ success: true, message: successMessage }),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
+      { status: 200, headers: { "Content-Type": "application/json" } }
     );
-
   } catch (error) {
-    console.error('Error en la API de inscripción:', error);
+    console.error("Error en la API de inscripción:", error);
     return new Response(
-      JSON.stringify({ success: false, message: 'Hubo un error al procesar la solicitud.' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+      JSON.stringify({
+        success: false,
+        message: "Hubo un error al procesar la solicitud.",
+      }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
 }
