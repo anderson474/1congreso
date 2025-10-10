@@ -11,7 +11,7 @@ export default function HeaderHero() {
 
         {/* Fondo del cerebro + texto Vigilada MinEducación */}
         <div className="absolute bottom-0 right-0 w-1/2 md:w-2/5 lg:w-1/3 h-full opacity-60 md:opacity-80">
-          {/* Imagen de fondo del cerebro */}
+          {/* Imagen del cerebro */}
           <div
             className="absolute inset-0"
             style={{
@@ -22,24 +22,17 @@ export default function HeaderHero() {
             }}
           />
 
-          {/* Texto vertical "Vigilada MinEducación" */}
-          <div
-            className="absolute bottom-10 right-[5%] text-white font-semibold text-sm md:text-lg opacity-90 drop-shadow-lg"
-            style={{
-              writingMode: "vertical-rl",
-              textOrientation: "upright",
-              letterSpacing: "2px",
-            }}
-          >
+          {/* Texto rotado 90 grados */}
+          <div className="absolute bottom-10 right-[5%] text-white font-semibold text-sm md:text-lg opacity-90 drop-shadow-lg transform rotate-90 origin-bottom-right">
             Vigilada MinEducación
           </div>
         </div>
 
-        {/* Patrón decorativo de puntos */}
+        {/* Patrón decorativo */}
         <div className="absolute inset-0 bg-[url('/dots-pattern.svg')] opacity-10"></div>
       </div>
 
-      {/* Logos superiores */}
+      {/* Logos */}
       <div className="absolute top-6 right-6 flex items-center gap-4 md:gap-6">
         <Image
           src="/RevistaCientifica.png"
@@ -68,7 +61,7 @@ export default function HeaderHero() {
       <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl mx-auto px-6 lg:px-8 py-5 sm:py-28 sm:mt-24">
         <div className="max-w-4xl text-left">
           <div className="flex items-start gap-2 sm:gap-4">
-            {/* NÚMERO ROMANO "I" */}
+            {/* Número romano I */}
             <div className="flex flex-col items-center mt-1.5 md:mt-4">
               <div className="h-1 w-10 md:h-2 md:w-16 bg-white rounded-full"></div>
               <div className="h-[75px] w-2 md:h-48 md:w-3 bg-white"></div>
