@@ -141,7 +141,7 @@ export async function POST(req) {
         "Es Patrocinador": "No", // Marcamos como no patrocinador
         FechaInscripcion: fecha,
         "Tipo Asistente": tipoAsistente,
-        "Referido por": referidopor,
+        referidoPor: referidoPor,
       };
 
       // Contenido de los correos para participantes
