@@ -13,7 +13,7 @@ const initialParticipantData = {
   NdeIdentidad: "",
   medio: "",
   tDocument: "",
-  referidoPor: "", // 👈 Nuevo campo
+  referidoPor: "", // 👈 Campo para la cortesía
 };
 
 const initialSponsorData = {
@@ -32,18 +32,18 @@ const Formulario = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  // Inicializamos con "publico"
   const [userType, setUserType] = useState("publico");
 
-  // 👇 Limpia el campo "referidoPor" si se cambia de cortesía a otro tipo
+  // 👇 AJUSTE CLAVE 1: Limpia el campo "referidoPor" si NO es Cortesía
   useEffect(() => {
-    if (
-      userType !== "Cortesía presencial" &&
-      userType !== "Cortesía virtual" &&
-      formData.referidoPor
-    ) {
+    const isCourtesy =
+      userType === "Cortesía Presencial" || userType === "Cortesía Virtual";
+
+    if (!isCourtesy && formData.referidoPor) {
       setFormData((prev) => ({ ...prev, referidoPor: "" }));
     }
-  }, [userType]);
+  }, [userType, formData.referidoPor]);
 
   const handleFormTypeChange = (isSponsorForm) => {
     setIsSponsor(isSponsorForm);
@@ -70,8 +70,12 @@ const Formulario = () => {
       return;
     }
 
-    // 👇 Validación específica para cortesía
-    if (userType === "Cortesía" && !formData.referidoPor) {
+    // Identificamos si es cualquier tipo de cortesía para la validación
+    const isCourtesy =
+      userType === "Cortesía Presencial" || userType === "Cortesía Virtual";
+
+    // 👇 AJUSTE CLAVE 2: Validación específica para ambos tipos de cortesía
+    if (isCourtesy && !formData.referidoPor) {
       setError("Por favor selecciona quién refirió la cortesía.");
       return;
     }
@@ -103,8 +107,8 @@ const Formulario = () => {
         setAcceptedTerms(false);
         setUserType("publico");
 
-        // 👇 Solo redirige a pagos si NO es cortesía
-        if (userType !== "Cortesía") {
+        // 👇 AJUSTE CLAVE 3: Solo redirige a pagos si NO es cortesía
+        if (!isCourtesy) {
           setTimeout(() => {
             window.location.href = paymentURL;
           }, 2000);
@@ -120,148 +124,161 @@ const Formulario = () => {
   };
 
   // --- FORMULARIO DE INSCRIPCIÓN ---
-  const renderParticipantForm = () => (
-    <>
-      <label htmlFor="userType">Tipo de asistente:</label>
-      <select
-        id="userType"
-        name="userType"
-        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-        value={userType}
-        onChange={(e) => setUserType(e.target.value)}
-      >
-        <option value="publico">Público general - 180.000</option>
-        <option value="aliado">Presencial aliado - 140.000</option>
-        <option value="Virtual">Virtual - 120.000</option>
-        <option value="Cortesía">Cortesía</option>
-      </select>
+  const renderParticipantForm = () => {
+    const isCourtesy =
+      userType === "Cortesía Presencial" || userType === "Cortesía Virtual";
 
-      {/* 👇 Campo solo visible en cortesía */}
-      {userType === "Cortesía" && (
-        <>
-          <label htmlFor="referidoPor">¿Quién refirió la cortesía?</label>
-          <select
-            id="referidoPor"
-            name="referidoPor"
-            className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            value={formData.referidoPor}
-            onChange={handleChange}
-          >
-            <option value="">Selecciona...</option>
-            <option value="Walter Aldana Romero">Walter Aldana Romero</option>
-            <option value="Liliana Maria Duque Henao">
-              Liliana María Duque Henao
-            </option>
-            <option value="Andrés Felipe Gallego">Andrés Felipe Gallego</option>
-            <option value="Aura Barreto Olmos">Aura Barreto Olmnos</option>
-            <option value="Miguel Ángel Gaviria Duque">
-              Miguel Ángel Gaviria Henao
-            </option>
-            <option value="Sara Gaviria Duque">Sara Gaviria Duque</option>
-            <option value="Valentina Estrada Castaño">
-              Valentina Estrada Castaño
-            </option>
-            <option value="Álvaro Serna Cuervo">Álvaro Serna Cuervo</option>
-            <option value="Anggie Zapata Sánchez">Anggie Zapata Sánchez</option>
-            <option value="Juan José Restrepo Blandón">
-              Juan José Restrepo Blandón
-            </option>
-            <option value="Ana Buitagro Caro">Ana Buitagro Caro</option>
-            <option value="Liliana Sierra">Liliana Sierra</option>
-            <option value="Equipo de Marketing">Equipo de Marketing</option>
-          </select>
-        </>
-      )}
+    return (
+      <>
+        <label htmlFor="userType">Tipo de asistente:</label>
+        <select
+          id="userType"
+          name="userType"
+          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          value={userType}
+          onChange={(e) => setUserType(e.target.value)}
+        >
+          <option value="publico">Público general - 180.000</option>
+          <option value="aliado">Presencial aliado - 140.000</option>
+          <option value="Virtual">Virtual - 120.000</option>
+          <option value="Cortesía Presencial">Cortesía Presencial</option>{" "}
+          {/* 👈 NUEVA OPCIÓN */}
+          <option value="Cortesía Virtual">Cortesía Virtual</option>{" "}
+          {/* 👈 NUEVA OPCIÓN */}
+        </select>
 
-      {/* --- CAMPOS RESTANTES --- */}
-      <label htmlFor="nombre">Nombre:</label>
-      <input
-        type="text"
-        id="nombre"
-        name="nombre"
-        value={formData.nombre}
-        onChange={handleChange}
-        required
-        placeholder="Escribe tu nombre aquí"
-        className="border border-gray-300 rounded-xl px-4"
-      />
+        {/* 👇 Campo solo visible en cortesía */}
+        {isCourtesy && (
+          <>
+            <label htmlFor="referidoPor">¿Quién refirió la cortesía?</label>
+            <select
+              id="referidoPor"
+              name="referidoPor"
+              className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={formData.referidoPor}
+              onChange={handleChange}
+              required={isCourtesy}
+            >
+              <option value="">Selecciona...</option>
+              <option value="Walter Aldana Romero">Walter Aldana Romero</option>
+              <option value="Liliana Maria Duque Henao">
+                Liliana María Duque Henao
+              </option>
+              <option value="Andrés Felipe Gallego">
+                Andrés Felipe Gallego
+              </option>
+              <option value="Aura Barreto Olmos">Aura Barreto Olmnos</option>
+              <option value="Miguel Ángel Gaviria Duque">
+                Miguel Ángel Gaviria Henao
+              </option>
+              <option value="Sara Gaviria Duque">Sara Gaviria Duque</option>
+              <option value="Valentina Estrada Castaño">
+                Valentina Estrada Castaño
+              </option>
+              <option value="Álvaro Serna Cuervo">Álvaro Serna Cuervo</option>
+              <option value="Anggie Zapata Sánchez">
+                Anggie Zapata Sánchez
+              </option>
+              <option value="Juan José Restrepo Blandón">
+                Juan José Restrepo Blandón
+              </option>
+              <option value="Ana Buitagro Caro">Ana Buitagro Caro</option>
+              <option value="Liliana Sierra">Liliana Sierra</option>
+              <option value="Equipo de Marketing">Equipo de Marketing</option>
+            </select>
+          </>
+        )}
 
-      <label htmlFor="apellido">Apellido:</label>
-      <input
-        type="text"
-        id="apellido"
-        name="apellido"
-        value={formData.apellido}
-        onChange={handleChange}
-        required
-        placeholder="Escribe tu apellido aquí"
-        className="border border-gray-300 rounded-xl px-4"
-      />
+        {/* --- CAMPOS RESTANTES (sin cambios) --- */}
+        <label htmlFor="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          value={formData.nombre}
+          onChange={handleChange}
+          required
+          placeholder="Escribe tu nombre aquí"
+          className="border border-gray-300 rounded-xl px-4"
+        />
 
-      <label htmlFor="correo">Correo:</label>
-      <input
-        type="email"
-        id="correo"
-        name="correo"
-        value={formData.correo}
-        onChange={handleChange}
-        required
-        placeholder="Escribe tu correo aquí"
-        className="border border-gray-300 rounded-xl px-4"
-      />
+        <label htmlFor="apellido">Apellido:</label>
+        <input
+          type="text"
+          id="apellido"
+          name="apellido"
+          value={formData.apellido}
+          onChange={handleChange}
+          required
+          placeholder="Escribe tu apellido aquí"
+          className="border border-gray-300 rounded-xl px-4"
+        />
 
-      <label htmlFor="celular">Celular:</label>
-      <input
-        type="tel"
-        id="celular"
-        name="celular"
-        value={formData.celular}
-        onChange={handleChange}
-        required
-        placeholder="Escribe tu celular aquí"
-        className="border border-gray-300 rounded-xl px-4"
-      />
+        <label htmlFor="correo">Correo:</label>
+        <input
+          type="email"
+          id="correo"
+          name="correo"
+          value={formData.correo}
+          onChange={handleChange}
+          required
+          placeholder="Escribe tu correo aquí"
+          className="border border-gray-300 rounded-xl px-4"
+        />
 
-      <label htmlFor="tDocument">Tipo de documento:</label>
-      <select
-        id="tDocument"
-        name="tDocument"
-        className="w-full p-2 border border-gray-300 rounded-lg"
-        value={formData.tDocument}
-        onChange={handleChange}
-        required
-      >
-        <option value="">Elige tu tipo de documento...</option>
-        <option value="Cedula de Ciudadania">Cédula de Ciudadanía</option>
-        <option value="Pasaporte">Pasaporte</option>
-        <option value="Cedula de extranjería">Cédula de extranjería</option>
-      </select>
+        <label htmlFor="celular">Celular:</label>
+        <input
+          type="tel"
+          id="celular"
+          name="celular"
+          value={formData.celular}
+          onChange={handleChange}
+          required
+          placeholder="Escribe tu celular aquí"
+          className="border border-gray-300 rounded-xl px-4"
+        />
 
-      <label htmlFor="NdeIdentidad">Número de identificación:</label>
-      <input
-        type="number"
-        id="NdeIdentidad"
-        name="NdeIdentidad"
-        value={formData.NdeIdentidad}
-        onChange={handleChange}
-        required
-        placeholder="Tu número de identificación"
-        className="border border-gray-300 rounded-xl px-4"
-      />
+        <label htmlFor="tDocument">Tipo de documento:</label>
+        <select
+          id="tDocument"
+          name="tDocument"
+          className="w-full p-2 border border-gray-300 rounded-lg"
+          value={formData.tDocument}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Elige tu tipo de documento...</option>
+          <option value="Cedula de Ciudadania">Cédula de Ciudadanía</option>
+          <option value="Pasaporte">Pasaporte</option>
+          <option value="Cedula de extranjería">Cédula de extranjería</option>
+        </select>
 
-      <label htmlFor="medio">¿Cómo nos encontraste?</label>
-      <input
-        type="text"
-        id="medio"
-        name="medio"
-        value={formData.medio}
-        onChange={handleChange}
-        required
-        placeholder="Escribe aquí"
-        className="border border-gray-300 rounded-xl px-4"
-      />
-    </>
-  );
+        <label htmlFor="NdeIdentidad">Número de identificación:</label>
+        <input
+          type="number"
+          id="NdeIdentidad"
+          name="NdeIdentidad"
+          value={formData.NdeIdentidad}
+          onChange={handleChange}
+          required
+          placeholder="Tu número de identificación"
+          className="border border-gray-300 rounded-xl px-4"
+        />
+
+        <label htmlFor="medio">¿Cómo nos encontraste?</label>
+        <input
+          type="text"
+          id="medio"
+          name="medio"
+          value={formData.medio}
+          onChange={handleChange}
+          required
+          placeholder="Escribe aquí"
+          className="border border-gray-300 rounded-xl px-4"
+        />
+      </>
+    );
+  };
 
   const renderSponsorForm = () => (
     <>
@@ -302,6 +319,10 @@ const Formulario = () => {
       />
     </>
   );
+
+  // Re-evaluamos si es cortesía para mostrar/ocultar instrucciones de pago
+  const isCurrentTypeCourtesy =
+    userType === "Cortesía Presencial" || userType === "Cortesía Virtual";
 
   return (
     <div>
@@ -378,8 +399,9 @@ const Formulario = () => {
               </label>
             </div>
 
-            {userType !== "Cortesía" && (
-              <div className="col-span-2 flex justify-center">
+            {/* Mostrar instrucciones de pago SOLO si NO es cortesía */}
+            {!isCurrentTypeCourtesy && (
+              <div className="col-span-2 flex justify-center text-center">
                 <p>
                   <strong>Después de realizar el pago,</strong> compártenos tu{" "}
                   <span className="text-blue-800 font-bold underline">
