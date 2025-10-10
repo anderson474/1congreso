@@ -27,7 +27,7 @@ export default function HeaderHero() {
           <div
             className="absolute bottom-[12%] right-[18%] text-white font-semibold text-xs sm:text-sm md:text-base opacity-90 drop-shadow-lg transform rotate-90 origin-bottom-right"
             style={{
-              transformOrigin: "bottom right",
+              transformOrigin: "center",
             }}
           >
             Vigilada MinEducación
