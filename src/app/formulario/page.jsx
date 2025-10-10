@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Particle from "@/components/Particle";
 import Image from "next/image";
 import BotonWhatsApp from "@/components/botonWhatsapp";
@@ -13,7 +13,7 @@ const initialParticipantData = {
   NdeIdentidad: "",
   medio: "",
   tDocument: "",
-  referidoPor: "", // 👈 NUEVO CAMPO para cortesías
+  referidoPor: "", // 👈 Nuevo campo
 };
 
 const initialSponsorData = {
@@ -33,6 +33,17 @@ const Formulario = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [userType, setUserType] = useState("publico");
+
+  // 👇 Limpia el campo "referidoPor" si se cambia de cortesía a otro tipo
+  useEffect(() => {
+    if (
+      userType !== "Cortesía presencial" &&
+      userType !== "Cortesía virtual" &&
+      formData.referidoPor
+    ) {
+      setFormData((prev) => ({ ...prev, referidoPor: "" }));
+    }
+  }, [userType]);
 
   const handleFormTypeChange = (isSponsorForm) => {
     setIsSponsor(isSponsorForm);
@@ -56,6 +67,12 @@ const Formulario = () => {
 
     if (!acceptedTerms) {
       setError("Debes aceptar los términos y condiciones para continuar.");
+      return;
+    }
+
+    // 👇 Validación específica para cortesía
+    if (userType === "Cortesía" && !formData.referidoPor) {
+      setError("Por favor selecciona quién refirió la cortesía.");
       return;
     }
 
@@ -86,7 +103,7 @@ const Formulario = () => {
         setAcceptedTerms(false);
         setUserType("publico");
 
-        // 👇 SOLO redirige a pagos si NO es cortesía
+        // 👇 Solo redirige a pagos si NO es cortesía
         if (userType !== "Cortesía") {
           setTimeout(() => {
             window.location.href = paymentURL;
@@ -119,7 +136,7 @@ const Formulario = () => {
         <option value="Cortesía">Cortesía</option>
       </select>
 
-      {/* 👇 NUEVO: Si el usuario selecciona "Cortesía", mostrar lista de referencia */}
+      {/* 👇 Campo solo visible en cortesía */}
       {userType === "Cortesía" && (
         <>
           <label htmlFor="referidoPor">¿Quién refirió la cortesía?</label>
@@ -129,7 +146,6 @@ const Formulario = () => {
             className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             value={formData.referidoPor}
             onChange={handleChange}
-            required
           >
             <option value="">Selecciona...</option>
             <option value="Walter Aldana Romero">Walter Aldana Romero</option>
@@ -157,7 +173,7 @@ const Formulario = () => {
         </>
       )}
 
-      {/* --- CAMPOS NORMALES --- */}
+      {/* --- CAMPOS RESTANTES --- */}
       <label htmlFor="nombre">Nombre:</label>
       <input
         type="text"
