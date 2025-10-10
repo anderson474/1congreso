@@ -25,7 +25,7 @@ export default function HeaderHero() {
 
           {/* Texto rotado “Vigilada MinEducación” */}
           <div
-            className="absolute bottom-[12%] right-[18%] text-white font-semibold text-xs sm:text-sm md:text-base opacity-90 drop-shadow-lg transform rotate-90 origin-bottom-right"
+            className="absolute top-[22%] right-[18%] text-white font-semibold text-xs sm:text-sm md:text-base opacity-90 drop-shadow-lg transform rotate-90 origin-bottom-right"
             style={{
               transformOrigin: "center",
             }}
