@@ -7,6 +7,7 @@ export default function HeaderHero() {
     <section className="relative w-full text-white overflow-hidden bg-[#4A0D66]">
       {/* CAPA DE FONDO */}
       <div className="absolute inset-0 z-0">
+        {/* Degradado principal */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#4A0D66] via-[#862788] to-[#C043A3]" />
 
         {/* Fondo del cerebro + texto Vigilada MinEducación */}
@@ -22,8 +23,13 @@ export default function HeaderHero() {
             }}
           />
 
-          {/* Texto rotado 90 grados */}
-          <div className="absolute bottom-10 right-[5%] text-white font-semibold text-sm md:text-lg opacity-90 drop-shadow-lg transform rotate-90 origin-bottom-right">
+          {/* Texto rotado “Vigilada MinEducación” */}
+          <div
+            className="absolute bottom-[25%] right-2 text-white font-semibold text-xs sm:text-sm md:text-base opacity-90 drop-shadow-lg transform rotate-90 origin-bottom-right"
+            style={{
+              transformOrigin: "bottom right",
+            }}
+          >
             Vigilada MinEducación
           </div>
         </div>
@@ -32,7 +38,7 @@ export default function HeaderHero() {
         <div className="absolute inset-0 bg-[url('/dots-pattern.svg')] opacity-10"></div>
       </div>
 
-      {/* Logos */}
+      {/* Logos en la esquina superior derecha */}
       <div className="absolute top-6 right-6 flex items-center gap-4 md:gap-6">
         <Image
           src="/RevistaCientifica.png"
