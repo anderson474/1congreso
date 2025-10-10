@@ -3,8 +3,6 @@
 import { useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion } from "framer-motion";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
 import {
   Users,
   Mic,
@@ -55,7 +53,6 @@ const scheduleItems = [
   {
     time: "10:15 a.m. – 10:45 a.m.",
     title: "Refrigerio – Pausa activa",
-    description: "",
     icon: <Coffee size={22} />,
   },
   {
@@ -75,7 +72,6 @@ const scheduleItems = [
   {
     time: "12:05 p.m. – 1:30 p.m.",
     title: "Receso – Almuerzo libre",
-    description: "",
     icon: <Utensils size={22} />,
   },
   {
@@ -95,7 +91,6 @@ const scheduleItems = [
   {
     time: "2:50 p.m. – 3:05 p.m.",
     title: "Coffee break – Receso corto",
-    description: "",
     icon: <Coffee size={22} />,
   },
   {
@@ -123,160 +118,55 @@ const scheduleItems = [
 
 export default function Programa() {
   useEffect(() => {
-    const showAgendaOnly = () => {
-      if (window.location.hash === "#agenda") {
-        setTimeout(() => {
-          const allSections = document.querySelectorAll("section");
-          const agenda = document.getElementById("agenda");
-
-          if (agenda) {
-            allSections.forEach((sec) => {
-              if (sec.id !== "agenda") sec.style.display = "none";
-            });
-            agenda.style.minHeight = "100vh";
-            agenda.scrollIntoView({ behavior: "instant" });
-          }
-        }, 300);
-      }
-    };
-    showAgendaOnly();
+    if (window.location.hash === "#agenda") {
+      setTimeout(() => {
+        const allSections = document.querySelectorAll("section");
+        const agenda = document.getElementById("agenda");
+        if (agenda) {
+          allSections.forEach((sec) => {
+            if (sec.id !== "agenda") sec.style.display = "none";
+          });
+          agenda.scrollIntoView({ behavior: "instant" });
+        }
+      }, 300);
+    }
   }, []);
 
-  const particlesInit = async (engine) => {
-    await loadFull(engine);
-  };
-
   return (
-    <>
-      <section
-        id="agenda"
-        className="relative overflow-hidden py-16 sm:py-24 bg-black"
-      >
-        {/* Fondo animado */}
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          className="absolute inset-0 -z-10"
-          options={{
-            background: { color: "#000" },
-            fpsLimit: 60,
-            particles: {
-              color: { value: "#305398" },
-              links: {
-                color: "#305398",
-                distance: 120,
-                enable: true,
-                opacity: 0.3,
-                width: 1,
-              },
-              move: { enable: true, speed: 1 },
-              number: { value: 60 },
-              opacity: { value: 0.4 },
-              size: { value: 2 },
-            },
-            interactivity: {
-              events: {
-                onHover: { enable: true, mode: "repulse" },
-                resize: true,
-              },
-              modes: {
-                repulse: { distance: 100, duration: 0.3 },
-              },
-            },
-            detectRetina: true,
-          }}
-        />
+    <section
+      id="agenda"
+      className="relative overflow-hidden py-16 sm:py-24 text-white"
+    >
+      {/* Fondo degradado oscuro */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0F1C] via-[#0B1736] to-[#000000] -z-10" />
+      <div className="absolute top-6 right-6 opacity-60 pointer-events-none z-10">
+        <DotLottieReact src="/hello.lottie" loop autoplay style={{ width: 120, height: 120 }} />
+      </div>
 
-        {/* Lottie decorativo */}
-        <div className="absolute top-4 right-4 z-10 opacity-60 pointer-events-none">
-          <DotLottieReact
-            src="/hello.lottie"
-            loop
-            autoplay
-            style={{ width: 120, height: 120 }}
-          />
-        </div>
+      <div className="relative z-20 px-4 max-w-4xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-bold mb-12 text-center text-white"
+        >
+          Agenda
+        </motion.h2>
 
-        {/* Contenido */}
-        <div className="relative z-20 px-4 max-w-4xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl font-extrabold mb-12 text-center text-white"
-          >
-            Agenda
-          </motion.h2>
+        <div className="relative timeline-container">
+          {scheduleItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 * index }}
+              className="relative mb-6 sm:mb-8 flex items-start gap-3 sm:gap-4"
+            >
+              <div className="absolute left-2 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-white rounded-full z-20 border-4 border-[#00C4FF] mt-2" />
+              <div className="flex-shrink-0 z-30 bg-[#00C4FF] text-white p-2 sm:p-3 rounded-full">
+                {item.icon}
+              </div>
+              <div className="flex-grow ml-2 sm:ml-0 w-full sm:max-w-[calc(50%-2rem)] bg-white/10 backdrop-blur-lg rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
+                <p className="text-xs sm:text-sm
 
-          <div className="relative timeline-container">
-            {scheduleItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.1 * index }}
-                className="relative mb-6 sm:mb-8 flex items-start gap-3 sm:gap-4"
-              >
-                <div className="absolute left-2 sm:left-1/2 sm:-translate-x-1/2 w-3 h-3 bg-white rounded-full z-20 border-4 border-[#305398] mt-2" />
-                <div className="flex-shrink-0 z-30 text-white bg-[#305398] p-2 sm:p-3 rounded-full">
-                  {item.icon}
-                </div>
-                <div className="flex-grow ml-2 sm:ml-0 w-full sm:max-w-[calc(50%-2rem)] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300">
-                  <p className="text-xs sm:text-sm font-medium text-[#305398]">
-                    {item.time}
-                  </p>
-                  <p className="text-sm sm:text-base font-semibold text-gray-900 mt-1 leading-normal">
-                    {item.title}
-                  </p>
-                  {item.description && (
-                    <p className="text-xs sm:text-sm text-gray-700 mt-2">
-                      {item.description}
-                    </p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* QR */}
-          <div className="flex flex-col items-center justify-center mt-16">
-            <div className="bg-white p-4 rounded-2xl shadow-2xl">
-              <QRCodeCanvas
-                value="https://congreso.avancemos.edu.co/#agenda"
-                size={180}
-                bgColor="#ffffff"
-                fgColor="#305398"
-                level="H"
-                includeMargin
-              />
-            </div>
-            <p className="text-slate-300 text-sm mt-3 text-center break-all">
-              https://congreso.avancemos.edu.co/#agenda
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <style jsx global>{`
-        .timeline-container::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          width: 3px;
-          background-color: rgba(255, 255, 255, 0.3);
-          border-radius: 2px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-        @media (max-width: 640px) {
-          .timeline-container::before {
-            left: 1.3rem;
-            width: 2px;
-          }
-        }
-      `}</style>
-    </>
-  );
-}

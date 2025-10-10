@@ -5,16 +5,13 @@ import Link from "next/link";
 // 1. Creamos un array con los datos de los aliados.
 // Esto hace que el código sea más limpio y fácil de actualizar en el futuro.
 const allies = [
-  { name: "Universidad de Antioquia", logoSrc: "/aliados/udea-02.png" }, // Reemplaza con el nombre real de tu archivo
   { name: "Universidad de Medellín", logoSrc: "/aliados/udem-02.png" },
-  { name: "Adecopria", logoSrc: "/aliados/adecopria-02.png" }, // Reemplaza con el nombre real de tu archivo
-  { name: "Adida", logoSrc: "/aliados/adida-02.png" }, // Reemplaza con el nombre real de tu archivo
   { name: "Conaceb", logoSrc: "/aliados/conaceb-02.png" }, // Reemplaza con el nombre real de tu archivo
-  // Reemplaza con el nombre real de tu archivo
   { name: "USDIDEA", logoSrc: "/aliados/logo-usdidea.png" },
   { name: "ENTROPÍA ECUATIVA", logoSrc: "/aliados/ENTROPIA-LANDING.png" },
   { name: "Sisga", logoSrc: "/aliados/sisga.png" },
   { name: "Evaluate", logoSrc: "/aliados/Logo-evaluate-ok.png" },
+  { name: "Litorugir", logoSrc: "/aliados/litorugir.png" },
 ];
 
 export default function Footer() {
