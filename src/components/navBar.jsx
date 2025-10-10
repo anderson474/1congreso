@@ -7,12 +7,10 @@ export default function HeaderHero() {
     <section className="relative w-full text-white overflow-hidden bg-[#4A0D66]">
       {/* CAPA DE FONDO */}
       <div className="absolute inset-0 z-0">
-        {/* Degradado principal */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#4A0D66] via-[#862788] to-[#C043A3]" />
 
-        {/* Fondo del cerebro + texto Vigilada MinEducación */}
+        {/* Fondo del cerebro */}
         <div className="absolute bottom-0 right-0 w-1/2 md:w-2/5 lg:w-1/3 h-full opacity-60 md:opacity-80">
-          {/* Imagen del cerebro */}
           <div
             className="absolute inset-0"
             style={{
@@ -22,19 +20,18 @@ export default function HeaderHero() {
               backgroundPosition: "bottom right",
             }}
           />
-
-          {/* Texto rotado “Vigilada MinEducación” */}
-          <div
-            className="absolute top-[22%] right-[18%] text-white font-semibold text-xs sm:text-sm md:text-base opacity-90 drop-shadow-lg transform rotate-90 origin-bottom-right"
-            style={{
-              transformOrigin: "center",
-            }}
-          >
-            Vigilada MinEducación
-          </div>
         </div>
 
-        {/* Patrón decorativo */}
+        {/* Texto “Vigilada MinEducación” debajo del logo de la Universidad de Medellín */}
+        <div
+          className="absolute top-[18%] right-[3.5%] text-white font-semibold text-xs sm:text-sm md:text-base opacity-90 drop-shadow-lg transform rotate-90 origin-center"
+          style={{
+            transformOrigin: "center",
+          }}
+        >
+          Vigilada MinEducación
+        </div>
+
         <div className="absolute inset-0 bg-[url('/dots-pattern.svg')] opacity-10"></div>
       </div>
 
@@ -63,7 +60,7 @@ export default function HeaderHero() {
         />
       </div>
 
-      {/* Contenido principal del Hero */}
+      {/* Contenido principal */}
       <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl mx-auto px-6 lg:px-8 py-5 sm:py-28 sm:mt-24">
         <div className="max-w-4xl text-left">
           <div className="flex items-start gap-2 sm:gap-4">
