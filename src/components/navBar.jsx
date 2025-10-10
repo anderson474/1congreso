@@ -24,7 +24,7 @@ export default function HeaderHero() {
 
         {/* Texto “Vigilada MinEducación” debajo del logo de la Universidad de Medellín */}
         <div
-          className="absolute top-[18%] right-[3.5%] text-white font-semibold text-xs sm:text-sm md:text-base opacity-90 drop-shadow-lg transform rotate-90 origin-center"
+          className="absolute top-[28%] right-[1.5%] text-white font-semibold text-xs sm:text-sm md:text-base opacity-90 drop-shadow-lg transform rotate-90 origin-center"
           style={{
             transformOrigin: "center",
           }}
