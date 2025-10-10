@@ -36,14 +36,10 @@ const Formulario = () => {
 
   // 👇 Limpia el campo "referidoPor" si NO es cortesía
   useEffect(() => {
-    if (
-      userType !== "Cortesía presencial" &&
-      userType !== "Cortesía virtual" &&
-      formData.referidoPor
-    ) {
+    if (!userType.startsWith("Cortesía") && formData.referidoPor) {
       setFormData((prev) => ({ ...prev, referidoPor: "" }));
     }
-  }, [userType]);
+  }, [userType, formData.referidoPor]);
 
   const handleFormTypeChange = (isSponsorForm) => {
     setIsSponsor(isSponsorForm);
@@ -70,11 +66,7 @@ const Formulario = () => {
       return;
     }
 
-    // 👇 Validación específica para cortesía
-    if (
-      (userType === "Cortesía presencial" || userType === "Cortesía virtual") &&
-      !formData.referidoPor
-    ) {
+    if (userType.startsWith("Cortesía") && !formData.referidoPor) {
       setError("Por favor selecciona quién refirió la cortesía.");
       return;
     }
@@ -106,11 +98,7 @@ const Formulario = () => {
         setAcceptedTerms(false);
         setUserType("publico");
 
-        // 👇 Solo redirige a pagos si NO es cortesía
-        if (
-          userType !== "Cortesía presencial" &&
-          userType !== "Cortesía virtual"
-        ) {
+        if (!userType.startsWith("Cortesía")) {
           setTimeout(() => {
             window.location.href = paymentURL;
           }, 2000);
@@ -125,7 +113,6 @@ const Formulario = () => {
     }
   };
 
-  // --- FORMULARIO DE INSCRIPCIÓN ---
   const renderParticipantForm = () => (
     <>
       <label htmlFor="userType">Tipo de asistente:</label>
@@ -143,7 +130,6 @@ const Formulario = () => {
         <option value="Cortesía virtual">Cortesía virtual</option>
       </select>
 
-      {/* 👇 Campo solo visible en cortesía */}
       {(userType === "Cortesía presencial" ||
         userType === "Cortesía virtual") && (
         <>
@@ -163,7 +149,6 @@ const Formulario = () => {
         </>
       )}
 
-      {/* --- CAMPOS RESTANTES --- */}
       <label htmlFor="nombre">Nombre:</label>
       <input
         type="text"
@@ -372,24 +357,23 @@ const Formulario = () => {
               </label>
             </div>
 
-            {userType !== "Cortesía presencial" &&
-              userType !== "Cortesía virtual" && (
-                <div className="col-span-2 flex justify-center">
-                  <p>
-                    <strong>Después de realizar el pago,</strong> compártenos tu{" "}
-                    <span className="text-blue-800 font-bold underline">
-                      comprobante de pago
-                    </span>{" "}
-                    a nuestro número de Whatsapp o al correo{" "}
-                    <a
-                      href="mailto:auxiliar.mercadeo@avancemos.edu.co"
-                      className="hover:text-blue-500 text-blue-700 font-bold"
-                    >
-                      auxiliar.mercadeo@avancemos.edu.co
-                    </a>
-                  </p>
-                </div>
-              )}
+            {!userType.startsWith("Cortesía") && (
+              <div className="col-span-2 flex justify-center">
+                <p>
+                  <strong>Después de realizar el pago,</strong> compártenos tu{" "}
+                  <span className="text-blue-800 font-bold underline">
+                    comprobante de pago
+                  </span>{" "}
+                  a nuestro número de Whatsapp o al correo{" "}
+                  <a
+                    href="mailto:auxiliar.mercadeo@avancemos.edu.co"
+                    className="hover:text-blue-500 text-blue-700 font-bold"
+                  >
+                    auxiliar.mercadeo@avancemos.edu.co
+                  </a>
+                </p>
+              </div>
+            )}
 
             <div className="col-span-2 flex justify-center">
               <button
