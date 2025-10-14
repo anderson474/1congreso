@@ -9,7 +9,10 @@ import { CalendarDays, Ticket, Star } from "lucide-react";
 const keyDates = [
   { label: "Lanzamiento de convocatoria", date: "15 julio 2025" },
   { label: "Recepción de propuestas", date: "hasta 15 agosto 2025" },
-  { label: "Fecha límite de inscripción como asistentes", date: "01 octubre 2025" },
+  {
+    label: "Fecha límite de inscripción como asistentes",
+    date: "23 octubre 2025",
+  },
   { label: "Congreso", date: "24 octubre 2025" },
   { label: "Publicación de memorias", date: "Febrero 2026" },
 ];
@@ -20,21 +23,21 @@ const pricingTiers = [
     price: "$180.000",
     currency: "COP",
     highlighted: true, // Para destacar esta tarjeta
-    modalidad: "Modalidad: Presencial Universidad de Medellin"
+    modalidad: "Modalidad: Presencial Universidad de Medellin",
   },
   {
     type: "Presencial aliados",
     price: "$140.000",
     currency: "COP",
-    text:'Clientes y docentes del Grupo Educativo Avancemos',
-    modalidad: "Modalidad: Presencial Universidad de Medellin"
+    text: "Clientes y docentes del Grupo Educativo Avancemos",
+    modalidad: "Modalidad: Presencial Universidad de Medellin",
   },
   {
     type: "Virtual",
     price: "120.000",
     currency: "COP",
-    text:'Los participantes virtuales tendrán acceso a una plataforma, con conexión individual y acceso exclusivo. Recibirán certificación y las memorias.'
-  }
+    text: "Los participantes virtuales tendrán acceso a una plataforma, con conexión individual y acceso exclusivo. Recibirán certificación y las memorias.",
+  },
 ];
 
 export default function FechasInscripcion() {
@@ -43,9 +46,9 @@ export default function FechasInscripcion() {
       className="relative py-20 sm:py-24 px-4"
       style={{
         backgroundImage: 'url("/fondo2.jpg")', // Asegúrate que la ruta sea correcta
-        backgroundAttachment: 'fixed',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
       }}
       id="precios"
     >
@@ -53,9 +56,8 @@ export default function FechasInscripcion() {
       <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        
         {/* Columna Izquierda: Fechas Clave */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
@@ -79,9 +81,9 @@ export default function FechasInscripcion() {
             ))}
           </ul>
         </motion.div>
-        
+
         {/* Columna Derecha: Inscripción y Beneficios */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
@@ -92,42 +94,52 @@ export default function FechasInscripcion() {
             <Ticket className="mr-3 h-8 w-8 text-cyan-300" />
             Inscripción y Beneficios
           </h2>
-          
+
           {/* Tarjetas de Precios */}
           <div className="space-y-4">
             {pricingTiers.map((tier) => (
-              <div 
+              <div
                 key={tier.type}
                 className={`rounded-xl p-6 transition-all duration-300 shadow-lg border
-                  ${tier.highlighted 
-                    ? 'bg-white text-slate-800 border-cyan-400 transform lg:scale-105' 
-                    : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
+                  ${
+                    tier.highlighted
+                      ? "bg-white text-slate-800 border-cyan-400 transform lg:scale-105"
+                      : "bg-white/10 text-white border-white/20 hover:bg-white/20"
                   }`}
               >
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="text-xl font-semibold">{tier.type}</h3>
-                    {tier.text &&
-                    <p>{tier.text}</p>
-                    }
-                    {tier.modalidad &&
+                    {tier.text && <p>{tier.text}</p>}
+                    {tier.modalidad && (
                       <p className="text-lg text-cyan-600 ">{tier.modalidad}</p>
-                    }
-                    {tier.highlighted && <p className="text-sm text-cyan-600 font-medium flex items-center gap-1"><Star className="h-4 w-4" /> Opción popular</p>}
+                    )}
+                    {tier.highlighted && (
+                      <p className="text-sm text-cyan-600 font-medium flex items-center gap-1">
+                        <Star className="h-4 w-4" /> Opción popular
+                      </p>
+                    )}
                   </div>
                   <div className="text-right">
                     <p className="text-3xl font-bold">{tier.price}</p>
-                    {tier.currency && <p className={`text-sm ${tier.highlighted ? 'text-slate-500' : 'text-slate-300'}`}>{tier.currency}</p>}
+                    {tier.currency && (
+                      <p
+                        className={`text-sm ${tier.highlighted ? "text-slate-500" : "text-slate-300"}`}
+                      >
+                        {tier.currency}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          
+
           <p className="text-center text-slate-200 bg-black/20 py-3 px-4 rounded-lg">
-            Todas las inscripciones incluyen: certificado, materiales, acceso total y refrigerios.
+            Todas las inscripciones incluyen: certificado, materiales, acceso
+            total y refrigerios.
           </p>
-          
+
           {/* BOTÓN DE INSCRIPCIÓN DESTACADO */}
           <Link
             href="/formulario"
