@@ -13,92 +13,98 @@ import {
 } from "lucide-react";
 
 const scheduleItems = [
-  {
+ {
+    time: "7:00 a.m. – 7:30 a.m.",
+    title: "Ingreso instalaciones Universidad de Medellín",
+    description: "Entrada: Foro Federico Estrada Vélez",
+    icon: <ClipboardList size={22} />,
+  },
+{
     time: "7:30 a.m. – 8:00 a.m.",
     title: "Registro de participantes",
-    description: "Entrega de materiales y acreditaciones.",
+    description: "Entrega de materiales",
     icon: <ClipboardList size={22} />,
   },
   {
-    time: "8:00 a.m. – 8:15 a.m.",
+    time: "8:00 a.m. – 8:30 a.m.",
     title: "Acto de apertura institucional",
     description:
       "Palabras de bienvenida – Grupo Educativo Avancemos y Universidad de Medellín. Presentación artística.",
     icon: <DoorOpen size={22} />,
   },
   {
-    time: "8:15 a.m. – 8:55 a.m.",
+    time: "8:30 a.m. – 9:10 a.m.",
     title:
       "Conferencia de apertura: El papel de la autorregulación del aprendizaje en la innovación educativa.",
     description: "Dr. Francisco Conejo Carrasco – España",
     icon: <Mic size={22} />,
   },
   {
-    time: "8:55 a.m. – 9:35 a.m.",
+    time: "9:10 a.m. – 9:50 a.m.",
     title:
       "Conferencia: Robótica educativa: iniciación a la programación con Arduino en el aula",
     description: "Mg. Juan Guillermo Serna González – Colombia",
     icon: <Mic size={22} />,
   },
   {
-    time: "9:35 a.m. – 10:15 a.m.",
+    time: "9:50 a.m. – 10:30 a.m.",
     title:
       "Conferencia: Tensiones y desafíos para la implementación de la educación inclusiva e intercultural",
     description: "Dra. Melissa González Rubio Villa – Colombia",
     icon: <Mic size={22} />,
   },
   {
-    time: "10:15 a.m. – 10:45 a.m.",
+    time: "10:30 a.m. – 11:00 a.m.",
     title: "Refrigerio – Pausa activa",
     icon: <Coffee size={22} />,
   },
   {
-    time: "10:45 a.m. – 11:25 a.m.",
+    time: "11:00 a.m. – 11:40 a.m.",
     title:
       "Conferencia: Transformando las enseñanzas con IA. Experiencias didácticas.",
     description: "Dr. Engels Owen Pozo Gutiérrez – Perú",
     icon: <Mic size={22} />,
   },
   {
-    time: "11:25 a.m. – 12:05 p.m.",
+    time: "11:40 a.m. – 12:20 p.m.",
     title:
       "Conferencia: La inclusión educativa: más allá de las adaptaciones y los ajustes razonables",
     description: "Dra. Carolina Cárdenas Roa – Colombia",
     icon: <Mic size={22} />,
   },
   {
-    time: "12:05 p.m. – 1:30 p.m.",
+    time: "12:20 p.m. – 1:45 p.m.",
     title: "Receso – Almuerzo libre",
     icon: <Utensils size={22} />,
   },
   {
-    time: "1:30 p.m. – 2:10 p.m.",
+    time: "1:45 p.m. – 2:25 p.m.",
     title:
       "Conferencia: Retos en la educación superior e inclusión, diversidad, calidad y flexibilidad",
     description: "Dr. José Alberto Rúa Vásquez – Colombia",
     icon: <Mic size={22} />,
   },
   {
-    time: "2:10 p.m. – 2:50 p.m.",
+    time: "2:25 p.m. – 3:05 p.m.",
     title:
       "Conferencia: Desarrollo de competencias en estudiantes neurodivergentes",
     description: "Dr. Jaime Alfredo Mariano Torres – México",
     icon: <Mic size={22} />,
   },
   {
-    time: "2:50 p.m. – 3:05 p.m.",
+    time: "3:05 p.m. – 3:20 p.m.",
     title: "Coffee break – Receso corto",
     icon: <Coffee size={22} />,
   },
   {
-    time: "3:05 p.m. – 3:45 p.m.",
+    time: "3:20 p.m. – 4:00 p.m.",
     title:
       "Conferencia: El poder de la diversidad en el aula desde las habilidades blandas como ventaja competitiva",
     description: "Dra. Conie Sauma Brito – Bolivia",
     icon: <Mic size={22} />,
   },
   {
-    time: "3:45 p.m. – 4:30 p.m.",
+    time: "4:00 p.m. – 4:45 p.m.",
     title:
       "Panel de expertos: Neuroeducación en el aula, una estrategia de integración",
     description:
@@ -106,8 +112,8 @@ const scheduleItems = [
     icon: <Handshake size={22} />,
   },
   {
-    time: "4:30 p.m. – 5:00 p.m.",
-    title: "Clausura oficial y entrega de certificados",
+    time: "4:45 p.m. – 5:00 p.m.",
+    title: "Clausura oficial",
     icon: <GraduationCap size={22} />,
   },
 ];
