@@ -13,13 +13,13 @@ import {
 } from "lucide-react";
 
 const scheduleItems = [
- {
+  {
     time: "7:00 a.m. – 7:30 a.m.",
     title: "Ingreso instalaciones Universidad de Medellín",
-    description: "Entrada: Foro Federico Estrada Vélez",
+    description: "Lugar: Foro Federico Estrada Vélez",
     icon: <ClipboardList size={22} />,
   },
-{
+  {
     time: "7:30 a.m. – 8:00 a.m.",
     title: "Registro de participantes",
     description: "Entrega de materiales",
