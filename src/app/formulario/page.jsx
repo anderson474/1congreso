@@ -141,8 +141,6 @@ const Formulario = () => {
           <option value="publico">Público general - 180.000</option>
           <option value="aliado">Presencial aliado - 140.000</option>
           <option value="Virtual">Virtual - 120.000</option>
-          <option value="Cortesía Presencial">Cortesía Presencial</option>{" "}
-          {/* 👈 NUEVA OPCIÓN */}
           <option value="Cortesía Virtual">Cortesía Virtual</option>{" "}
           {/* 👈 NUEVA OPCIÓN */}
         </select>
