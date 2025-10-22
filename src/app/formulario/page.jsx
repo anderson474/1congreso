@@ -138,9 +138,6 @@ const Formulario = () => {
           value={userType}
           onChange={(e) => setUserType(e.target.value)}
         >
-          <option value="publico">Público general - 180.000</option>
-          <option value="aliado">Presencial aliado - 140.000</option>
-          <option value="Virtual">Virtual - 120.000</option>
           <option value="Cortesía Virtual">Cortesía Virtual</option>{" "}
           {/* 👈 NUEVA OPCIÓN */}
         </select>
