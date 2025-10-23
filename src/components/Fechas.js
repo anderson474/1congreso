@@ -36,16 +36,19 @@ const pricingTiers = [
     type: "Virtual",
     price: "120.000",
     currency: "COP",
-    text: "Los participantes virtuales tendrán acceso a una plataforma, con conexión individual y acceso exclusivo. Recibirán certificación y las memorias.",
+    text: "Los participantes virtuales tendrán acceso a una plataforma, con conexión individual y acceso exclusivo. Recibirán certificación y las memorias.",
   },
 ];
 
 export default function FechasInscripcion() {
+  // 👇 Cambia esto a `true` cuando quieras volver a habilitar el botón
+  const inscripcionesAbiertas = false;
+
   return (
     <section
       className="relative py-20 sm:py-24 px-4"
       style={{
-        backgroundImage: 'url("/fondo2.jpg")', // Asegúrate que la ruta sea correcta
+        backgroundImage: 'url("/fondo2.jpg")',
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover",
@@ -124,7 +127,9 @@ export default function FechasInscripcion() {
                     <p className="text-3xl font-bold">{tier.price}</p>
                     {tier.currency && (
                       <p
-                        className={`text-sm ${tier.highlighted ? "text-slate-500" : "text-slate-300"}`}
+                        className={`text-sm ${
+                          tier.highlighted ? "text-slate-500" : "text-slate-300"
+                        }`}
                       >
                         {tier.currency}
                       </p>
@@ -140,16 +145,26 @@ export default function FechasInscripcion() {
             total y refrigerios.
           </p>
 
-          {/* BOTÓN DE INSCRIPCIÓN DESTACADO */}
-          <Link
-            href="/formulario"
-            className="block w-full text-center bg-[#96b422] text-white text-xl px-10 py-4 rounded-lg font-bold shadow-xl
-                       transform transition-all duration-300 ease-in-out 
-                       hover:bg-[#a8c928] hover:scale-105 hover:shadow-2xl 
-                       focus:outline-none focus:ring-4 focus:ring-[#c8e658]/50"
-          >
-            Inscríbete Ahora
-          </Link>
+          {/* BOTÓN DE INSCRIPCIÓN (condicional) */}
+          {inscripcionesAbiertas ? (
+            <Link
+              href="/formulario"
+              className="block w-full text-center bg-[#96b422] text-white text-xl px-10 py-4 rounded-lg font-bold shadow-xl
+                         transform transition-all duration-300 ease-in-out 
+                         hover:bg-[#a8c928] hover:scale-105 hover:shadow-2xl 
+                         focus:outline-none focus:ring-4 focus:ring-[#c8e658]/50"
+            >
+              Inscríbete Ahora
+            </Link>
+          ) : (
+            <button
+              disabled
+              className="block w-full text-center bg-gray-400 text-white text-xl px-10 py-4 rounded-lg font-bold shadow-xl 
+                         opacity-70 cursor-not-allowed"
+            >
+              Inscripciones Cerradas
+            </button>
+          )}
         </motion.div>
       </div>
     </section>
