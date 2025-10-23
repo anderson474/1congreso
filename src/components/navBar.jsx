@@ -1,8 +1,11 @@
-// src/components/HeaderHero.tsx
+/// src/components/HeaderHero.tsx
 import Image from "next/image";
 import Link from "next/link";
 
 export default function HeaderHero() {
+  // 👇 Control simple para abrir o cerrar inscripciones
+  const inscripcionesAbiertas = false; // Cambia a true para reactivar
+
   return (
     <section className="relative w-full text-white overflow-hidden bg-[#4A0D66]">
       {/* CAPA DE FONDO */}
@@ -90,15 +93,26 @@ export default function HeaderHero() {
           </div>
 
           <div className="mt-10">
-            <Link
-              href="#precios"
-              className="inline-block bg-[#96b422] text-white text-xl md:text-3xl px-10 py-4 rounded-lg font-bold shadow-xl
-                         transform transition-all duration-300 ease-in-out 
-                         hover:bg-[#a8c928] hover:scale-105 hover:shadow-2xl 
-                         focus:outline-none focus:ring-4 focus:ring-[#c8e658]/50"
-            >
-              Inscribirse
-            </Link>
+            {/* BOTÓN DE INSCRIPCIÓN (condicional) */}
+            {inscripcionesAbiertas ? (
+              <Link
+                href="#precios"
+                className="inline-block bg-[#96b422] text-white text-xl md:text-3xl px-10 py-4 rounded-lg font-bold shadow-xl
+                           transform transition-all duration-300 ease-in-out 
+                           hover:bg-[#a8c928] hover:scale-105 hover:shadow-2xl 
+                           focus:outline-none focus:ring-4 focus:ring-[#c8e658]/50"
+              >
+                Inscribirse
+              </Link>
+            ) : (
+              <button
+                disabled
+                className="inline-block bg-gray-400 text-white text-xl md:text-3xl px-10 py-4 rounded-lg font-bold shadow-xl 
+                           opacity-70 cursor-not-allowed"
+              >
+                Inscripciones Cerradas
+              </button>
+            )}
           </div>
         </div>
       </div>
