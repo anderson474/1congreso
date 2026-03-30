@@ -89,10 +89,10 @@ export default function HeaderHero() {
 
           <div className="mt-4">
             <p className="text-base leading-none sm:text-lg md:text-xl text-white/90 max-w-2xl">
-              <strong>"Educar desde la emoción:</strong> 
+              <strong>&quot;Educar desde la emoción:</strong> 
             </p>
             <p>
-              prácticas pedagógicas <strong>emocionalMENTE</strong> conscientes"
+              prácticas pedagógicas <strong>emocionalMENTE</strong> conscientes&quot;
             </p>
             <p className="mt-6 flex flex-wrap items-center gap-3 text-lg font-semibold text-white/90">
   
