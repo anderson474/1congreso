@@ -2,46 +2,47 @@
 
 import { motion } from "framer-motion";
 import { Book, Cpu, Users, FileSearch } from "lucide-react";
+import Button from "./Button";
 
 const ejes = [
   {
     icon: <Book className="w-8 h-8 text-azul" />,
-    title: "Innovación curricular y transformación pedagógica",
+    title: "Transformación educativa e innovación pedagógica",
     bullets: [
-      "Rediseño de planes y programas desde enfoques inclusivos.",
-      "Estrategias metodológicas activas y centradas en el estudiante.",
-      "Evaluación innovadora y formativa.",
-      "Liderazgo pedagógico y gestión para el cambio.",
+      "Rediseño de planes y programas desde enfoques inclusivos y centrados en el estudiante.",
+      "Estrategias metodológicas activas que integran dimensiones cognitivas y emocionales.",
+      "Evaluación formativa orientada al aprendizaje significativo.",
+      "Liderazgo pedagógico y gestión del cambio en contextos educativos.",
     ],
   },
   {
     icon: <Cpu className="w-8 h-8 text-azul" />,
-    title: "Tecnologías emergentes",
+    title: "Tecnologías emergentes y educación emocional",
     bullets: [
-      "Inteligencia artificial, realidad aumentada y analítica del aprendizaje.",
-      "Plataformas virtuales y aprendizaje híbrido.",
-      "Gamificación, simulación y aprendizaje inmersivo.",
-      "Diseño de recursos digitales inclusivos y accesibles.",
+      "Aplicación de inteligencia artificial en procesos de aprendizaje y desarrollo socioemocional. ",
+      "Uso de plataformas virtuales y modelos híbridos de enseñanza.",
+      "Analítica del aprendizaje para la toma de decisiones pedagógicas.",
+      "Diseño de recursos digitales accesibles, inclusivos y éticamente responsables.",
     ],
   },
   {
     icon: <Users className="w-8 h-8 text-azul" />,
     title: "Competencia digital docente e inclusión",
     bullets: [
-      "Formación docente para la equidad digital.",
-      "Diseño universal para el aprendizaje (DUA).",
-      "Educación intercultural, atención a la diversidad y género.",
-      "Prácticas inclusivas en contextos vulnerables.",
+      "Formación docente para el fortalecimiento de competencias digitales con enfoque inclusivo.",
+      "Implementación del Diseño Universal para el Aprendizaje (DUA).",
+      "Atención a la diversidad, interculturalidad y enfoque de género.",
+      "Prácticas pedagógicas inclusivas en contextos educativos diversos y vulnerables.",
     ],
   },
   {
     icon: <FileSearch className="w-8 h-8 text-azul" />,
-    title: "Investigación y políticas públicas",
+    title: " Investigación, impacto y sostenibilidad educativa",
     bullets: [
-      "Proyectos de investigación-acción en innovación e inclusión.",
-      "Marco normativo y políticas educativas con enfoque de derechos.",
-      "Participación de la comunidad educativa y redes colaborativas.",
-      "Experiencias comparadas en innovación inclusiva (Latinoamérica y otros contextos).",
+      "Desarrollo de proyectos de investigación en innovación educativa e inclusión.",
+      "Análisis de políticas públicas con enfoque en equidad, bienestar y calidad educativa.",
+      "Participación de la comunidad académica en redes de colaboración.",
+      "Estudios comparados en contextos latinoamericanos y globales.",
     ],
   },
 ];
@@ -73,6 +74,11 @@ export default function EjesTematicos() {
             </ul>
           </motion.div>
         ))}
+        <div className="col-span-1 md:col-span-2 flex justify-center mt-8">
+          <Button href="https://wa.me/573054240301" variant="secondary" className="mb-5 mx-auto">
+            ¡Separa tu cupo!
+          </Button>
+        </div>
       </div>
     </section>
   );

@@ -34,7 +34,7 @@ const BotonWhatsApp = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="
-          bg-green-500 text-white p-4 ml-12 rounded-full 
+          bg-green-500 text-white p-5 ml-12 rounded-full 
           shadow-lg hover:bg-green-600 transition-all duration-300 
           flex items-center justify-center
           hover:scale-110

@@ -11,109 +11,114 @@ import {
   GraduationCap,
   Handshake,
 } from "lucide-react";
+import Button from "./Button";
 
 const scheduleItems = [
   {
-    time: "7:00 a.m. – 7:30 a.m.",
-    title: "Ingreso instalaciones Universidad de Medellín",
-    description: "Lugar: Foro Federico Estrada Vélez",
-    icon: <ClipboardList size={22} />,
-  },
-  {
     time: "7:30 a.m. – 8:00 a.m.",
-    title: "Registro de participantes",
-    description: "Entrega de materiales",
+    title: "Registro de participantes y entrega de materiales",
+    description: "",
+    icon: <ClipboardList size={22} />,
+    boton: true,
+  },
+  {
+    time: "8:00 a.m. – 8:20 a.m.",
+    title: "Acto de apertura institucional",
+    description: "",
     icon: <ClipboardList size={22} />,
   },
   {
-    time: "8:00 a.m. – 8:30 a.m.",
-    title: "Acto de apertura institucional",
+    time: "8:20 a.m. – 9:00 a.m.",
+    title: "Conferencia 1 – Apertura",
     description:
-      "Palabras de bienvenida – Grupo Educativo Avancemos y Universidad de Medellín. Presentación artística.",
+      "",
     icon: <DoorOpen size={22} />,
   },
   {
-    time: "8:30 a.m. – 9:10 a.m.",
+    time: "9:00 a.m. – 9:40 a.m.",
     title:
-      "Conferencia de apertura: El papel de la autorregulación del aprendizaje en la innovación educativa.",
-    description: "Dr. Francisco Conejo Carrasco – España",
+      "Conferencia 2",
+    description: "",
     icon: <Mic size={22} />,
   },
   {
-    time: "9:10 a.m. – 9:50 a.m.",
+    time: "9:40 a.m. – 10:20 a.m.",
     title:
-      "Conferencia: Robótica educativa: iniciación a la programación con Arduino en el aula",
-    description: "Mg. Juan Guillermo Serna González – Colombia",
+      "Conferencia 3",
+    
     icon: <Mic size={22} />,
   },
   {
-    time: "9:50 a.m. – 10:30 a.m.",
+    time: "10:20 a.m. – 10:50 a.m.",
     title:
-      "Conferencia: Tensiones y desafíos para la implementación de la educación inclusiva e intercultural",
-    description: "Dra. Melissa González Rubio Villa – Colombia",
+      "Refrigerio – Pausa activa",
+    
     icon: <Mic size={22} />,
   },
   {
-    time: "10:30 a.m. – 11:00 a.m.",
-    title: "Refrigerio – Pausa activa",
+    time: "10:50 a.m. – 11:30 a.m.",
+    title: "Conferencia 4",
     icon: <Coffee size={22} />,
   },
   {
-    time: "11:00 a.m. – 11:40 a.m.",
+    time: "11:30 a.m. – 11:45 a.m.",
     title:
-      "Conferencia: Transformando las enseñanzas con IA. Experiencias didácticas.",
-    description: "Dr. Engels Owen Pozo Gutiérrez – Perú",
+      "Ponencia de investigación 1",
     icon: <Mic size={22} />,
   },
   {
-    time: "11:40 a.m. – 12:20 p.m.",
+    time: "11:45 a.m. – 12:00 p.m.",
     title:
-      "Conferencia: La inclusión educativa: más allá de las adaptaciones y los ajustes razonables",
-    description: "Dra. Carolina Cárdenas Roa – Colombia",
+      "Ponencia de investigación 2",
     icon: <Mic size={22} />,
   },
   {
-    time: "12:20 p.m. – 1:45 p.m.",
-    title: "Receso – Almuerzo libre",
+    time: "12:00 p.m. – 12:15 p.m.",
+    title: "Ponencia de investigación 3",
     icon: <Utensils size={22} />,
   },
   {
-    time: "1:45 p.m. – 2:25 p.m.",
+    time: "12:15 p.m. – 12:30 p.m.",
     title:
-      "Conferencia: Retos en la educación superior e inclusión, diversidad, calidad y flexibilidad",
-    description: "Dr. José Alberto Rúa Vásquez – Colombia",
+      "Ponencia de investigación 4",
     icon: <Mic size={22} />,
   },
   {
-    time: "2:25 p.m. – 3:05 p.m.",
+    time: "12:30 p.m. – 2:10 p.m.",
     title:
-      "Conferencia: Desarrollo de competencias en estudiantes neurodivergentes",
-    description: "Dr. Jaime Alfredo Mariano Torres – México",
+      "Receso – Almuerzo",
     icon: <Mic size={22} />,
   },
   {
-    time: "3:05 p.m. – 3:20 p.m.",
-    title: "Coffee break – Receso corto",
+    time: "2:10 p.m. – 2:50 p.m.",
+    title: "Conferencia 5",
     icon: <Coffee size={22} />,
   },
   {
-    time: "3:20 p.m. – 4:00 p.m.",
+    time: "2:50 p.m. – 3:30 p.m.",
     title:
-      "Conferencia: El poder de la diversidad en el aula desde las habilidades blandas como ventaja competitiva",
-    description: "Dra. Conie Sauma Brito – Bolivia",
+      "Panel de expertos",
     icon: <Mic size={22} />,
   },
   {
-    time: "4:00 p.m. – 4:45 p.m.",
+    time: "3:30 p.m. – 3:50 p.m.",
     title:
-      "Panel de expertos: Neuroeducación en el aula, una estrategia de integración",
-    description:
-      "Mg. Mónica Maritza Orozco Holguín y Dra. (C) María Eugenia Patiño Atehortúa",
+      "Coffee break",
     icon: <Handshake size={22} />,
   },
   {
-    time: "4:45 p.m. – 5:00 p.m.",
-    title: "Clausura oficial",
+    time: "3:50 p.m. – 4:30 p.m.",
+    title: "Conferencia 6",
+    icon: <GraduationCap size={22} />,
+  },
+  {
+    time: "4:30 p.m. – 4:40 p.m.",
+    title: "Espacio de conclusiones generales",
+    icon: <GraduationCap size={22} />,
+  },
+  {
+    time: "4:40 p.m. – 5:00 p.m.",
+    title: "Acto de clausura oficial",
     icon: <GraduationCap size={22} />,
   },
 ];
@@ -152,16 +157,16 @@ export default function Programa() {
         Agenda
       </motion.h2>
 
-      <div className="max-w-3xl mx-auto space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4 auto-rows-fr">
         {scheduleItems.map((item, index) => (
           <motion.div
             key={index}
-            className="bg-gray-900 bg-opacity-60 backdrop-blur-md rounded-2xl p-6 shadow-lg flex flex-col md:flex-row items-start md:items-center gap-4 border border-gray-700"
+            className="bg-gray-900 h-full mt-auto bg-opacity-60 backdrop-blur-md rounded-2xl p-6 shadow-lg flex flex-col md:flex-row items-start md:items-center gap-4 border border-gray-700"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
           >
-            <div className="bg-blue-600 text-white rounded-full p-3 flex items-center justify-center shadow-md">
+            <div className="bg-blue-600 text-white rounded-full p-3 flex items-start justify-center shadow-md">
               {item.icon}
             </div>
             <div className="flex-1">
@@ -169,6 +174,15 @@ export default function Programa() {
               <h3 className="text-lg font-semibold text-white">{item.title}</h3>
               {item.description && (
                 <p className="text-gray-300 text-sm">{item.description}</p>
+              )}
+              {item.boton && (
+                <div className="flex justify-center md:block">
+                  <Button href="https://wa.me/573054240301" variant="secondary" className="mt-5 mb-5 mx-auto">
+                    <div className="text-lg">
+                      ¡Separa tu cupo!
+                    </div>
+                  </Button>
+                </div>
               )}
             </div>
           </motion.div>

@@ -1,9 +1,12 @@
 // app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import { Nunito, Lora, Inter } from "next/font/google";
+import { Nunito, Lora, Inter, JetBrains_Mono } from "next/font/google";
 import Head from "@node_modules/next/head";
 import dynamic from "next/dynamic";
+import { cn } from "@/lib/utils";
+
+const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'});
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -65,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="es" className={cn("font-mono", jetbrainsMono.variable)}>
       <head>
         {/* Meta Pixel Code */}
         <script

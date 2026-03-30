@@ -3,46 +3,50 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { CalendarDays, Ticket, Star } from "lucide-react";
+import { CheckCircle2, Monitor, MapPin } from "lucide-react";
+import Button from "./Button";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-// Datos para las fechas y precios para mantener el JSX limpio
-const keyDates = [
-  { label: "Lanzamiento de convocatoria", date: "15 julio 2025" },
-  { label: "Recepción de propuestas", date: "hasta 15 agosto 2025" },
-  {
-    label: "Fecha límite de inscripción como asistentes",
-    date: "23 octubre 2025",
-  },
-  { label: "Congreso", date: "24 octubre 2025" },
-  { label: "Publicación de memorias", date: "Febrero 2026" },
-];
 
-const pricingTiers = [
+// Datos de Modalidades unificados (precio y beneficios)
+const modalidades = [
   {
-    type: "Público general",
-    price: "$180.000",
+    type: "Presencial",
+    subtitle: "Lugar por confirmar",
+    price: "$262.500",
     currency: "COP",
-    highlighted: true, // Para destacar esta tarjeta
-    modalidad: "Modalidad: Presencial Universidad de Medellin",
-  },
-  {
-    type: "Presencial aliados",
-    price: "$140.000",
-    currency: "COP",
-    text: "Clientes y docentes del Grupo Educativo Avancemos",
-    modalidad: "Modalidad: Presencial Universidad de Medellin",
+    color: "#934292", // Color resaltado principal
+    icon: MapPin,
+    badges: ["Todo incluido", "Cupos limitados"],
+    benefits: [
+      "Acceso completo",
+      "Kit del participante",
+      "Coffee breaks",
+      "Networking VIP",
+      "Certificado físico"
+    ],
+    high:true
   },
   {
     type: "Virtual",
-    price: "120.000",
+    subtitle: "Desde cualquier país",
+    price: "$127.000",
     currency: "COP",
-    text: "Los participantes virtuales tendrán acceso a una plataforma, con conexión individual y acceso exclusivo. Recibirán certificación y las memorias.",
-  },
+    color: "#6b21a8", // Color secundario (morado)
+    icon: Monitor,
+    badges: ["Acceso completo", "Global"],
+    benefits: [
+      "Acceso a plataforma HD",
+      "Conexión individual",
+      "Certificado digital",
+      "Memorias del evento"
+    ]
+  }
 ];
 
 export default function FechasInscripcion() {
   // 👇 Cambia esto a `true` cuando quieras volver a habilitar el botón
-  const inscripcionesAbiertas = false;
+  const inscripcionesAbiertas = true;
 
   return (
     <section
@@ -58,113 +62,177 @@ export default function FechasInscripcion() {
       {/* Capa oscura para mejorar contraste del texto */}
       <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        {/* Columna Izquierda: Fechas Clave */}
+      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+        {/* Título de Sección */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 text-white shadow-2xl border border-white/20"
+          className="text-center mb-12"
         >
-          <h2 className="flex items-center text-3xl font-bold mb-6">
-            <CalendarDays className="mr-3 h-8 w-8 text-cyan-300" />
-            Fechas Clave
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            Modalidades e Inversión
           </h2>
-          <h2 className="flex items-center text-3xl font-bold mb-6">
-            ¡Cupos Limitados!
-          </h2>
-          <ul className="relative border-l-2 border-cyan-400/50 pl-8 space-y-6">
-            {keyDates.map((item, index) => (
-              <li key={index} className="relative">
-                <div className="absolute -left-[34px] top-1 h-4 w-4 rounded-full bg-cyan-300 ring-8 ring-slate-800/50"></div>
-                <strong className="block text-lg">{item.label}</strong>
-                <span className="text-slate-300">{item.date}</span>
-              </li>
-            ))}
-          </ul>
         </motion.div>
 
-        {/* Columna Derecha: Inscripción y Beneficios */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="space-y-6"
-        >
-          <h2 className="flex items-center text-3xl font-bold mb-2 text-white">
-            <Ticket className="mr-3 h-8 w-8 text-cyan-300" />
-            Inscripción y Beneficios
-          </h2>
-
-          {/* Tarjetas de Precios */}
-          <div className="space-y-4">
-            {pricingTiers.map((tier) => (
-              <div
-                key={tier.type}
-                className={`rounded-xl p-6 transition-all duration-300 shadow-lg border
-                  ${
-                    tier.highlighted
-                      ? "bg-white text-slate-800 border-cyan-400 transform lg:scale-105"
-                      : "bg-white/10 text-white border-white/20 hover:bg-white/20"
-                  }`}
+        {/* Grid de Modalidades */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-12">
+          {modalidades.map((mod, index) => {
+            const Icon = mod.icon;
+            return (
+              <motion.div
+                key={mod.type}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className={`
+                  relative 
+                  bg-white 
+                  rounded-2xl 
+                  shadow-2xl 
+                  flex flex-col 
+                  overflow-hidden 
+                  shadow-[#934292]
+                  ${mod.high ? "scale-105" : ""}
+                `}
+                style={{ borderTop: `8px solid ${mod.color}` }}
               >
-                <div className="flex justify-between items-center">
+
+                
+                {mod.high && (
                   <div>
-                    <h3 className="text-xl font-semibold">{tier.type}</h3>
-                    {tier.text && <p>{tier.text}</p>}
-                    {tier.modalidad && (
-                      <p className="text-lg text-cyan-600 ">{tier.modalidad}</p>
-                    )}
-                    {tier.highlighted && (
-                      <p className="text-sm text-cyan-600 font-medium flex items-center gap-1">
-                        <Star className="h-4 w-4" /> Opción popular
-                      </p>
-                    )}
+                    <DotLottieReact
+                      src="/hello.lottie"
+                      loop
+                      autoplay
+                      className="absolute top-0 left-3/4 z-50 w-32 h-24"
+                    />
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-50  
+                  overflow-visible">
+                    
+                    <span className="
+                      relative
+                      bg-[#934292] 
+                      text-white 
+                      text-xs md:text-sm 
+                      font-bold 
+                      px-4 py-1.5 
+                      rounded-full 
+                      shadow-lg 
+                      uppercase tracking-wide
+                      overflow-visible
+                    ">
+                      ⭐ Recomendado
+                    </span>
                   </div>
-                  <div className="text-right">
-                    <p className="text-3xl font-bold">{tier.price}</p>
-                    {tier.currency && (
-                      <p
-                        className={`text-sm ${
-                          tier.highlighted ? "text-slate-500" : "text-slate-300"
-                        }`}
+                  </div>
+                )}
+
+                {/* Cabecera */}
+                <div className="p-8 pb-6 text-center border-b border-gray-100">
+                  <div 
+                    className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-4 text-white shadow-lg"
+                    style={{ backgroundColor: mod.color }}
+                  >
+                    <Icon className="w-8 h-8" />
+                  </div>
+
+                  <h3 className="text-3xl font-bold text-slate-800">
+                    {mod.type}
+                  </h3>
+
+                  <p className="text-slate-500 font-medium text-lg mt-1">
+                    {mod.subtitle}
+                  </p>
+                </div>
+
+                {/* Precio */}
+                <div className="px-8 py-6 bg-slate-50/50 text-center">
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    <span className="text-4xl font-extrabold text-slate-800">
+                      {mod.price}
+                    </span>
+                    <span className="text-xl font-bold text-slate-500">
+                      {mod.currency}
+                    </span>
+                  </div>
+
+                  <div className="flex justify-center flex-wrap gap-2">
+                    {mod.badges.map((badge, idx) => (
+                      <span 
+                        key={idx} 
+                        className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide"
+                        style={{ backgroundColor: `${mod.color}15`, color: mod.color }}
                       >
-                        {tier.currency}
-                      </p>
-                    )}
+                        {badge}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+                
 
-          <p className="text-center text-slate-200 bg-black/20 py-3 px-4 rounded-lg">
+                <Button disabled={false} href="https://portalpagos.davivienda.com/#/comercio/11272/FUNDACIONES%20AVANCEMOS%20SERVICIOS%20INTEGRALES" variant="primary">
+                  Inscríbete ahora
+                </Button>
+
+
+                {/* Beneficios */}
+                <div className="p-8 pt-6 flex-grow border-t border-gray-100">
+                  <ul className="space-y-4">
+                    {mod.benefits.map((benefit, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <CheckCircle2 
+                          className="w-6 h-6 mr-3 shrink-0" 
+                          style={{ color: mod.color }} 
+                        />
+                        <span className="text-slate-700 font-medium text-lg">
+                          {benefit}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Textos de contacto y demás que se mantienen igual (de ahí para abajo) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="w-full max-w-3xl space-y-6"
+        >
+          <p className="text-center text-slate-200 bg-black/20 py-4 px-6 rounded-lg text-lg">
             Todas las inscripciones incluyen: certificado, materiales, acceso
             total y refrigerios.
+            <br />
+            Más información sobre el congreso, ponencias o talleres, por favor comunicarse al correo:
+            <br />
+            <a 
+              href="mailto:comunicaciones@avancemos.edu.co"
+              className="text-cyan-300 hover:text-cyan-200 underline font-semibold transition-colors mt-2 inline-block"
+            >
+              📧 comunicaciones@avancemos.edu.co 
+            </a>
+          </p>
+
+          <p className="text-center text-slate-200 bg-black/20 py-3 px-6 rounded-lg text-lg">
+            <strong>Contacto:</strong> Sara Villa Martínez <br className="sm:hidden" />
+            Comunicaciones – Grupo Educativo Avancemos
           </p>
 
           {/* BOTÓN DE INSCRIPCIÓN (condicional) */}
-          {inscripcionesAbiertas ? (
-            <Link
-              href="/formulario"
-              className="block w-full text-center bg-[#96b422] text-white text-xl px-10 py-4 rounded-lg font-bold shadow-xl
-                         transform transition-all duration-300 ease-in-out 
-                         hover:bg-[#a8c928] hover:scale-105 hover:shadow-2xl 
-                         focus:outline-none focus:ring-4 focus:ring-[#c8e658]/50"
-            >
-              Inscríbete Ahora
-            </Link>
-          ) : (
-            <button
-              disabled
-              className="block w-full text-center bg-gray-400 text-white text-xl px-10 py-4 rounded-lg font-bold shadow-xl 
-                         opacity-70 cursor-not-allowed"
-            >
-              Inscripciones Cerradas
-            </button>
-          )}
+          <div className="pt-4 flex justify-center w-full">
+            <Button disabled={!inscripcionesAbiertas} href="https://portalpagos.davivienda.com/#/comercio/11272/FUNDACIONES%20AVANCEMOS%20SERVICIOS%20INTEGRALES" variant="primary" className="block w-full max-w-lg mx-auto py-5 relative !mt-4">
+              {inscripcionesAbiertas ? "Inscríbete Ahora" : "Inscripciones Cerradas"}
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>
