@@ -21,7 +21,7 @@ export default function HeaderHero() {
         {/* <div className="absolute inset-0 bg-gradient-to-r from-[#4A0D66] via-[#862788] to-[#C043A3]" /> */}
 
         {/* Fondo del cerebro */}
-        <div className="absolute bottom-20 right-0 w-1/2 md:w-2/5 lg:w-1/3 h-full opacity-60 md:opacity-80">
+        <div className="hidden md:block absolute bottom-20 right-0 w-1/2 md:w-2/5 lg:w-1/3 h-full opacity-60 md:opacity-80">
           <div
             className="absolute inset-0"
             style={{
@@ -53,26 +53,26 @@ export default function HeaderHero() {
           alt="Editorial Avancemos"
           width={537}
           height={536}
-          className="h-40 w-auto object-cover"
+          className=" h-40 w-auto object-cover"
         />
         <Image
           src="/LogoAvancemos.png"
           alt="Universidad de Medellín"
           width={537}
           height={535}
-          className="h-20 w-20 sm:h-36 sm:w-36 object-contain"
+          className="hidden md:block h-20 w-20 sm:h-36 sm:w-36 object-contain"
         />
         <Image
           src="/UMedellin.png"
           alt="Universidad de Medellín"
           width={537}
           height={535}
-          className="h-24 w-auto object-contain"
+          className="hidden md:block h-24 w-auto object-contain"
         />
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl px-6 lg:px-8 py-5 sm:py-28 sm:mt-24 ml-36">
+      <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl px-6 lg:px-8 py-5 sm:py-28 sm:mt-24 sm:ml-36">
         <div className="max-w-4xl text-left">
           <div className="flex items-start gap-2 sm:gap-4">
             {/* Número romano I */}

@@ -95,8 +95,8 @@ export default function ConferencistasSection() {
           ]}
           className="min-w-96 mx-auto px-3"
         >
-          <CarouselPrevious className="rounded-full bg-gray-100 relative left-1/2" />
-          <CarouselNext className="rounded-full bg-gray-100 relative left-1/2" />
+          <CarouselPrevious className="rounded-full bg-gray-100 relative sm:left-1/2" />
+          <CarouselNext className="rounded-full bg-gray-100 relative sm:left-1/2" />
           <CarouselContent>
             {Array.from(speakersData).map((conf, index) => (
               <CarouselItem key={index} className="md:basis-1/3 flex">
@@ -107,7 +107,7 @@ export default function ConferencistasSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="relative h-full bg-white rounded-tl-3xl min-w-36 rounded-br-3xl shadow-md border-s-4 border-[#96b422] p-6 text-left hover:shadow-xl transition duration-300"
+                    className="relative h-full bg-white rounded-tl-3xl min-w-36 rounded-br-3xl shadow-md border-s-4 border-[#96b422] p-6 mr-6 sm:mr-0 text-left hover:shadow-xl transition duration-300"
                   >
                     <Image
                       src={conf.imagen}

@@ -112,22 +112,25 @@ export default function FechasInscripcion() {
                       className="absolute top-0 left-3/4 z-50 w-32 h-24"
                     /> */}
                   <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-50  
-                  overflow-visible">
+                  overflow-visible w-60 flex flex-justify-center">
+                   
+                      <span className="
+                        relative
+                        bg-[#934292] 
+                        text-white 
+                        text-sm md:text-base 
+                        font-bold 
+                        px-4 py-1.5 
+                        rounded-full 
+                        shadow-lg 
+                        uppercase tracking-wide
+                        overflow-visible
+                        mx-auto
+                      ">
+                        ⭐ Recomendado
+                      </span>
                     
-                    <span className="
-                      relative
-                      bg-[#934292] 
-                      text-white 
-                      text-sm md:text-base 
-                      font-bold 
-                      px-4 py-1.5 
-                      rounded-full 
-                      shadow-lg 
-                      uppercase tracking-wide
-                      overflow-visible
-                    ">
-                      ⭐ Recomendado
-                    </span>
+                    
                   </div>
                   </div>
                 )}
