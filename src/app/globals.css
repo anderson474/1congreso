@@ -1,6 +1,8 @@
 @import "tw-animate-css";
 /*@import "shadcn/tailwind.css";*/
 @tailwind base;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind components;
 @tailwind utilities;
@@ -31,12 +33,21 @@ header {
 html {
   scroll-behavior: smooth;
 }
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
 
+  p, span, li, a {
+    @apply font-body;
+  }
+}
 
 @layer base {
   .theme {
     --font-heading: var(--font-mono);
     --font-mono: var(--font-mono);
+    
   }
   :root {
     --background: oklch(1 0 0);
@@ -104,6 +115,7 @@ html {
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+    
   }
   * {
     @apply border-border outline-ring/50;

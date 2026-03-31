@@ -53,7 +53,7 @@ export default function HeaderHero() {
           alt="Editorial Avancemos"
           width={537}
           height={536}
-          className=" h-40 w-auto object-cover"
+          className="h-40 w-auto object-cover"
         />
         <Image
           src="/LogoAvancemos.png"

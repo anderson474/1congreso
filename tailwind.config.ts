@@ -59,6 +59,8 @@
       fontFamily: {
         sans: ['var(--font-inter)'], // Tu fuente principal
         serif: ['var(--font-lora)'],  // La nueva fuente para citas
+        heading: ['var(--font-montserrat)'],
+        body: ['var(--font-inter)'],
         },
       },
     },
