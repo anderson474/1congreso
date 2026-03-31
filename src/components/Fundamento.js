@@ -33,7 +33,7 @@ export default function Fundamento() {
 
   return (
       <section className="max-w-3xl mt-10 mx-auto">
-      <div className="max-w-6xl mx-auto items-start bg-white rounded-2xl shadow-lg p-4">
+      <div className="max-w-6xl mx-auto items-start bg-white rounded-2xl shadow-lg p-4 z-50">
 
         {/* 🔹 DESCRIPCIÓN */}
         
@@ -66,8 +66,11 @@ export default function Fundamento() {
           </p>
         </div>
 
-        {/* Botón abajo */}
-        <Button href="https://wa.me/573054240301" variant="secondary">
+        
+      </div>
+      {/* Botón abajo */}
+      <div className="flex items-center">
+        <Button href="https://wa.me/573054240301" variant="secondary" className="mx-auto">
           Inscríbete ahora
         </Button>
       </div>

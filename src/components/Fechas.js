@@ -23,7 +23,9 @@ const modalidades = [
       "Kit del participante",
       "Coffee breaks",
       "Networking VIP",
-      "Certificado físico"
+      "Certificado Digital",
+      "Refrigerio",
+      "Memoría del evento"
     ],
     high:true
   },
@@ -103,12 +105,12 @@ export default function FechasInscripcion() {
                 
                 {mod.high && (
                   <div>
-                    <DotLottieReact
+                    {/* <DotLottieReact
                       src="/hello.lottie"
                       loop
                       autoplay
                       className="absolute top-0 left-3/4 z-50 w-32 h-24"
-                    />
+                    /> */}
                   <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-50  
                   overflow-visible">
                     
@@ -116,7 +118,7 @@ export default function FechasInscripcion() {
                       relative
                       bg-[#934292] 
                       text-white 
-                      text-xs md:text-sm 
+                      text-sm md:text-base 
                       font-bold 
                       px-4 py-1.5 
                       rounded-full 
@@ -209,22 +211,22 @@ export default function FechasInscripcion() {
           className="w-full max-w-3xl space-y-6"
         >
           <p className="text-center text-slate-200 bg-black/20 py-4 px-6 rounded-lg text-lg">
-            Todas las inscripciones incluyen: certificado, materiales, acceso
-            total y refrigerios.
             <br />
             Más información sobre el congreso, ponencias o talleres, por favor comunicarse al correo:
             <br />
             <a 
-              href="mailto:comunicaciones@avancemos.edu.co"
+              href="mailto:comercial@avancemos.edu.co"
               className="text-cyan-300 hover:text-cyan-200 underline font-semibold transition-colors mt-2 inline-block"
             >
-              📧 comunicaciones@avancemos.edu.co 
+              📧 comercial@avancemos.edu.co 
             </a>
+                  .  +57 305 4240301
           </p>
+          
 
           <p className="text-center text-slate-200 bg-black/20 py-3 px-6 rounded-lg text-lg">
-            <strong>Contacto:</strong> Sara Villa Martínez <br className="sm:hidden" />
-            Comunicaciones – Grupo Educativo Avancemos
+            <strong>Contacto:</strong> Luisa Giraldo / Sara Villa Martínez <br className="sm:hidden" />
+             – Grupo Educativo Avancemos
           </p>
 
           {/* BOTÓN DE INSCRIPCIÓN (condicional) */}

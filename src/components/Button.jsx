@@ -11,11 +11,11 @@ export default function Button({
   className = "",
   disabled = false
 }) {
-  const baseClasses = "inline-block text-white rounded-lg font-bold shadow-xl border border-pink-400 shadow-[0_0_20px_#934292] transform transition-all duration-300 ease-in-out hover:bg-white hover:text-[#934292] hover:scale-105 hover:shadow-2xl text-center";
+  const baseClasses = "bg-gradient-to-r from-[#C22A8F] to-[#7A1485] inline-block text-white rounded-lg font-bold shadow-xl border-2 border-[#FF8AEF] shadow-[0_0_5px_#FF00C8,0_0_15px_#FF00C8,0_0_30px_#FF78E6,0_0_60px_#FFB4F0] transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:shadow-[0_0_10px_#FF00C8,0_0_25px_#FF00C8,0_0_50px_#FF4EDB,0_0_90px_#FF9AF2] text-center";
   
   const variants = {
-    primary: "bg-[#934292] text-xl md:text-3xl px-10 py-2",
-    secondary: "bg-[#934292] text-base md:text-2xl px-6 py-2 mt-5 self-center"
+    primary: "bg-[#934292] text-xl md:text-3xl px-10 py-6",
+    secondary: "bg-[#934292] text-base md:text-2xl px-6 py-4 mt-5 self-center"
   };
 
   if (disabled) {

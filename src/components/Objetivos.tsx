@@ -15,17 +15,17 @@ import Button from "./Button";
 // --- DATOS DE LOS CONFERENCISTAS (tu array original) ---
 const speakersData = [
   {
-    nombre: "Dr. Walter Aldana Romero",
+    nombre: "Mg (c) Walter Aldana Romero",
     HV: "CEO Grupo Educativo Avancemos",
-    imagen: "/conferencistas/walter.png", // IMPORTANTE: Cambia a la ruta real de la imagen
-    tema: "Liderando la visión estratégica y la innovación educativa para transformar el futuro del aprendizaje.",
+    imagen: "/lideres/walter.png", // IMPORTANTE: Cambia a la ruta real de la imagen
+    descripcion: "Liderando la visión estratégica y la innovación educativa para transformar el futuro del aprendizaje.",
     bandera: "/conferencistas/bandera_colombia.png",
   },
   {
     nombre: "Dr. Andrés Felipe Gallego Hurtado",
     HV: "Líder de Investigación",
-    imagen: "/conferencistas/felipe.png", // IMPORTANTE: Cambia a la ruta real de la imagen
-    tema: "Doctor en Ciencias de la Educación. Impulsando la investigación y el desarrollo de prácticas pedagógicas inclusivas, que marcan la diferencia.",
+    imagen: "/lideres/andres.png", // IMPORTANTE: Cambia a la ruta real de la imagen
+    descripcion: "Doctor en Ciencias de la Educación. Impulsando la investigación y el desarrollo de prácticas pedagógicas inclusivas, que marcan la diferencia.",
     bandera: "/conferencistas/bandera_colombia.png",
   },
   {
@@ -39,7 +39,7 @@ const speakersData = [
     nombre: "Dra. Rosani Evelinda Zavaleta Aguilar",
     tema: "El papel de la autorregulación del aprendizaje en la innovación educativa.",
     imagen: "/conferencistas/rosani.png",
-    HV: "Doctorado (C) en Ciencias de la Educación.",
+    HV: "Doctorado en Ciencias de la Educación.",
     bandera: "/conferencistas/bandera_engels.png",
   },
   {
@@ -51,7 +51,7 @@ const speakersData = [
   },
   {
     nombre: "Dra. Claudia Carrasco Aguilar",
-    tema: "",
+    tema: "Relaciones intergeneracionales en la escuela: adultocentrismo, silenciamiento juvenil y nuevas formas de violencia",
     imagen: "/conferencistas/claudia.png",
     HV: "Doctora en Ciencias de la Educación.",
     bandera: "/conferencistas/bandera_chile.png",
@@ -83,9 +83,9 @@ export default function ConferencistasSection() {
         <h1 className="text-3xl md:text-5xl font-bold text-black mb-16">
           Conferencistas y líderes del evento
         </h1>
-        <h2 className="text-3xl font-semibold text-[#305398] mb-12">
+        {/* <h2 className="text-3xl font-semibold text-[#305398] mb-12">
           Liderazgo del congreso
-        </h2>
+        </h2> */}
 
         <Carousel
           plugins={[
@@ -93,7 +93,7 @@ export default function ConferencistasSection() {
               delay: 2000,
             }),
           ]}
-          className="w-full mx-auto px-3"
+          className="min-w-96 mx-auto px-3"
         >
           <CarouselPrevious className="rounded-full bg-gray-100 relative left-1/2" />
           <CarouselNext className="rounded-full bg-gray-100 relative left-1/2" />
@@ -107,7 +107,7 @@ export default function ConferencistasSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="relative h-full bg-white rounded-tl-3xl rounded-br-3xl shadow-md border-s-4 border-[#96b422] p-6 text-left hover:shadow-xl transition duration-300"
+                    className="relative h-full bg-white rounded-tl-3xl min-w-36 rounded-br-3xl shadow-md border-s-4 border-[#96b422] p-6 text-left hover:shadow-xl transition duration-300"
                   >
                     <Image
                       src={conf.imagen}
@@ -127,18 +127,23 @@ export default function ConferencistasSection() {
                         quality={100}
                         className="rounded-e-full"
                       />
-                      <h3 className="text-lg font-semibold text-[#305398]">
+                      <h3 className="text-xl font-semibold text-[#305398]">
                         {conf.nombre}
                       </h3>
                     </div>
                     {conf.HV && (
-                      <p className="text-gray-700 text-sm">
+                      <p className="text-gray-700 text-base">
                         <strong>{conf.HV}</strong>
                       </p>
                     )}
                     {conf.tema && (
-                      <p className="text-gray-700 text-sm mb-2 mt-8">
+                      <p className="text-gray-700 text-base mb-2 mt-8">
                         <strong>Conferencia:</strong> {conf.tema}
+                      </p>
+                    )}
+                    {conf.descripcion && (
+                      <p className="text-gray-700 text-base mb-2 mt-8">
+                       {conf.descripcion}
                       </p>
                     )}
                   </motion.div>
@@ -154,7 +159,7 @@ export default function ConferencistasSection() {
             variant="secondary"
             className="mt-4 mb-5 mx-auto"
           >
-            ¡Separa tu cupo!
+            Inscribete ahora
           </Button>
         </div>
       </div>

@@ -41,7 +41,7 @@ const BotonWhatsApp = () => {
         "
         aria-label="Contactar por WhatsApp"
       >
-        <FaWhatsapp size={30} />
+        <FaWhatsapp size={40} />
       </a>
     </div>
   );

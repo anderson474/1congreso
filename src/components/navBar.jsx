@@ -34,14 +34,14 @@ export default function HeaderHero() {
         </div>
 
         {/* Texto “Vigilada MinEducación” debajo del logo de la Universidad de Medellín */}
-        <div
+        {/* <div
           className="hidden lg:block absolute top-[50%] right-[2%] text-white font-semibold text-xs sm:text-sm md:text-base opacity-90 drop-shadow-lg transform rotate-90 origin-center"
           style={{
             transformOrigin: "center",
           }}
         >
           Vigilada MinEducación
-        </div>
+        </div> */}
 
         <div className="absolute inset-0 bg-[url('/dots-pattern.svg')] opacity-10"></div>
       </div>
@@ -56,16 +56,23 @@ export default function HeaderHero() {
           className="h-40 w-auto object-cover"
         />
         <Image
-          src="/aliados/udem-02.png"
+          src="/LogoAvancemos.png"
           alt="Universidad de Medellín"
           width={537}
           height={535}
           className="h-20 w-20 sm:h-36 sm:w-36 object-contain"
         />
+        <Image
+          src="/UMedellin.png"
+          alt="Universidad de Medellín"
+          width={537}
+          height={535}
+          className="h-24 w-auto object-contain"
+        />
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl px-6 lg:px-8 py-5 sm:py-28 sm:mt-24">
+      <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl px-6 lg:px-8 py-5 sm:py-28 sm:mt-24 ml-36">
         <div className="max-w-4xl text-left">
           <div className="flex items-start gap-2 sm:gap-4">
             {/* Número romano I */}
@@ -88,15 +95,15 @@ export default function HeaderHero() {
           </div>
 
           <div className="mt-4">
-            <p className="text-base leading-none sm:text-lg md:text-xl text-white/90 max-w-2xl">
+            <p className="text-base leading-none sm:text-lg md:text-2xl text-white/90 max-w-2xl">
               <strong>&quot;Educar desde la emoción:</strong> 
             </p>
-            <p>
+            <p className="text-base leading-none sm:text-lg md:text-2xl text-white/90 max-w-2xl">
               prácticas pedagógicas <strong>emocionalMENTE</strong> conscientes&quot;
             </p>
             <p className="mt-6 flex flex-wrap items-center gap-3 text-lg font-semibold text-white/90">
   
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-base md:text-xl">
                 <FaMapMarkerAlt />
                 Universidad de Medellín, Colombia
               </span>

@@ -8,7 +8,8 @@ import Link from "next/link";
 
 
 const allies = [
-  { name: "Universidad de Medellín", logoSrc: "/aliados/udem-02.png" },
+  { name: "Universidad de Medellín", logoSrc: "/R_cientifica.png" },
+  { name: "Universidad de Medellín", logoSrc: "/UMedellin.png" },
   // { name: "Conaceb", logoSrc: "/aliados/conaceb-02.png" }, // Reemplaza con el nombre real de tu archivo
   // { name: "USDIDEA", logoSrc: "/aliados/logo-usdidea.png" },
   // { name: "ENTROPÍA ECUATIVA", logoSrc: "/aliados/ENTROPIA-LANDING.png" },
