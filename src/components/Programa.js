@@ -179,7 +179,7 @@ export default function Programa() {
                 <div className="flex justify-center md:block">
                   <Button href="https://wa.me/573054240301" variant="secondary" className="mt-5 mb-5 mx-auto">
                     <div className="text-lg">
-                      ¡Separa tu cupo!
+                      Inscribite ahora
                     </div>
                   </Button>
                 </div>

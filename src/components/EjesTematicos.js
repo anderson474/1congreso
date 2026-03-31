@@ -76,7 +76,7 @@ export default function EjesTematicos() {
         ))}
         <div className="col-span-1 md:col-span-2 flex justify-center mt-8">
           <Button href="https://wa.me/573054240301" variant="secondary" className="mb-5 mx-auto">
-            ¡Separa tu cupo!
+            Inscribete ahora
           </Button>
         </div>
       </div>
