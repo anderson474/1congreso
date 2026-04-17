@@ -1,12 +1,21 @@
 // app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import { Nunito, Lora, Inter, JetBrains_Mono, Montserrat } from "next/font/google";
+import {
+  Nunito,
+  Lora,
+  Inter,
+  JetBrains_Mono,
+  Montserrat,
+} from "next/font/google";
 import Head from "@node_modules/next/head";
 import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
 
-const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -44,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "Congreso Avancemos",
     images: [
       {
-        url: "https://avancemos.edu.co/wp-content/uploads/2025/07/foto-de-perfil-congreso-jpg.png", // URL ABSOLUTA de tu imagen
+        url: "https://congreso.avancemos.edu.co/Banner%20en%20captura.PNG", // URL ABSOLUTA de tu imagen
         width: 1200,
         height: 630,
         alt: "Banner del Congreso Internacional de Innovación Educativa",
