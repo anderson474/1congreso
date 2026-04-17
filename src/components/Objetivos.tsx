@@ -17,21 +17,30 @@ const speakersData = [
   {
     nombre: "Mg (c) Walter Aldana Romero",
     HV: "CEO Grupo Educativo Avancemos",
-    imagen: "/lideres/walter.png", // IMPORTANTE: Cambia a la ruta real de la imagen
-    descripcion: "Liderando la visión estratégica y la innovación educativa para transformar el futuro del aprendizaje.",
+    imagen: "/lideres/walter.png",
+    descripcion:
+      "Liderando la visión estratégica y la innovación educativa para transformar el futuro del aprendizaje.",
     bandera: "/conferencistas/bandera_colombia.png",
   },
   {
     nombre: "Dr. Andrés Felipe Gallego Hurtado",
     HV: "Líder de Investigación",
-    imagen: "/lideres/andres.png", // IMPORTANTE: Cambia a la ruta real de la imagen
-    descripcion: "Doctor en Ciencias de la Educación. Impulsando la investigación y el desarrollo de prácticas pedagógicas inclusivas, que marcan la diferencia.",
+    imagen: "/lideres/andres.png",
+    descripcion:
+      "Doctor en Ciencias de la Educación. Impulsando la investigación y el desarrollo de prácticas pedagógicas inclusivas, que marcan la diferencia.",
+    bandera: "/conferencistas/bandera_colombia.png",
+  },
+  {
+    nombre: "Dra. (C) Aura Isabel Barreto Directora académica",
+    HV: "Candidata a doctora en Ciencias de la Educación",
+    imagen: "/aura.png",
+    descripcion: "",
     bandera: "/conferencistas/bandera_colombia.png",
   },
   {
     nombre: "Dra. Carina Viviana Kaplan",
     tema: "Las emociones y las violencias en la convivencia escolar. ¿Cómo aprender a reparar el daño?",
-    HV: "Doctora en Educación",
+    HV: "Doctora en Ciencias de la Educación",
     imagen: "/conferencistas/carina.png",
     bandera: "/conferencistas/banderaArgentina.png",
   },
@@ -39,7 +48,7 @@ const speakersData = [
     nombre: "Dra. Rosani Evelinda Zavaleta Aguilar",
     tema: "El papel de la autorregulación del aprendizaje en la innovación educativa.",
     imagen: "/conferencistas/rosani.png",
-    HV: "Doctorado en Ciencias de la Educación.",
+    HV: "Doctora en Ciencias de la Educación",
     bandera: "/conferencistas/bandera_engels.png",
   },
   {
@@ -67,7 +76,7 @@ const speakersData = [
     nombre: "Dra. Nini Johana Marín Rodríguez",
     tema: "Scientometric Analysis of Active Learning and Authentic Assessment Between 2002 and 2024: Recent Trends and Further Research.",
     imagen: "/conferencistas/nini.png",
-    HV: "Doctorado en Filosofía (PhD) en Ingeniería",
+    HV: "Doctora en Ingeniería-Industria y Organizaciones",
     bandera: "/conferencistas/bandera_colombia.png",
   },
 ];
@@ -90,7 +99,7 @@ export default function ConferencistasSection() {
         <Carousel
           plugins={[
             Autoplay({
-              delay: 2000,
+              delay: 5000,
             }),
           ]}
           className="min-w-96 mx-auto px-3"
@@ -143,7 +152,7 @@ export default function ConferencistasSection() {
                     )}
                     {conf.descripcion && (
                       <p className="text-gray-700 text-base mb-2 mt-8">
-                       {conf.descripcion}
+                        {conf.descripcion}
                       </p>
                     )}
                   </motion.div>

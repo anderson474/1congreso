@@ -12,7 +12,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 const modalidades = [
   {
     type: "Presencial",
-    subtitle: "Lugar por confirmar",
+    subtitle: "Universidad de Medellín",
     price: "$262.500",
     currency: "COP",
     color: "#934292", // Color resaltado principal

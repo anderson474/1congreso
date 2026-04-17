@@ -8,7 +8,8 @@ import Link from "next/link";
 
 
 const allies = [
-  { name: "Universidad de Medellín", logoSrc: "/R_cientifica.png" },
+  { name: "revista cientifica avancemos", logoSrc: "/R_cientifica.png" },
+  { name: "LogoAvancemos", logoSrc: "/LogoAvancemos.png" },
   { name: "Universidad de Medellín", logoSrc: "/UMedellin.png" },
   // { name: "Conaceb", logoSrc: "/aliados/conaceb-02.png" }, // Reemplaza con el nombre real de tu archivo
   // { name: "USDIDEA", logoSrc: "/aliados/logo-usdidea.png" },
@@ -38,7 +39,7 @@ export default function Footer() {
                   width={150} // Ancho base
                   height={150} // Altura base
                   // 4. Clases para unificar el estilo y añadir interactividad
-                  className="h-15 w-15 md:h-22 md:w-22 object-contain"
+                  className="h-28 w-auto object-fill"
                 />
               </div>
             ))}
