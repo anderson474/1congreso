@@ -32,9 +32,9 @@ const speakersData = [
   },
   {
     nombre: "Dra. (C) Aura Isabel Barreto Directora académica",
-    HV: "Candidata a doctora en Ciencias de la Educación",
+    HV: "Directora académica ",
     imagen: "/aura.png",
-    descripcion: "",
+    descripcion: "Candidata a doctora en Ciencias de la Educación",
     bandera: "/conferencistas/bandera_colombia.png",
   },
   {
