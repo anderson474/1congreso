@@ -43,7 +43,7 @@ export default function HeaderHero() {
           Vigilada MinEducación
         </div> */}
 
-        <div className="absolute inset-0 bg-[url('/dots-pattern.svg')] opacity-10"></div>
+        {/* <div className="absolute inset-0 bg-[url('/dots-pattern.svg')] opacity-10"></div> */}
       </div>
 
       {/* Logos en la esquina superior derecha */}
