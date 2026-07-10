@@ -26,14 +26,14 @@ export default function Home() {
       <Navbar />
       <BotonWhatsApp />
 
-      <div className="relative z-10 flex justify-center">
+      <div className="relative z-1 flex justify-center">
         <div className="w-full mt-10 rounded-xl max-w-3xl bg-white bg-opacity-90 rounded-5xl shadow-lg">
           <Descripcion />
         </div>
       </div>
 
       {/* Contenido principal (con ancho restringido) */}
-      <div className="relative z-10 flex justify-center">
+      <div className="relative z-1 flex justify-center">
         <div className="mt-10 bg-white bg-opacity-90 rounded-xl shadow-lg ">
           <Objetivo />
         </div>
@@ -51,7 +51,7 @@ export default function Home() {
 
       <Objetivos />
 
-      <div className="relative z-10 min-h-screen flex justify-center">
+      <div className="relative z-1 min-h-screen flex justify-center">
         <div className="w-full mt-10 rounded-xl max-w-5xl bg-white bg-opacity-90 rounded-5xl shadow-lg">
           <EjesTematicos />
         </div>
@@ -61,7 +61,7 @@ export default function Home() {
       <Programa />
 
       {/* Secciones finales (también dentro del contenedor si quieres) */}
-      <div className="relative z-10 min-h-screen flex justify-center">
+      <div className="relative z-1 min-h-screen flex justify-center">
         <div className="w-full max-w-6xl bg-white bg-opacity-90 rounded-5xl shadow-lg">
           <Fechas />
           <Footer />

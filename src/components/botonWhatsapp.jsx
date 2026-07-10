@@ -19,7 +19,7 @@ const BotonWhatsApp = () => {
       {/* La burbuja de mensaje */}
       <div className="relative">
         <div className="bg-white text-slate-800 text-sm font-semibold px-4 py-2 rounded-xl shadow-lg">
-          ¿Necesitas ayuda?
+          ¡Hablar con un asesor! 👩🏻‍💻
         </div>
         {/* El puntero/flecha de la burbuja */}
         <div 

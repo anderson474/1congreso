@@ -67,7 +67,7 @@ const speakersData = [
   },
   {
     nombre: "Dr. Daniel Castaño Zapata",
-    tema: "Pedagogía: ¿el fin de un sujeto de la educación?",
+    tema: "PedagogIA: ¿el fin de un sujeto de la educación?",
     imagen: "/conferencistas/daniel.png",
     HV: "Doctor en Ciencias Sociales",
     bandera: "/conferencistas/bandera_colombia.png",

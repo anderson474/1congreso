@@ -21,10 +21,10 @@ const modalidades = [
     benefits: [
       "Acceso completo",
       "Kit del participante",
-      "Coffee breaks",
-      "Networking VIP",
-      "Certificado Digital",
       "Refrigerio",
+      "Networking VIP",
+      "Certificado e insignia digital",
+      "Coffee breaks",
       "Memoría del evento"
     ],
     high:true
@@ -40,7 +40,7 @@ const modalidades = [
     benefits: [
       "Acceso a plataforma HD",
       "Conexión individual",
-      "Certificado digital",
+      "Certificado e insignia digital",
       "Memorias del evento"
     ]
   }
@@ -64,7 +64,7 @@ export default function FechasInscripcion() {
       {/* Capa oscura para mejorar contraste del texto */}
       <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
 
-      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+      <div className="relative z-1 max-w-5xl mx-auto flex flex-col items-center">
         {/* Título de Sección */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -79,7 +79,7 @@ export default function FechasInscripcion() {
         </motion.div>
 
         {/* Grid de Modalidades */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-12 z-1">
           {modalidades.map((mod, index) => {
             const Icon = mod.icon;
             return (
@@ -111,7 +111,7 @@ export default function FechasInscripcion() {
                       autoplay
                       className="absolute top-0 left-3/4 z-50 w-32 h-24"
                     /> */}
-                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-50  
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 
                   overflow-visible w-60 flex flex-justify-center">
                    
                       <span className="
@@ -138,7 +138,7 @@ export default function FechasInscripcion() {
                 {/* Cabecera */}
                 <div className="p-8 pb-6 text-center border-b border-gray-100">
                   <div 
-                    className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-4 text-white shadow-lg"
+                    className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mt-4 mb-4 text-white shadow-lg"
                     style={{ backgroundColor: mod.color }}
                   >
                     <Icon className="w-8 h-8" />
@@ -179,7 +179,7 @@ export default function FechasInscripcion() {
                 
 
                 <Button disabled={false} href="https://portalpagos.davivienda.com/#/comercio/11272/FUNDACIONES%20AVANCEMOS%20SERVICIOS%20INTEGRALES" variant="primary">
-                  Inscríbete ahora
+                  Paga tu cupo ahora
                 </Button>
 
 
@@ -235,7 +235,7 @@ export default function FechasInscripcion() {
           {/* BOTÓN DE INSCRIPCIÓN (condicional) */}
           <div className="pt-4 flex justify-center w-full">
             <Button disabled={!inscripcionesAbiertas} href="https://portalpagos.davivienda.com/#/comercio/11272/FUNDACIONES%20AVANCEMOS%20SERVICIOS%20INTEGRALES" variant="primary" className="block w-full max-w-lg mx-auto py-5 relative !mt-4">
-              {inscripcionesAbiertas ? "Inscríbete Ahora" : "Inscripciones Cerradas"}
+              {inscripcionesAbiertas ? "Paga tu cupo ahora" : "Inscripciones Cerradas"}
             </Button>
           </div>
         </motion.div>
